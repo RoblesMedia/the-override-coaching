@@ -254,7 +254,7 @@
   <section id="chat">
     <div class="chat-greeting">
       <h2>What brings you here today?</h2>
-      <p>Coaching, not therapy. No pressure — just a real conversation.</p>
+      <p>Coaching, not therapy — no pressure, just a real conversation. If you're in crisis, call or text <strong>988</strong>.</p>
     </div>
 
     <div class="chips" id="chips">
@@ -295,6 +295,10 @@
   var params = new URLSearchParams(location.search);
   var ENDPOINT = params.get("api") || window.OVERRIDE_CHAT_ENDPOINT || DEFAULT_ENDPOINT;
 
+  // Email gate toggle. false = open straight into the chat (no name/email up
+  // front). Flip to true to require first-name + email before chatting.
+  var REQUIRE_GATE = false;
+
   var CALENDLY_URL = "https://calendly.com/roblesinc/consultation";
   // Recognize the booking link in the bot's reply so we can swap it for the
   // inline Calendly embed (prefilled). Keeps the Worker unchanged.
@@ -320,6 +324,15 @@
   var sendBtn = document.getElementById("send");
   var booking = document.getElementById("booking");
   var calendlyTarget = document.getElementById("calendlyTarget");
+
+  // ---- gate bypass --------------------------------------------------------
+  // When the gate is off, open straight into the chat. lead stays blank, so
+  // Calendly just won't be prefilled (the visitor fills it in on the calendar).
+  if (!REQUIRE_GATE) {
+    gate.style.display = "none";
+    chat.classList.add("active");
+    setTimeout(function () { input.focus(); }, 60);
+  }
 
   // ---- gate ---------------------------------------------------------------
   gateForm.addEventListener("submit", function (e) {
