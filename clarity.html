@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>The Override — Coaching Guide</title>
+<meta name="description" content="Find the pattern that's running you. A quick, no-pressure conversation, then a free 1:1 call with David." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Calendly inline embed (loaded once; widget is created on demand). -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<style>
+  /* ===== Override design tokens (copied from index.html, not linked) ===== */
+  :root {
+    --bg:        #08090c;
+    --bg-2:      #0c0e12;
+    --panel:     #121419;
+    --line:      #242730;
+    --gold:      #f0a500;
+    --gold-2:    #ffb71a;
+    --blue:      #34c3ff;
+    --blue-deep: #1a6fae;
+    --text:      #edeef2;
+    --muted:     #969aa6;
+    --steel:     #1a2230;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column;
+  }
+  /* subtle ambient glow */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(240,165,0,0.08), transparent 70%),
+      radial-gradient(50% 50% at 80% 100%, rgba(52,195,255,0.06), transparent 70%);
+  }
+  h1, h2, h3, .eyebrow { font-family: 'Oswald', sans-serif; }
+  a { color: var(--gold); }
+
+  /* ===================== header ===================== */
+  .topbar {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    padding: 22px 24px 6px;
+  }
+  .brand {
+    font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 1.1rem; color: #fff; text-decoration: none; text-align: center;
+  }
+  .brand span { color: var(--gold); }
+  .brand small {
+    display: block; font-family: 'Oswald', sans-serif; font-weight: 600;
+    font-size: 0.54rem; letter-spacing: 0.34em; color: var(--muted); margin-top: 2px;
+  }
+
+  /* ===================== shared stage shell ===================== */
+  .stage {
+    position: relative; z-index: 2; flex: 1;
+    width: 100%; max-width: 760px; margin: 0 auto;
+    padding: 24px; display: flex; flex-direction: column;
+  }
+
+  /* ===================== GATE ===================== */
+  #gate {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    gap: 4px; animation: fade .4s ease both;
+  }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.26em;
+    font-weight: 600; font-size: 0.72rem; color: var(--gold); margin-bottom: 16px;
+  }
+  #gate h1 {
+    font-family: 'Anton', sans-serif; text-transform: uppercase;
+    font-size: clamp(2.1rem, 6.5vw, 3.6rem); line-height: 0.98; color: #fff;
+    max-width: 14ch;
+  }
+  #gate h1 .gold { color: var(--gold); }
+  #gate .lede {
+    margin: 20px auto 4px; color: #d7dbe2; font-size: clamp(1rem, 2.2vw, 1.12rem);
+    max-width: 460px;
+  }
+  .gate-form {
+    margin-top: 30px; width: 100%; max-width: 420px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .gate-form input {
+    width: 100%; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 9px; padding: 14px 16px; color: var(--text);
+    font-family: inherit; font-size: 1rem; outline: none;
+    transition: border-color .15s ease;
+  }
+  .gate-form input::placeholder { color: var(--muted); }
+  .gate-form input:focus { border-color: var(--gold); }
+  .gate-form input.invalid { border-color: #d96b6b; }
+  .btn {
+    display: inline-block; background: var(--gold); color: #1a1205;
+    font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 1rem; padding: 15px 30px; border: none;
+    border-radius: 7px; cursor: pointer; text-decoration: none;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow: 0 8px 30px rgba(240,165,0,0.28);
+  }
+  .btn:hover { transform: translateY(-2px); background: var(--gold-2); box-shadow: 0 12px 40px rgba(240,165,0,0.42); }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+  .gate-disclaimer {
+    margin-top: 20px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; max-width: 380px;
+  }
+  .gate-disclaimer strong { color: #e8e8ee; }
+
+  /* ===================== CHAT ===================== */
+  #chat { display: none; flex: 1; flex-direction: column; animation: fade .4s ease both; }
+  #chat.active { display: flex; }
+
+  .chat-greeting {
+    text-align: center; padding: 8px 0 22px;
+  }
+  .chat-greeting h2 {
+    font-family: 'Anton', sans-serif; text-transform: uppercase;
+    font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1; color: #fff;
+  }
+  .chat-greeting p { color: var(--muted); margin-top: 10px; font-size: 0.92rem; }
+
+  .messages {
+    flex: 1; overflow-y: auto; display: flex; flex-direction: column;
+    gap: 14px; padding: 6px 2px 18px;
+  }
+  .msg {
+    max-width: 84%; padding: 12px 16px; border-radius: 14px;
+    font-size: 1rem; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word;
+    animation: rise .25s ease both;
+  }
+  .msg--bot {
+    background: var(--panel); border: 1px solid var(--line); color: var(--text);
+    align-self: flex-start; border-bottom-left-radius: 5px;
+  }
+  .msg--user {
+    background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #1a1205;
+    align-self: flex-end; border-bottom-right-radius: 5px; font-weight: 500;
+  }
+  .msg--crisis {
+    background: #1c0f0f; border: 1px solid #5e2b2b; color: #ffd9d9;
+    align-self: stretch; max-width: 100%; font-size: 0.95rem;
+  }
+  .msg--typing { color: var(--muted); font-style: italic; }
+  .msg--typing .dots span {
+    display: inline-block; width: 6px; height: 6px; margin: 0 1px; border-radius: 50%;
+    background: var(--muted); animation: blink 1.2s infinite both;
+  }
+  .msg--typing .dots span:nth-child(2) { animation-delay: .2s; }
+  .msg--typing .dots span:nth-child(3) { animation-delay: .4s; }
+
+  /* starter chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; padding: 4px 2px 16px; justify-content: center; }
+  .chip {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--line); color: #d7dbe2;
+    border-radius: 99px; padding: 9px 16px; font-size: 0.88rem; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .chip:hover { border-color: var(--gold); color: var(--gold); background: rgba(240,165,0,0.06); }
+
+  /* input bar */
+  .composer {
+    position: sticky; bottom: 0; display: flex; gap: 10px; align-items: flex-end;
+    padding: 14px 0 18px; background: linear-gradient(180deg, transparent, var(--bg) 26%);
+  }
+  .composer textarea {
+    flex: 1; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 13px 16px; color: var(--text); font-family: inherit; font-size: 1rem;
+    outline: none; resize: none; max-height: 140px; line-height: 1.45;
+    transition: border-color .15s ease;
+  }
+  .composer textarea::placeholder { color: var(--muted); }
+  .composer textarea:focus { border-color: var(--gold); }
+  .send {
+    background: var(--gold); color: #1a1205; border: none; border-radius: 12px;
+    padding: 0 20px; height: 48px; cursor: pointer; font-family: 'Oswald', sans-serif;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.9rem;
+    transition: background .15s ease;
+  }
+  .send:hover { background: var(--gold-2); }
+  .send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ===================== CALENDLY PANEL ===================== */
+  #booking { display: none; margin: 8px 0 22px; animation: rise .3s ease both; }
+  #booking.active { display: block; }
+  .booking-head { text-align: center; margin-bottom: 14px; }
+  .booking-head .eyebrow { display: block; margin-bottom: 8px; }
+  .booking-head h3 {
+    font-family: 'Anton', sans-serif; text-transform: uppercase; color: #fff;
+    font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1;
+  }
+  .booking-head p { color: var(--muted); font-size: 0.86rem; margin-top: 8px; }
+  .calendly-inline-widget {
+    min-width: 320px; height: 660px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .footnote {
+    position: relative; z-index: 2; text-align: center; color: var(--muted);
+    font-size: 0.72rem; padding: 10px 24px 20px;
+  }
+
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes blink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+
+  @media (max-width: 560px) {
+    .stage { padding: 16px; }
+    .msg { max-width: 90%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">THE <span>OVERRIDE</span><small>Coaching Guide</small></a>
+</header>
+
+<main class="stage">
+
+  <!-- ===== STAGE 1: EMAIL GATE ===== -->
+  <section id="gate">
+    <span class="eyebrow">The Override Coaching Guide</span>
+    <h1>Let's find the <span class="gold">pattern.</span></h1>
+    <p class="lede">A quick, honest conversation about what's keeping you stuck — then, if it's a fit, a free call with David.</p>
+
+    <form class="gate-form" id="gateForm" novalidate>
+      <input type="text" id="gateName" name="name" placeholder="First name" autocomplete="given-name" required />
+      <input type="email" id="gateEmail" name="email" placeholder="Email" autocomplete="email" required />
+      <button type="submit" class="btn" id="gateSubmit">Start</button>
+    </form>
+
+    <p class="gate-disclaimer">
+      This is <strong>coaching, not therapy</strong>. If you're in crisis, call or text
+      <strong>988</strong> — free, confidential, 24/7.
+    </p>
+  </section>
+
+  <!-- ===== STAGE 2: CHAT ===== -->
+  <section id="chat">
+    <div class="chat-greeting">
+      <h2>What brings you here today?</h2>
+      <p>Coaching, not therapy. No pressure — just a real conversation.</p>
+    </div>
+
+    <div class="chips" id="chips">
+      <button class="chip" type="button">I'm successful but feel stuck</button>
+      <button class="chip" type="button">I keep repeating the same pattern</button>
+      <button class="chip" type="button">I'm running on autopilot</button>
+      <button class="chip" type="button">How does coaching with David work?</button>
+    </div>
+
+    <div class="messages" id="messages" aria-live="polite"></div>
+
+    <!-- Calendly slides in here on a coaching-fit -->
+    <div id="booking">
+      <div class="booking-head">
+        <span class="eyebrow">Your free call</span>
+        <h3>Grab a time with David</h3>
+        <p>30 minutes · online · no obligation</p>
+      </div>
+      <div id="calendlyTarget" class="calendly-inline-widget"></div>
+    </div>
+
+    <form class="composer" id="composer">
+      <textarea id="input" rows="1" placeholder="Type your answer…" aria-label="Your message"></textarea>
+      <button type="submit" class="send" id="send">Send</button>
+    </form>
+  </section>
+
+</main>
+
+<p class="footnote">The Override is coaching, not therapy or mental-health treatment.</p>
+
+<script>
+(function () {
+  // ---- config -------------------------------------------------------------
+  // Worker endpoint. Override for local dev with ?api=http://localhost:8787/chat
+  // or by setting window.OVERRIDE_CHAT_ENDPOINT before this script runs.
+  var DEFAULT_ENDPOINT = "https://override-coaching-chatbot.roblesinc.workers.dev/chat";
+  var params = new URLSearchParams(location.search);
+  var ENDPOINT = params.get("api") || window.OVERRIDE_CHAT_ENDPOINT || DEFAULT_ENDPOINT;
+
+  var CALENDLY_URL = "https://calendly.com/roblesinc/consultation";
+  // Recognize the booking link in the bot's reply so we can swap it for the
+  // inline Calendly embed (prefilled). Keeps the Worker unchanged.
+  var CALENDLY_RE = /https?:\/\/calendly\.com\/roblesinc\/consultation\S*/i;
+
+  // ---- state --------------------------------------------------------------
+  var lead = { name: "", email: "" };
+  var sessionId = getOrCreateSessionId();
+  var history = []; // [{role, content}]
+  var sending = false;
+  var bookingShown = false;
+
+  // ---- elements -----------------------------------------------------------
+  var gate = document.getElementById("gate");
+  var gateForm = document.getElementById("gateForm");
+  var gateName = document.getElementById("gateName");
+  var gateEmail = document.getElementById("gateEmail");
+  var chat = document.getElementById("chat");
+  var chips = document.getElementById("chips");
+  var messagesEl = document.getElementById("messages");
+  var composer = document.getElementById("composer");
+  var input = document.getElementById("input");
+  var sendBtn = document.getElementById("send");
+  var booking = document.getElementById("booking");
+  var calendlyTarget = document.getElementById("calendlyTarget");
+
+  // ---- gate ---------------------------------------------------------------
+  gateForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = gateName.value.trim();
+    var email = gateEmail.value.trim();
+    var okName = name.length > 0;
+    var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    gateName.classList.toggle("invalid", !okName);
+    gateEmail.classList.toggle("invalid", !okEmail);
+    if (!okName || !okEmail) return;
+
+    lead.name = name;
+    lead.email = email;
+
+    gate.style.display = "none";
+    chat.classList.add("active");
+    setTimeout(function () { input.focus(); }, 60);
+  });
+
+  // ---- chips --------------------------------------------------------------
+  chips.addEventListener("click", function (e) {
+    var btn = e.target.closest(".chip");
+    if (!btn) return;
+    input.value = btn.textContent;
+    composer.requestSubmit();
+  });
+
+  // ---- composer -----------------------------------------------------------
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      composer.requestSubmit();
+    }
+  });
+  input.addEventListener("input", function () {
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 140) + "px";
+  });
+
+  composer.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    if (sending) return;
+    var text = input.value.trim();
+    if (!text) return;
+
+    if (chips) chips.style.display = "none";
+
+    input.value = "";
+    input.style.height = "auto";
+    renderUser(text);
+    history.push({ role: "user", content: text });
+
+    sending = true;
+    sendBtn.disabled = true;
+    var typingEl = renderTyping();
+
+    try {
+      var res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ sessionId: sessionId, messages: history }),
+      });
+
+      typingEl.remove();
+
+      if (!res.ok) {
+        if (res.status === 429) {
+          renderBot("You're going a little fast for me. Give it a minute and try again.");
+        } else {
+          renderBot("Something glitched on my end. Try again in a moment.");
+        }
+        return;
+      }
+
+      var data = await res.json();
+      if (data.crisis) {
+        renderCrisis(data.message);
+        // Don't store crisis turn — keep the next turn screened fresh.
+      } else {
+        renderBotMaybeBooking(data.message);
+        history.push({ role: "assistant", content: data.message });
+      }
+    } catch (err) {
+      typingEl.remove();
+      renderBot("I couldn't reach the server. Check your connection and try again.");
+    } finally {
+      sending = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  });
+
+  // ---- rendering ----------------------------------------------------------
+  function renderUser(t) { return appendMsg(t, "msg--user"); }
+  function renderBot(t) { return appendMsg(t, "msg--bot"); }
+  function renderCrisis(t) { return appendMsg(t, "msg--crisis"); }
+
+  // If the bot shared the booking link, show a clean line and reveal the
+  // inline Calendly (prefilled with the gate name + email) instead of a raw URL.
+  function renderBotMaybeBooking(text) {
+    if (CALENDLY_RE.test(text)) {
+      var cleaned = text.replace(CALENDLY_RE, "").replace(/\s{2,}/g, " ").trim();
+      if (cleaned) renderBot(cleaned);
+      showBooking();
+    } else {
+      renderBot(text);
+    }
+  }
+
+  function renderTyping() {
+    var el = document.createElement("div");
+    el.className = "msg msg--bot msg--typing";
+    el.innerHTML = '<span class="dots"><span></span><span></span><span></span></span>';
+    messagesEl.appendChild(el);
+    scrollDown();
+    return el;
+  }
+
+  function appendMsg(text, cls) {
+    var el = document.createElement("div");
+    el.className = "msg " + cls;
+    el.textContent = text;
+    messagesEl.appendChild(el);
+    scrollDown();
+    return el;
+  }
+
+  function scrollDown() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    el_scrollIntoView(messagesEl.lastChild);
+  }
+  function el_scrollIntoView(node) {
+    if (node && node.scrollIntoView) {
+      node.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
+  // ---- Calendly -----------------------------------------------------------
+  function showBooking() {
+    if (bookingShown) { booking.scrollIntoView({ behavior: "smooth" }); return; }
+    bookingShown = true;
+    booking.classList.add("active");
+
+    var url = CALENDLY_URL + "?hide_gdpr_banner=1&background_color=121419&text_color=edeef2&primary_color=f0a500";
+
+    // Safety-net link, kept in a SEPARATE element so it never clobbers the
+    // embed mount. Calendly's inline widget only mounts over http(s) — opening
+    // this page as a file:// will fall back to this link (which still works).
+    var fb = document.createElement("div");
+    fb.style.cssText = "padding:22px;text-align:center;display:none;";
+    fb.innerHTML =
+      '<p style="color:var(--muted);font-size:0.85rem;margin-bottom:14px;">' +
+      "If the calendar doesn't load, use this:</p>" +
+      '<a class="btn" target="_blank" rel="noopener" href="' +
+      CALENDLY_URL + '?name=' + encodeURIComponent(lead.name) +
+      '&email=' + encodeURIComponent(lead.email) + '">Pick a time with David</a>';
+    calendlyTarget.parentNode.insertBefore(fb, calendlyTarget);
+
+    function tryInit() {
+      if (window.Calendly && window.Calendly.initInlineWidget) {
+        window.Calendly.initInlineWidget({
+          url: url,
+          parentElement: calendlyTarget,
+          prefill: { name: lead.name, email: lead.email },
+        });
+        return true;
+      }
+      return false;
+    }
+    // Retry until the (async) Calendly script is ready — up to ~6s.
+    var tries = 0;
+    var initIv = setInterval(function () {
+      if (tryInit() || ++tries > 24) clearInterval(initIv);
+    }, 250);
+
+    // Reveal the fallback link only if the embed iframe never appears; hide it
+    // again if a slow embed finally mounts.
+    var waited = 0;
+    var watch = setInterval(function () {
+      waited += 500;
+      if (calendlyTarget.querySelector("iframe")) {
+        fb.style.display = "none";
+        clearInterval(watch);
+      } else if (waited >= 4000) {
+        fb.style.display = "block";
+        if (waited >= 12000) clearInterval(watch);
+      }
+    }, 500);
+
+    setTimeout(function () { booking.scrollIntoView({ behavior: "smooth" }); }, 120);
+  }
+
+  // ---- session id ---------------------------------------------------------
+  function getOrCreateSessionId() {
+    try {
+      var k = "override_chat_session";
+      var v = sessionStorage.getItem(k);
+      if (!v) {
+        v = "o_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+        sessionStorage.setItem(k, v);
+      }
+      return v;
+    } catch (e) {
+      return "o_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+    }
+  }
+})();
+</script>
+</body>
+</html>
