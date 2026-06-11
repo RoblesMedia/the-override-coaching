@@ -11,9 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<!-- Calendly inline embed (loaded once; widget is created on demand). -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly loaded on demand — injected only when the booking section opens. -->
 
 <style>
   /* ===== Override design tokens (copied from index.html, not linked) ===== */
@@ -476,6 +474,20 @@
     if (bookingShown) { booking.scrollIntoView({ behavior: "smooth" }); return; }
     bookingShown = true;
     booking.classList.add("active");
+
+    // Lazy-load Calendly only now — not on initial page load.
+    if (!document.getElementById("cal-css")) {
+      var lnk = document.createElement("link");
+      lnk.id = "cal-css"; lnk.rel = "stylesheet";
+      lnk.href = "https://assets.calendly.com/assets/external/widget.css";
+      document.head.appendChild(lnk);
+    }
+    if (!document.getElementById("cal-js")) {
+      var scr = document.createElement("script");
+      scr.id = "cal-js";
+      scr.src = "https://assets.calendly.com/assets/external/widget.js";
+      document.head.appendChild(scr);
+    }
 
     var url = CALENDLY_URL + "?hide_gdpr_banner=1&background_color=121419&text_color=edeef2&primary_color=f0a500";
 
