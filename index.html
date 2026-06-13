@@ -103,7 +103,7 @@
   .btn-lg{padding:20px 40px;font-size:19px;}
 
   /* ---------- floating chat bubble ---------- */
-  .chat-fab{position:fixed;right:22px;bottom:22px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .chat-fab{position:fixed;right:22px;bottom:22px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none;}
   .chat-greet{
     max-width:264px;background:var(--card);border:1px solid var(--line);
     border-radius:16px;border-bottom-right-radius:4px;padding:14px 30px 14px 16px;
@@ -118,7 +118,7 @@
   .chat-fab-btn{
     width:62px;height:62px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(240,165,0,.4);
-    transition:transform .15s ease;position:relative;
+    transition:transform .15s ease;position:relative;pointer-events:auto;
   }
   .chat-fab-btn:hover{transform:translateY(-2px) scale(1.05);}
   .chat-fab-btn svg{width:30px;height:30px;}
