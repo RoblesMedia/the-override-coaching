@@ -103,18 +103,18 @@
   .btn-lg{padding:20px 40px;font-size:19px;}
 
   /* ---------- quote band ---------- */
-  .quote-band{padding:clamp(64px,10vw,110px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0c0c0c;}
+  .quote-band{padding:clamp(70px,11vw,120px) 0;background:var(--accent);}
   .qband{
-    text-align:center;max-width:920px;margin:0 auto;position:relative;
-    font-family:"Archivo",sans-serif;font-weight:800;font-style:italic;color:var(--white);
-    font-size:clamp(26px,4.4vw,46px);line-height:1.18;letter-spacing:-0.01em;
+    text-align:center;max-width:940px;margin:0 auto;position:relative;
+    font-family:"Archivo",sans-serif;font-weight:800;font-style:italic;color:#000;
+    font-size:clamp(28px,4.8vw,52px);line-height:1.13;letter-spacing:-0.01em;
   }
-  .qband .gold{color:var(--accent);}
-  .qband .qmark{color:var(--accent);font-style:normal;}
+  .qband .gold{color:#fff;}                 /* the key word pops white on gold */
+  .qband .qmark{color:rgba(0,0,0,.32);font-style:normal;}
   .qband cite{
-    display:block;margin-top:26px;font-style:normal;
-    font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.14em;
-    font-size:13px;color:var(--muted2);
+    display:block;margin-top:28px;font-style:normal;
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    font-size:13px;color:rgba(0,0,0,.62);
   }
 
   /* ---------- floating chat bubble ---------- */
