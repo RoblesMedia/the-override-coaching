@@ -101,6 +101,29 @@
   }
   .btn-ghost:hover{background:var(--white);color:#000 !important;}
   .btn-lg{padding:20px 40px;font-size:19px;}
+
+  /* ---------- floating chat bubble ---------- */
+  .chat-fab{position:fixed;right:22px;bottom:22px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .chat-greet{
+    max-width:264px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;border-bottom-right-radius:4px;padding:14px 30px 14px 16px;
+    color:var(--white);box-shadow:0 18px 40px rgba(0,0,0,.55);cursor:pointer;position:relative;
+    opacity:0;transform:translateY(12px) scale(.96);transition:opacity .35s ease, transform .35s ease;pointer-events:none;
+  }
+  .chat-greet.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .chat-greet strong{display:block;font-weight:700;font-size:15px;margin-bottom:3px;}
+  .chat-greet span.gt{font-size:13px;color:var(--muted2);line-height:1.35;}
+  .chat-greet .gx{position:absolute;top:5px;right:8px;color:var(--muted);font-size:17px;line-height:1;padding:4px;cursor:pointer;}
+  .chat-greet .gx:hover{color:var(--white);}
+  .chat-fab-btn{
+    width:62px;height:62px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(240,165,0,.4);
+    transition:transform .15s ease;position:relative;
+  }
+  .chat-fab-btn:hover{transform:translateY(-2px) scale(1.05);}
+  .chat-fab-btn svg{width:30px;height:30px;}
+  .chat-fab-dot{position:absolute;top:1px;right:1px;width:14px;height:14px;border-radius:50%;background:#ff4d4d;border:2px solid var(--black);}
+  @media (max-width:520px){.chat-fab{right:16px;bottom:16px;} .chat-greet{max-width:220px;}}
   .nav-cta{font-size:13px;padding:11px 20px;}
   .menu-btn{display:none;}
 
@@ -395,6 +418,7 @@
     <a class="nlink" href="#how">How It Works</a>
     <a class="nlink" href="#offers">Work With Me</a>
     <a class="nlink" href="#faq">FAQ</a>
+    <a class="btn btn-ghost nav-cta" href="/book">Free Guide</a>
     <a class="btn btn-accent nav-cta" href="./clarity.html">Run Clarity Check</a>
   </div>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
@@ -655,6 +679,34 @@
     }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
     reveals.forEach(function(el){ io.observe(el); });
   }
+</script>
+
+<!-- floating chat bubble -> clarity bot -->
+<div class="chat-fab" id="chatFab">
+  <div class="chat-greet" id="chatGreet" role="button" tabindex="0" aria-label="Run a free Clarity Check with The Override">
+    <span class="gx" id="chatGreetX" role="button" aria-label="Dismiss">&times;</span>
+    <strong>👋 Got a minute?</strong>
+    <span class="gt">Let's find the pattern running you — free, no pressure.</span>
+  </div>
+  <button class="chat-fab-btn" id="chatFabBtn" aria-label="Chat with The Override">
+    <span class="chat-fab-dot" id="chatFabDot"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"></path></svg>
+  </button>
+</div>
+<script>
+(function(){
+  var fab=document.getElementById('chatFabBtn'),
+      greet=document.getElementById('chatGreet'),
+      gx=document.getElementById('chatGreetX'),
+      dot=document.getElementById('chatFabDot');
+  function go(){ window.location.href='./clarity.html'; }
+  fab.addEventListener('click',go);
+  greet.addEventListener('click',go);
+  greet.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+  gx.addEventListener('click',function(e){ e.stopPropagation(); greet.classList.remove('show'); if(dot) dot.style.display='none'; try{ sessionStorage.setItem('ovGreetDismissed','1'); }catch(_){} });
+  var dismissed=false; try{ dismissed=sessionStorage.getItem('ovGreetDismissed')==='1'; }catch(_){}
+  if(!dismissed){ setTimeout(function(){ greet.classList.add('show'); }, 3500); }
+})();
 </script>
 </body>
 </html>
