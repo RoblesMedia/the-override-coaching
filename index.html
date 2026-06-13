@@ -102,6 +102,21 @@
   .btn-ghost:hover{background:var(--white);color:#000 !important;}
   .btn-lg{padding:20px 40px;font-size:19px;}
 
+  /* ---------- quote band ---------- */
+  .quote-band{padding:clamp(64px,10vw,110px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0c0c0c;}
+  .qband{
+    text-align:center;max-width:920px;margin:0 auto;position:relative;
+    font-family:"Archivo",sans-serif;font-weight:800;font-style:italic;color:var(--white);
+    font-size:clamp(26px,4.4vw,46px);line-height:1.18;letter-spacing:-0.01em;
+  }
+  .qband .gold{color:var(--accent);}
+  .qband .qmark{color:var(--accent);font-style:normal;}
+  .qband cite{
+    display:block;margin-top:26px;font-style:normal;
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.14em;
+    font-size:13px;color:var(--muted2);
+  }
+
   /* ---------- floating chat bubble ---------- */
   .chat-fab{position:fixed;right:22px;bottom:22px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none;}
   .chat-greet{
@@ -533,6 +548,16 @@
       </div>
     </div>
     <p class="paths-line reveal">A book shows you the map. <b>Coaching makes you actually walk the new path</b> when the old one is screaming at you to take the familiar turn.</p>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <div class="wrap">
+    <blockquote class="qband reveal">
+      <span class="qmark">&ldquo;</span>It is in your moments of <span class="gold">decision</span> that your destiny is shaped.<span class="qmark">&rdquo;</span>
+      <cite>&mdash; Tony Robbins</cite>
+    </blockquote>
   </div>
 </section>
 
