@@ -173,6 +173,19 @@
   .cp-input textarea:focus{outline:none;border-color:var(--accent);}
   .cp-send{flex:0 0 auto;width:42px;border:none;border-radius:12px;background:var(--accent);color:#000;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
   .cp-send:disabled{opacity:.5;cursor:default;}
+  .cp-cta{flex:0 0 auto;display:flex;gap:6px;padding:8px 8px 0;}
+  .cp-cta button{flex:1;background:var(--card);border:1px solid var(--line);color:var(--white);border-radius:10px;padding:9px 4px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:border-color .12s,color .12s;}
+  .cp-cta button:hover{border-color:var(--accent);color:var(--accent);}
+  .cp-leadform{align-self:stretch;background:var(--card);border:1.5px solid var(--accent);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:8px;}
+  .cp-leadform .lf-title{font-weight:700;font-size:13.5px;color:var(--white);}
+  .cp-leadform input,.cp-leadform textarea{background:var(--black);border:1px solid var(--line);border-radius:9px;color:var(--white);padding:9px 11px;font-family:inherit;font-size:13px;width:100%;}
+  .cp-leadform textarea{resize:none;min-height:46px;line-height:1.4;}
+  .cp-leadform input:focus,.cp-leadform textarea:focus{outline:none;border-color:var(--accent);}
+  .cp-leadform .lf-err{color:#ff6b6b;font-size:12px;}
+  .cp-leadform .lf-row{display:flex;gap:8px;}
+  .cp-leadform .lf-row button{flex:1;border:none;border-radius:9px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.04em;}
+  .cp-leadform .lf-send{background:var(--accent);color:#000;}
+  .cp-leadform .lf-cancel{background:transparent;color:var(--muted2);border:1px solid var(--line);}
   @media (max-width:520px){
     .chat-panel{right:12px;left:12px;bottom:86px;width:auto;max-width:none;height:78vh;}
   }
@@ -741,6 +754,11 @@
     <button class="cp-close" id="chatPanelClose" aria-label="Close chat">&times;</button>
   </div>
   <div class="cp-body" id="cpBody" aria-live="polite"></div>
+  <div class="cp-cta" id="cpCta">
+    <button type="button" data-act="guide">Free guide</button>
+    <button type="button" data-act="call">Book a call</button>
+    <button type="button" data-act="text">Text David</button>
+  </div>
   <form class="cp-input" id="cpForm">
     <textarea id="cpInput" rows="1" placeholder="Type a message…" aria-label="Your message"></textarea>
     <button class="cp-send" id="cpSend" type="submit" aria-label="Send">➤</button>
@@ -761,7 +779,11 @@
 <script>
 (function(){
   var ENDPOINT="https://override-coaching-chatbot.roblesinc.workers.dev/chat";
-  var GREETING="Hey — I'm The Override's AI guide. What's the pattern that keeps running you?";
+  var LEAD_ENDPOINT=ENDPOINT.replace(/\/chat$/,"/lead");
+  var CALENDLY="https://calendly.com/roblesinc/consultation";
+  var GUIDE_PDF="https://roblesmedia.github.io/the-override/override-starter-guide.pdf";
+  var firstConcern="";
+  var GREETING="Hey — I'm the guide here at The Override. What's bringing you in today?";
   var fab=document.getElementById('chatFabBtn'),
       greet=document.getElementById('chatGreet'),
       gx=document.getElementById('chatGreetX'),
@@ -830,7 +852,7 @@
     text=(text||'').trim();
     if(busy || !text) return;
     busy=true; sendBtn.disabled=true;
-    addMsg(text,'user'); history.push({role:'user',content:text});
+    addMsg(text,'user'); history.push({role:'user',content:text}); if(!firstConcern) firstConcern=text;
     input.value=''; input.style.height='auto';
     typing(true);
     try{
@@ -838,14 +860,70 @@
       var data=await res.json();
       typing(false);
       var msg=(data&&data.message)?data.message:"I'm having a moment — try that again?";
-      // Brand choice: no 988 / no crisis screen — stay in coaching.
-      if(data&&data.crisis){ msg="I hear you. I'm here — tell me more about what's going on for you."; }
+      // Concierge: never coaches/therapizes heavy stuff — routes to David. No 988 wall.
+      if(data&&data.crisis){ msg="That sounds like a lot to carry — and honestly bigger than a website chat. The best next step is talking to David directly. Want him to text you, or grab a time for a call?"; }
       addMsg(msg,'bot'); history.push({role:'assistant',content:msg}); saveLog();
     }catch(e){
       typing(false); addMsg("Connection hiccup — give it another try in a sec.",'bot');
     }
     busy=false; sendBtn.disabled=false; input.focus();
   }
+
+  // ---- lead-capture actions — the ONLY things that notify David ----
+  function leadCard(opts){
+    var card=document.createElement('div'); card.className='cp-leadform';
+    var t=document.createElement('div'); t.className='lf-title'; t.textContent=opts.title; card.appendChild(t);
+    var inputs={};
+    opts.fields.forEach(function(f){
+      var el=f.type==='textarea'?document.createElement('textarea'):document.createElement('input');
+      if(f.type && f.type!=='textarea') el.type=f.type;
+      el.placeholder=f.placeholder; if(f.value) el.value=f.value;
+      card.appendChild(el); inputs[f.key]=el;
+    });
+    var err=document.createElement('div'); err.className='lf-err'; err.style.display='none'; card.appendChild(err);
+    var row=document.createElement('div'); row.className='lf-row';
+    var go=document.createElement('button'); go.type='button'; go.className='lf-send'; go.textContent=opts.sendLabel||'Send';
+    var cancel=document.createElement('button'); cancel.type='button'; cancel.className='lf-cancel'; cancel.textContent='Cancel';
+    row.appendChild(go); row.appendChild(cancel); card.appendChild(row);
+    cancel.addEventListener('click',function(){ card.remove(); });
+    go.addEventListener('click',async function(){
+      err.style.display='none';
+      var vals={}; Object.keys(inputs).forEach(function(k){ vals[k]=inputs[k].value.trim(); });
+      var missing=opts.required.filter(function(k){ return !vals[k]; });
+      if(missing.length){ err.textContent='Please add '+opts.requiredLabel+'.'; err.style.display='block'; return; }
+      go.disabled=true; go.textContent='Sending…';
+      try{
+        var res=await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+          body:JSON.stringify({type:opts.type,name:vals.name||'',email:vals.email||'',phone:vals.phone||'',note:(vals.note||firstConcern||''),sessionId:sessionId,transcript:history})});
+        var data=await res.json();
+        if(!res.ok||!data.ok) throw new Error((data&&data.error)||'failed');
+        card.remove(); if(opts.onDone) opts.onDone(vals);
+      }catch(_){ go.disabled=false; go.textContent=opts.sendLabel||'Send'; err.textContent="That didn't go through — try once more?"; err.style.display='block'; }
+    });
+    body.appendChild(card); body.scrollTop=body.scrollHeight;
+  }
+  function doGuide(){
+    leadCard({type:'guide',title:'Get the free guide',sendLabel:'Send it',required:['name','email'],requiredLabel:'your name and email',
+      fields:[{key:'name',placeholder:'First name'},{key:'email',placeholder:'Email',type:'email'}],
+      onDone:function(){ addMsg("Done — your guide's opening in a new tab, and it's yours to keep.",'bot'); saveLog(); window.open(GUIDE_PDF,'_blank','noopener'); }});
+  }
+  function doText(){
+    leadCard({type:'text',title:'Have David text you',sendLabel:'Send',required:['name','phone'],requiredLabel:'your name and phone',
+      fields:[{key:'name',placeholder:'First name'},{key:'phone',placeholder:'Phone number',type:'tel'},{key:'note',placeholder:"What's going on? (optional)",type:'textarea',value:firstConcern}],
+      onDone:function(v){ addMsg("Got it — David will text you at "+v.phone+" soon.",'bot'); saveLog(); }});
+  }
+  function doCall(){
+    fetch(LEAD_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({type:'call',note:firstConcern||'',sessionId:sessionId,transcript:history})}).catch(function(){});
+    addMsg("Opening David's calendar in a new tab — grab whatever time works. First call's free.",'bot'); saveLog();
+    window.open(CALENDLY,'_blank','noopener');
+  }
+  document.getElementById('cpCta').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]'); if(!b) return;
+    if(!started) openPanel();
+    var act=b.getAttribute('data-act');
+    if(act==='guide') doGuide(); else if(act==='call') doCall(); else if(act==='text') doText();
+  });
 
   form.addEventListener('submit',function(e){ e.preventDefault(); send(input.value); });
   input.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(input.value); } });
