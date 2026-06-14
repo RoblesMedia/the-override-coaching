@@ -442,19 +442,41 @@
   }
 
   /* ---------- BOOK CTA ---------- */
-  #book{background:var(--accent);color:#000;text-align:center;padding:100px 0;}
-  #book h2{font-size:clamp(44px,9vw,110px);}
-  #book .blurb{max-width:640px;margin:24px auto 0;font-size:20px;color:#1a1a1a;line-height:1.5;}
+  #book{background:var(--accent);color:#000;text-align:center;padding:100px 0;position:relative;overflow:hidden;}
+  #book h2{font-size:clamp(40px,8vw,96px);}
+  #book .bk-white{color:#fff;}
+  #book .blurb{max-width:620px;margin:22px auto 0;font-size:19px;color:#1a1a1a;line-height:1.5;}
+  #book .blurb b{color:#000;}
+  #book .bk-blurb2{margin-top:0;}
+  #book .bk-rule{width:56px;height:2px;background:rgba(0,0,0,.22);margin:18px auto;}
   #book .btn-black{
-    background:#000;color:var(--accent) !important;margin-top:40px;
-    padding:22px 46px;border-radius:999px;font-size:21px;
-    font-family:"Archivo Black";text-transform:uppercase;display:inline-block;
-    transition:transform .12s;
+    background:#000;color:var(--accent) !important;margin-top:38px;
+    padding:20px 44px;border-radius:999px;font-size:21px;
+    font-family:"Archivo Black";text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:14px;
+    box-shadow:0 0 46px rgba(255,210,90,.75), 0 14px 30px rgba(0,0,0,.28);
+    transition:transform .12s, box-shadow .2s;
   }
-  #book .btn-black:hover{transform:translateY(-2px) scale(1.02);}
+  #book .btn-black:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 60px rgba(255,220,110,.9), 0 18px 36px rgba(0,0,0,.32);}
+  #book .bk-ico{flex:none;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#000;display:inline-grid;place-items:center;}
+  #book .bk-ico svg{width:20px;height:20px;}
   #book .micro{margin-top:18px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:#1a1a1a;}
-  #book .book-alt{display:inline-block;margin-top:22px;color:#1a1a1a;font-weight:700;font-size:14px;border-bottom:2px solid rgba(0,0,0,.35);padding-bottom:2px;transition:border-color .15s;}
-  #book .book-alt:hover{border-color:#000;}
+  #book .bk-or{display:flex;align-items:center;justify-content:center;gap:14px;max-width:300px;margin:24px auto 16px;}
+  #book .bk-or::before,#book .bk-or::after{content:"";height:2px;flex:1;background:rgba(0,0,0,.22);}
+  #book .bk-or span{font-family:"Archivo Black";font-size:13px;letter-spacing:.12em;color:#1a1a1a;}
+  #book .bk-secondary{display:inline-flex;align-items:center;gap:12px;border:2px solid #000;color:#000;background:transparent;border-radius:999px;padding:15px 38px;font-family:"Archivo Black";text-transform:uppercase;font-size:16px;transition:background .15s,color .15s;}
+  #book .bk-secondary:hover{background:#000;color:var(--accent);}
+  #book .bk-ico-o{flex:none;display:inline-grid;place-items:center;}
+  #book .bk-ico-o svg{width:20px;height:20px;}
+  #book .bk-chev{position:absolute;top:50%;transform:translateY(-50%);color:rgba(0,0,0,.10);pointer-events:none;z-index:0;}
+  #book .bk-chev svg{width:clamp(70px,9vw,130px);height:auto;}
+  #book .bk-chev-l{left:2.5%;}
+  #book .bk-chev-r{right:2.5%;}
+  #book .wrap{position:relative;z-index:1;}
+  @media (max-width:560px){
+    #book .btn-black,#book .bk-secondary{width:100%;justify-content:center;}
+    #book .bk-chev{display:none;}
+  }
 
   /* ---------- FAQ ---------- */
   #faq{background:var(--pure);border-top:1px solid var(--line);}
@@ -1093,14 +1115,19 @@
 
 <!-- BOOK -->
 <section id="book">
+  <span class="bk-chev bk-chev-l" aria-hidden="true"><svg viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 8 32 40 8 72"/></svg></span>
+  <span class="bk-chev bk-chev-r" aria-hidden="true"><svg viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 8 8 40 32 72"/></svg></span>
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow" style="color:#1a1a1a;">No Pressure. No Pitch.</div>
-      <h2 class="display">BOOK A<br/>FREE CALL.</h2>
-      <p class="blurb">One honest, no-pressure conversation. We'll find the pattern you're up against and figure out whether coaching is the right next move. If it's not, I'll tell you.</p>
-      <a href="#" class="btn-black book-link">Schedule My Free Call</a>
-      <div class="micro">30 min · online · no obligation</div>
-      <a href="./assessment.html" class="book-alt">Not sure yet? Find your pattern first &rarr;</a>
+      <h2 class="display">READY TO CHOOSE A<br/><span class="bk-white">DIFFERENT ENDING</span>?</h2>
+      <p class="blurb">Most people don't need more information. They need a <b>different move</b> in the moment the old pattern takes over.</p>
+      <div class="bk-rule"></div>
+      <p class="blurb bk-blurb2">Let's find the pattern you're up against and decide whether coaching is <b>the right next step</b>.</p>
+      <a href="#" class="btn-black book-link"><span class="bk-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></span>Schedule a Free Call</a>
+      <div class="micro">30 minutes · online · no obligation</div>
+      <div class="bk-or"><span>OR</span></div>
+      <a href="./assessment.html" class="bk-secondary"><span class="bk-ico-o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>Find Your Pattern</a>
     </div>
   </div>
 </section>
