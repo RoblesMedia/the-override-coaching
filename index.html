@@ -468,10 +468,31 @@
   #book .bk-secondary:hover{background:#000;color:var(--accent);}
   #book .bk-ico-o{flex:none;display:inline-grid;place-items:center;}
   #book .bk-ico-o svg{width:20px;height:20px;}
-  #book .bk-chev{position:absolute;top:50%;transform:translateY(-50%);color:rgba(0,0,0,.10);pointer-events:none;z-index:0;}
-  #book .bk-chev svg{width:clamp(70px,9vw,130px);height:auto;}
-  #book .bk-chev-l{left:2.5%;}
-  #book .bk-chev-r{right:2.5%;}
+  #book .bk-chev{
+    --chev:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20120%20240%27%3E%3Cdefs%3E%3Cpattern%20id%3D%27d%27%20width%3D%2711%27%20height%3D%2711%27%20patternUnits%3D%27userSpaceOnUse%27%3E%3Ccircle%20cx%3D%273%27%20cy%3D%273%27%20r%3D%272.4%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fpattern%3E%3CclipPath%20id%3D%27c%27%3E%3Cpath%20d%3D%27M20%2020%20L100%20120%20L20%20220%20L20%20178%20L56%20120%20L20%2062%20Z%27%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Crect%20width%3D%27120%27%20height%3D%27240%27%20fill%3D%27url%28%23d%29%27%20clip-path%3D%27url%28%23c%29%27%2F%3E%3C%2Fsvg%3E");
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:clamp(130px,16vw,250px); height:clamp(260px,32vw,480px);
+    pointer-events:none; z-index:0; opacity:.42;
+    -webkit-mask:var(--chev) center/contain no-repeat;
+            mask:var(--chev) center/contain no-repeat;
+    background:linear-gradient(to right, rgba(120,78,4,0) 0%, rgba(120,78,4,.92) 92%);
+  }
+  #book .bk-chev::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(112deg, transparent 42%, rgba(255,234,158,.95) 50%, transparent 58%);
+    background-size:260% 100%; background-position:178% 0; background-repeat:no-repeat;
+    animation:bkShine 10s ease-in-out infinite;
+  }
+  #book .bk-chev-l{ left:-2%; }
+  #book .bk-chev-r{ right:-2%; transform:translateY(-50%) scaleX(-1); }
+  @keyframes bkShine{
+    0%{ background-position:178% 0; }
+    14%{ background-position:-78% 0; }
+    100%{ background-position:-78% 0; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    #book .bk-chev::after{ animation:none; }
+  }
   #book .wrap{position:relative;z-index:1;}
   @media (max-width:560px){
     #book .btn-black,#book .bk-secondary{width:100%;justify-content:center;}
@@ -1115,8 +1136,8 @@
 
 <!-- BOOK -->
 <section id="book">
-  <span class="bk-chev bk-chev-l" aria-hidden="true"><svg viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 8 32 40 8 72"/></svg></span>
-  <span class="bk-chev bk-chev-r" aria-hidden="true"><svg viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 8 8 40 32 72"/></svg></span>
+  <span class="bk-chev bk-chev-l" aria-hidden="true"></span>
+  <span class="bk-chev bk-chev-r" aria-hidden="true"></span>
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow" style="color:#1a1a1a;">No Pressure. No Pitch.</div>
