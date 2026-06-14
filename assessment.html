@@ -40,7 +40,10 @@
 
   .eyebrow{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--accent);margin-bottom:16px;}
   h1{font-family:"Archivo Black",sans-serif;text-transform:uppercase;line-height:.98;letter-spacing:-0.01em;font-size:clamp(40px,7.4vw,72px);}
-  .lede{color:#cfcfcf;font-size:clamp(17px,2.4vw,20px);margin-top:20px;max-width:540px;line-height:1.5;}
+  .body-copy{color:#cfcfcf;font-size:clamp(16px,2.3vw,18px);margin-top:20px;max-width:540px;line-height:1.55;}
+  .body-copy.muted{color:var(--muted2);font-size:15px;margin-top:18px;}
+  .pattern-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:560px;}
+  .pattern-row span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;color:#cfcfcf;background:rgba(255,255,255,0.02);}
   .meta{color:var(--muted2);font-size:14px;margin-top:18px;letter-spacing:.02em;}
 
   .btn{display:inline-block;font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.02em;
@@ -49,7 +52,7 @@
   .btn-accent:hover{transform:translateY(-2px) scale(1.02);}
   .btn-ghost{background:transparent;color:var(--white) !important;border:2px solid var(--line);padding:15px 30px;border-radius:999px;font-size:14px;}
   .btn-ghost:hover{border-color:var(--white);}
-  .start-row{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .start-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
   .progress{display:flex;align-items:center;gap:14px;margin-bottom:30px;}
   .pbar{flex:1;height:5px;border-radius:999px;background:var(--line);overflow:hidden;}
@@ -70,7 +73,7 @@
   .res-name{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:clamp(34px,6.5vw,58px);line-height:.98;}
   .res-name .gold{color:var(--accent);}
   .belief{font-family:"Archivo",sans-serif;font-style:italic;font-weight:800;color:var(--accent);font-size:clamp(18px,2.6vw,23px);margin-top:18px;line-height:1.3;}
-  .res-teaser{color:#d7d7d7;font-size:17px;line-height:1.55;margin-top:16px;max-width:560px;}
+  .reframe{color:#e8e8e8;font-size:17px;line-height:1.6;margin-top:18px;max-width:580px;}
 
   .card{
     background:linear-gradient(180deg, rgba(31,61,51,0.35), rgba(18,18,18,0.6));
@@ -86,11 +89,17 @@
   .lf button{margin-top:4px;width:100%;}
   .priv{color:var(--muted);font-size:12px;margin-top:12px;text-align:center;}
 
-  .block{margin-top:24px;}
-  .block .label{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--accent);margin-bottom:8px;}
+  .block{margin-top:26px;}
+  .block .label{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin-bottom:12px;}
+  .block .label.gold{color:var(--accent);}
   .block .label.green{color:var(--green-text);}
-  .block p{color:#dcdcdc;font-size:16px;line-height:1.55;}
-  .secondary{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted2);font-size:14.5px;line-height:1.5;}
+  .block .label.gray{color:var(--muted2);}
+  .rlist{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .rlist li{position:relative;padding-left:22px;color:#dcdcdc;font-size:16px;line-height:1.5;}
+  .rlist li:before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--muted);}
+  .rlist.gold li:before{background:var(--accent);}
+  .rlist.green li:before{background:var(--green-text);}
+  .secondary{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted2);font-size:14.5px;line-height:1.5;}
   .secondary b{color:var(--white);font-weight:600;}
   .res-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
   .restart{display:inline-block;margin-top:24px;color:var(--muted2);font-size:13px;text-decoration:underline;cursor:pointer;background:none;border:none;font-family:inherit;}
@@ -127,36 +136,42 @@
   var PATTERNS={
     achiever:{name:"The Achiever",
       belief:"“I am what I accomplish.”",
-      teaser:"You're driven and capable — but you keep moving and rarely feel finished. The win never quite lands.",
-      cost:"You keep moving but rarely feel finished. Rest feels like falling behind, and “enough” always sits one accomplishment away.",
-      override:"Your next level isn't working harder — it's learning to feel like enough without having to prove it first."},
+      reframe:"Your pattern isn't laziness or lack of drive — it's the opposite. You've learned to tie your worth to your output. Somewhere along the way, achievement became the way you stay safe, valued, and respected.",
+      gives:["Discipline most people wish they had","Drive that actually gets things done","Reliability — people know they can count on you"],
+      costs:["Rest feels unproductive, even wrong","Relationships get pushed to the back burner","Success never quite feels like enough"],
+      override:["Worth before productivity","Presence before performance","Intention before autopilot"]},
     fixer:{name:"The Fixer",
       belief:"“If I don't hold it together, no one will.”",
-      teaser:"You're the one who handles it — for everyone. Being needed feels safer than being seen.",
-      cost:"You carry everyone and quietly run on empty. Your own needs always wait, and the resentment builds where no one can see it.",
-      override:"The shift isn't doing more for people — it's letting them carry their own weight, and finally asking for what you need."},
+      reframe:"Your pattern isn't weakness or people-pleasing — it's care turned all the way up. You learned that being needed is how you stay connected and safe, so you became the one who handles everything for everyone.",
+      gives:["A big heart people feel instantly","The ability to hold things together under pressure","Loyalty that runs deep"],
+      costs:["Your own needs always land last","Quiet resentment you never say out loud","Exhaustion from carrying what isn't yours"],
+      override:["Your needs alongside theirs","Receiving, not just giving","Letting people carry their own weight"]},
     peacekeeper:{name:"The Peacekeeper",
       belief:"“If I keep everyone comfortable, I'll be okay.”",
-      teaser:"You smooth things over and keep everyone comfortable — and slowly lose track of what you actually want.",
-      cost:"You keep the peace and lose yourself in it — agreeing your way out of your own life while the real things stay unsaid.",
-      override:"Growth isn't keeping everyone happy — it's tolerating the discomfort of saying the real thing."},
+      reframe:"Your pattern isn't weakness — it's a finely-tuned radar for everyone else's comfort. You learned that smoothing things over keeps you safe, so you got good at going along, even when it quietly costs you.",
+      gives:["People feel calm and easy around you","You read a room better than anyone","You rarely make a situation worse"],
+      costs:["Your real opinion stays unsaid","Resentment builds where no one can see it","You slowly disappear from your own life"],
+      override:["Honesty over smoothness","Your voice over the room's comfort","The real thing over the easy thing"]},
     perfectionist:{name:"The Perfectionist",
       belief:"“If it's not perfect, it's not ready.”",
-      teaser:"Your standards started as an edge and became a cage. You overthink, polish, and delay — and call it “getting it right.”",
-      cost:"Paralysis dressed up as high standards — a pile of things you never shipped because the timing was never quite right.",
-      override:"The move isn't getting it perfect — it's choosing “good and done,” and acting before you feel ready."},
+      reframe:"Your pattern isn't procrastination — it's protection. High standards started as your edge, but quietly became a place to hide. As long as it isn't finished, it can't be judged.",
+      gives:["Standards that produce real quality","An eye for what everyone else misses","Work people trust"],
+      costs:["Things stall and never ship","Procrastination disguised as “getting it right”","You're rarely satisfied, even with good work"],
+      override:["Done over perfect","Action before certainty","Progress over polish"]},
     controller:{name:"The Controller",
-      belief:"“If I let go, it all falls apart.”",
-      teaser:"You manage every variable you can — because letting go feels like everything will come undone.",
-      cost:"Chronic tension and exhaustion, and relationships strained by the grip. You're holding so much that you can't actually rest.",
-      override:"Your next level isn't tighter control — it's learning that you can loosen your grip and still be okay."},
+      belief:"“If I don't stay on top of it, things start slipping.”",
+      reframe:"Your pattern isn't being a control freak — it's how you've learned to feel safe in a world that's felt unpredictable. Managing every variable is how you keep the floor from dropping out.",
+      gives:["You make things happen others can't","People feel safe in your hands","Nothing falls through the cracks on your watch"],
+      costs:["Chronic tension you can't switch off","Relationships strained by the grip","You can't actually rest"],
+      override:["Trust over control","Letting uncertainty exist","Loosening the grip and staying okay"]},
     avoider:{name:"The Avoider",
       belief:"“I'll deal with it later.”",
-      teaser:"You've got the talent, but you stay in motion without direction. “Someday” has been the plan for a while now.",
-      cost:"You stay capable but checked-out — and “later” keeps quietly eating the years while the thing that matters waits.",
-      override:"The shift isn't forcing motivation — it's picking one direction and committing, even before you feel like it."}
+      reframe:"Your pattern isn't laziness — it's self-protection. Somewhere you learned that staying uncommitted keeps you safe from failing, so “later” became the place you put the things that matter most.",
+      gives:["You're adaptable and easygoing","You don't crack under pressure","You see options other people rush right past"],
+      costs:["The things that matter keep waiting","“Someday” quietly eats the years","A low hum of stuck you can't quite name"],
+      override:["A direction over drift","Committing before you feel ready","Momentum over comfort"]}
   };
-  // tie-break priority (earlier = wins a tie)
+  // tie-break priority (earlier wins a tie)
   var ORDER=["perfectionist","achiever","controller","fixer","peacekeeper","avoider"];
 
   var QUESTIONS=[
@@ -179,7 +194,7 @@
       {t:"“Everyone needs me, so I can't stop.”",p:"fixer"},
       {t:"“It's easier to just go along.”",p:"peacekeeper"},
       {t:"“If it's not right, it's not ready.”",p:"perfectionist"},
-      {t:"“If I'm not watching it, it'll break.”",p:"controller"},
+      {t:"“If I don't stay on top of it, things start slipping.”",p:"controller"},
       {t:"“I'll get to it… eventually.”",p:"avoider"}]},
     {q:"Where does the tension usually show up in your relationships?",o:[
       {t:"You're present but always half-thinking about what's next.",p:"achiever"},
@@ -192,7 +207,7 @@
       {t:"You stay so busy you never make space for it.",p:"achiever"},
       {t:"Everyone else's stuff keeps coming first.",p:"fixer"},
       {t:"You don't want to upset anyone by changing things.",p:"peacekeeper"},
-      {t:"You're waiting until the timing is right.",p:"perfectionist"},
+      {t:"You're still trying to figure out the best way to do it.",p:"perfectionist"},
       {t:"You won't move until you're sure how it'll turn out.",p:"controller"},
       {t:"You start, lose steam, and drift off it.",p:"avoider"}]},
     {q:"If a quiet, honest part of you could ask for one thing, it'd be…",o:[
@@ -224,17 +239,21 @@
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function set(html){ stage.innerHTML='<div class="fade">'+html+'</div>'; window.scrollTo(0,0); }
   function goldName(n){ return n.replace(/^The /,'The <span class="gold">')+'</span>'; }
-
+  function list(arr,cls){ return '<ul class="rlist '+cls+'">'+arr.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>'; }
   function reset(){ ORDER.forEach(function(k){ scores[k]=0; }); transcript=[]; idx=0; primaryKey=null; secondaryKey=null; }
 
   // ---------- intro ----------
   function intro(){
+    var pills=["The Achiever","The Fixer","The Peacekeeper","The Perfectionist","The Controller","The Avoider"]
+      .map(function(n){ return '<span>'+n+'</span>'; }).join('');
     set(
       '<div class="eyebrow">You are not your patterns.</div>'+
       '<h1>What’s running<br>your life?</h1>'+
-      '<p class="lede">Under the overthinking, the stress, the stalling, there’s a pattern you never consciously chose. This is how you find it — and the first move to override it.</p>'+
+      '<p class="body-copy">Most people think they’re making conscious choices. But underneath the surface, a pattern is often making the decisions for them.</p>'+
+      '<div class="pattern-row">'+pills+'</div>'+
+      '<p class="body-copy muted">This 2-minute check reveals the pattern most influencing your life right now. No right or wrong answers — just choose what feels most true today.</p>'+
       '<div class="start-row"><button class="btn btn-accent" id="startBtn">Find out</button></div>'+
-      '<p class="meta">7 questions · about 2 minutes · no fluff</p>'
+      '<p class="meta">7 questions · about 2 minutes</p>'
     );
     document.getElementById('startBtn').addEventListener('click',function(){ idx=0; question(); });
   }
@@ -267,17 +286,17 @@
     secondaryKey=(scores[ranked[1]]>0 && ranked[1]!==primaryKey) ? ranked[1] : null;
   }
 
-  // ---------- result teaser (email gate) ----------
+  // ---------- teaser (reframe + email gate) ----------
   function resultTeaser(){
     var P=PATTERNS[primaryKey];
     set(
       '<div class="res-eyebrow">Your primary pattern</div>'+
       '<div class="res-name">'+goldName(P.name)+'</div>'+
       '<div class="belief">'+esc(P.belief)+'</div>'+
-      '<p class="res-teaser">'+esc(P.teaser)+'</p>'+
+      '<p class="reframe">'+esc(P.reframe)+'</p>'+
       '<div class="card">'+
         '<h3>Get your full breakdown</h3>'+
-        '<p class="sub">What this pattern is quietly costing you, your secondary pattern, and the first move to override it — sent to your inbox.</p>'+
+        '<p class="sub">What this pattern gives you, what it’s quietly costing you, your secondary pattern, and the first move to override it — sent to your inbox.</p>'+
         '<div class="lf">'+
           '<input id="qName" type="text" placeholder="First name" autocomplete="given-name" />'+
           '<input id="qEmail" type="email" placeholder="Email" autocomplete="email" />'+
@@ -322,8 +341,10 @@
       '<div class="res-eyebrow">'+(name?esc(name)+', here’s your pattern':'Your pattern')+'</div>'+
       '<div class="res-name">'+goldName(P.name)+'</div>'+
       '<div class="belief">'+esc(P.belief)+'</div>'+
-      '<div class="block"><div class="label">The hidden cost</div><p>'+esc(P.cost)+'</p></div>'+
-      '<div class="block"><div class="label green">The override</div><p>'+esc(P.override)+'</p></div>'+
+      '<p class="reframe">'+esc(P.reframe)+'</p>'+
+      '<div class="block"><div class="label gray">What this pattern gives you</div>'+list(P.gives,'')+'</div>'+
+      '<div class="block"><div class="label gold">What it costs you</div>'+list(P.costs,'gold')+'</div>'+
+      '<div class="block"><div class="label green">The override</div>'+list(P.override,'green')+'</div>'+
       sec+
       '<div class="card" style="border-color:var(--accent);">'+
         '<h3>Ready to actually override it?</h3>'+
