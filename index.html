@@ -151,9 +151,11 @@
   }
   .chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
   .chat-panel-head{
-    display:flex;align-items:center;justify-content:flex-end;flex:0 0 auto;
-    padding:6px 10px;background:var(--card);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;
+    padding:6px 8px 6px 12px;background:var(--card);border-bottom:1px solid var(--line);
   }
+  .chat-panel-head .cp-reset{background:none;border:none;color:var(--muted2);font-size:11px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:4px 2px;font-family:inherit;}
+  .chat-panel-head .cp-reset:hover{color:var(--white);}
   .chat-panel-head .cp-close{background:none;border:none;color:var(--muted2);font-size:22px;line-height:1;cursor:pointer;padding:0 4px;}
   .chat-panel-head .cp-close:hover{color:var(--white);}
   .cp-body{flex:1 1 auto;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px;}
@@ -742,6 +744,7 @@
 <!-- floating chat bubble + embedded coaching chat -->
 <div class="chat-panel" id="chatPanel" aria-hidden="true" role="dialog" aria-label="Chat with The Override">
   <div class="chat-panel-head">
+    <button class="cp-reset" id="chatReset" type="button">Start over</button>
     <button class="cp-close" id="chatPanelClose" aria-label="Close chat">&times;</button>
   </div>
   <div class="cp-body" id="cpBody" aria-live="polite"></div>
@@ -787,6 +790,18 @@
   }
   var sessionId=sid();
 
+  // 5-hour conversation persistence (per browser)
+  var LOG_KEY='ovChatLog', LOG_TTL=5*60*60*1000;
+  function saveLog(){ try{ localStorage.setItem(LOG_KEY, JSON.stringify({ts:Date.now(), history:history})); }catch(_){} }
+  function loadLog(){
+    try{
+      var o=JSON.parse(localStorage.getItem(LOG_KEY));
+      if(!o || !o.ts || (Date.now()-o.ts)>LOG_TTL || !Array.isArray(o.history) || !o.history.length){ localStorage.removeItem(LOG_KEY); return null; }
+      return o.history;
+    }catch(_){ return null; }
+  }
+  function clearLog(){ try{ localStorage.removeItem(LOG_KEY); }catch(_){} }
+
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function linkify(s){ return esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>'); }
 
@@ -803,13 +818,19 @@
   }
 
   function openPanel(){
-    if(!started){ started=true; addMsg(GREETING,'bot'); }
+    if(!started){
+      started=true;
+      addMsg(GREETING,'bot');
+      var saved=loadLog();
+      if(saved){ saved.forEach(function(m){ addMsg(m.content, m.role==='user'?'user':'bot'); }); history=saved; }
+    }
     panel.classList.add('open'); panel.setAttribute('aria-hidden','false');
     greet.classList.remove('show'); if(dot) dot.style.display='none'; isOpen=true;
     try{ sessionStorage.setItem('ovGreetDismissed','1'); }catch(_){}
     setTimeout(function(){ input.focus(); },280);
   }
   function closePanel(){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); isOpen=false; }
+  function startOver(){ clearLog(); history=[]; body.innerHTML=''; addMsg(GREETING,'bot'); input.focus(); }
   function toggle(){ isOpen?closePanel():openPanel(); }
 
   async function send(text){
@@ -826,7 +847,7 @@
       var msg=(data&&data.message)?data.message:"I'm having a moment — try that again?";
       // Brand choice: no 988 / no crisis screen — stay in coaching.
       if(data&&data.crisis){ msg="I hear you. I'm here — tell me more about what's going on for you."; }
-      addMsg(msg,'bot'); history.push({role:'assistant',content:msg});
+      addMsg(msg,'bot'); history.push({role:'assistant',content:msg}); saveLog();
     }catch(e){
       typing(false); addMsg("Connection hiccup — give it another try in a sec.",'bot');
     }
@@ -841,6 +862,7 @@
   greet.addEventListener('click',openPanel);
   greet.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(); } });
   pclose.addEventListener('click',closePanel);
+  document.getElementById('chatReset').addEventListener('click',startOver);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&isOpen) closePanel(); });
   gx.addEventListener('click',function(e){ e.stopPropagation(); greet.classList.remove('show'); if(dot) dot.style.display='none'; try{ sessionStorage.setItem('ovGreetDismissed','1'); }catch(_){} });
 
