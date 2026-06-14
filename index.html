@@ -538,15 +538,16 @@
   #book .geo-answer{margin:22px auto 0;}
 
   /* ===================== OVERRIDE METHOD (Two Paths) ===================== */
-  .override-method-section{ background:#0a0a0a; color:#fff; padding:80px 32px; font-family:"Space Grotesk",sans-serif; }
+  .override-method-section{ background:#0a0a0a; color:#fff; padding:118px 32px 84px; font-family:"Space Grotesk",sans-serif; }
   .method-wrap{ max-width:1280px; margin:0 auto; }
-  .method-eyebrow{ color:#f0a500; text-transform:uppercase; letter-spacing:0.18em; font-weight:800; margin-bottom:18px; }
-  .method-title{ font-family:"Archivo Black",sans-serif; font-size:clamp(2.6rem,7vw,5.2rem); line-height:0.94; text-transform:uppercase; max-width:900px; margin:0 0 24px; }
-  .method-title span{ color:#f0a500; }
-  .method-intro{ max-width:820px; color:#cfcfcf; font-size:clamp(1rem,2vw,1.15rem); line-height:1.65; margin-bottom:48px; }
+  .method-eyebrow{ color:#f0a500; text-transform:uppercase; letter-spacing:0.18em; font-weight:800; margin-bottom:14px; }
+  .method-brandline{ font-family:"Archivo Black",sans-serif; font-size:clamp(2.9rem,7.5vw,6rem); line-height:0.9; text-transform:uppercase; color:#fff; max-width:900px; margin:0; }
+  .method-brandline span{ color:#f0a500; }
+  .method-subhead{ font-family:"Archivo Black",sans-serif; text-transform:uppercase; letter-spacing:0.04em; font-size:clamp(1.05rem,2.3vw,1.5rem); color:#fff; margin:22px 0 10px; }
+  .method-intro{ max-width:720px; color:#cfcfcf; font-size:clamp(1rem,2vw,1.18rem); line-height:1.6; margin-bottom:30px; }
   .method-intro strong{ color:#fff; font-weight:800; }
 
-  .method-grid{ display:grid; grid-template-columns:minmax(320px,420px) 170px minmax(320px,420px); gap:32px; align-items:center; justify-content:center; }
+  .method-grid{ display:grid; grid-template-columns:minmax(320px,420px) 128px minmax(320px,420px); gap:20px; align-items:center; justify-content:center; }
 
   .override-method-section .path-card{ background:#121212; border:1px solid #1e1e1e; border-radius:24px; padding:28px; box-shadow:0 30px 80px rgba(0,0,0,0.45); }
   .override-method-section .path-card h3{ font-family:"Archivo Black",sans-serif; text-transform:uppercase; text-align:center; letter-spacing:0.08em; font-size:1.6rem; margin:0; }
@@ -566,16 +567,16 @@
   .om-step .mark.bad{ color:#8a8a8a; }
   .om-step .mark.good{ color:#f0a500; }
 
-  .om-pause-step{ grid-template-columns:88px 1fr; background:linear-gradient(90deg,rgba(240,165,0,0.22),rgba(240,165,0,0.04)); border:1px solid #c8961f; border-radius:18px; padding:18px; margin:8px 0; box-shadow:0 0 40px rgba(240,165,0,0.25); }
-  .override-method-section .pause-icon{ width:72px; height:72px; border:4px solid #fff; background:#f0a500; color:#000; box-shadow:0 0 35px rgba(240,165,0,0.8); }
+  .om-pause-step{ grid-template-columns:88px 1fr; background:linear-gradient(90deg,rgba(240,165,0,0.26),rgba(240,165,0,0.05)); border:1.5px solid #f0a500; border-radius:18px; padding:18px; margin:8px 0; box-shadow:0 0 56px rgba(240,165,0,0.4); }
+  .override-method-section .pause-icon{ width:72px; height:72px; border:4px solid #fff; background:#f0a500; color:#000; box-shadow:0 0 46px rgba(240,165,0,0.95); }
   .override-method-section .pause-icon svg{ width:34px; height:34px; }
   .om-pause-step h4{ color:#f0a500; font-size:1.9rem; }
   .om-pause-step > div > p{ color:#fff; font-weight:700; }
 
   .trigger-node{ text-align:center; color:#fff; }
-  .trigger-circle{ width:140px; height:140px; margin:0 auto 16px; border-radius:50%; border:1px solid #7a7a7a; background:#000; display:grid; place-items:center; gap:4px; box-shadow:0 0 35px rgba(240,165,0,0.22); }
-  .trigger-circle svg{ width:52px; height:52px; color:#fff; }
-  .trigger-circle strong{ text-transform:uppercase; font-family:"Archivo Black",sans-serif; letter-spacing:0.04em; font-size:0.9rem; }
+  .trigger-circle{ width:106px; height:106px; margin:0 auto 14px; border-radius:50%; border:1px solid #7a7a7a; background:#000; display:grid; place-items:center; gap:2px; box-shadow:0 0 28px rgba(240,165,0,0.18); }
+  .trigger-circle svg{ width:38px; height:38px; color:#fff; }
+  .trigger-circle strong{ text-transform:uppercase; font-family:"Archivo Black",sans-serif; letter-spacing:0.04em; font-size:0.72rem; }
   .trigger-node > p{ font-weight:800; line-height:1.4; }
 
   .method-cta-bar{ margin-top:40px; border:1px solid #1e1e1e; border-radius:22px; padding:26px 32px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; background:#0d0d0d; }
@@ -858,15 +859,11 @@
 
     <p class="method-eyebrow">Same trigger. Different ending.</p>
 
-    <h2 class="method-title">What is the Override <span>Method?</span></h2>
+    <div class="method-brandline">One Pattern. <span>Two Paths.</span></div>
 
-    <p class="method-intro">
-      The Override Method is a simple model for changing automatic behavior. The old loop runs on autopilot:
-      <strong>trigger → story → emotion → pattern → same outcome.</strong>
-      The Override installs one new move:
-      <strong>trigger → pause → override → new action → new outcome.</strong>
-      Same trigger, different ending. That pause is where you take back the wheel.
-    </p>
+    <h2 class="method-subhead">What is the Override Method?</h2>
+
+    <p class="method-intro">The Override Method helps you interrupt automatic patterns by creating a pause between a trigger and a reaction.</p>
 
     <div class="method-grid">
 
