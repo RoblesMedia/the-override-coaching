@@ -436,7 +436,8 @@
   /* ---------- FAQ ---------- */
   #faq{background:var(--pure);border-top:1px solid var(--line);}
   .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px;}
-  .faq-item{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--card);}
+  .faq-item{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;background:rgba(255,255,255,.03);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .18s ease, border-color .18s ease;}
+  .faq-item:hover{transform:translateY(-3px);border-color:rgba(240,165,0,.35);}
   .faq-item h3{font-family:"Archivo Black";text-transform:uppercase;font-size:19px;margin-bottom:12px;color:var(--white);}
   .faq-item p{color:var(--muted2);font-size:16px;line-height:1.5;}
 
@@ -451,10 +452,11 @@
   /* ---------- ASSESSMENT CTA ---------- */
   #assess{background:var(--black);border-top:1px solid var(--line);}
   .assess-card{
-    border:1px solid var(--line);border-radius:22px;padding:clamp(34px,5vw,64px);
+    border:1.5px solid rgba(240,165,0,.38);border-radius:22px;padding:clamp(34px,5vw,64px);
     background:
-      radial-gradient(900px 420px at 100% 0%, rgba(240,165,0,.14), transparent 60%),
-      var(--card);
+      radial-gradient(900px 460px at 100% 0%, rgba(240,165,0,.20), transparent 62%),
+      linear-gradient(180deg, rgba(31,61,51,.32), rgba(22,22,22,.95));
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(240,165,0,.06), inset 0 1px 0 rgba(255,255,255,.05);
     position:relative;overflow:hidden;
   }
   .assess-card .eyebrow{margin-bottom:14px;}
@@ -466,9 +468,10 @@
   /* ---------- TRUST ---------- */
   #trust{background:var(--pure);border-top:1px solid var(--line);}
   .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:50px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .trust-cell{background:var(--pure);padding:36px 32px;}
+  .trust-cell{background:linear-gradient(180deg, rgba(31,61,51,.30), rgba(0,0,0,0) 70%), var(--pure);padding:36px 32px;transition:background .2s ease;}
+  .trust-cell:hover{background:linear-gradient(180deg, rgba(31,61,51,.45), rgba(0,0,0,0) 75%), var(--pure);}
   .trust-cell .ticon{
-    font-family:"Archivo Black",sans-serif;font-size:30px;color:var(--accent);line-height:1;margin-bottom:16px;
+    font-family:"Archivo Black",sans-serif;font-size:30px;color:var(--green-text);line-height:1;margin-bottom:16px;
   }
   .trust-cell h3{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:-0.01em;margin-bottom:12px;}
   .trust-cell p{color:var(--muted2);font-size:16px;line-height:1.55;}
