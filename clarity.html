@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex" />
-<title>The Override — Coaching Guide</title>
+<title>The Override | Coaching Guide</title>
 <meta name="description" content="Find the pattern that's running you. A quick, no-pressure conversation, then a free 1:1 call with David." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<!-- Calendly loaded on demand — injected only when the booking section opens. -->
+<!-- Calendly loaded on demand, injected only when the booking section opens. -->
 
 <style>
   /* ===== Override design tokens (copied from index.html, not linked) ===== */
@@ -221,6 +221,7 @@
     .msg { max-width: 90%; }
   }
 </style>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5aa027499d2f482abd487a388cd352c8"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
@@ -234,7 +235,7 @@
   <section id="gate">
     <span class="eyebrow">The Override Coaching Guide</span>
     <h1>Let's find the <span class="gold">pattern.</span></h1>
-    <p class="lede">A quick, AI-guided conversation about what's keeping you stuck — then, if it's a fit, a free call with David.</p>
+    <p class="lede">A quick, AI-guided conversation about what's keeping you stuck, then, if it's a fit, a free call with David.</p>
 
     <form class="gate-form" id="gateForm" novalidate>
       <input type="text" id="gateName" name="name" placeholder="First name" autocomplete="given-name" required />
@@ -244,7 +245,7 @@
 
     <p class="gate-disclaimer">
       This is <strong>coaching, not therapy</strong>. If you're in crisis, call or text
-      <strong>988</strong> — free, confidential, 24/7.
+      <strong>988</strong>. Free, confidential, 24/7.
     </p>
   </section>
 
@@ -252,7 +253,7 @@
   <section id="chat">
     <div class="chat-greeting">
       <h2>What brings you here today?</h2>
-      <p>Coaching, not therapy — no pressure, just a real conversation. If you're in crisis, call or text <strong>988</strong>.</p>
+      <p>Coaching, not therapy. No pressure, just a real conversation. If you're in crisis, call or text <strong>988</strong>.</p>
     </div>
 
     <div class="chips" id="chips">
@@ -409,7 +410,7 @@
       var data = await res.json();
       if (data.crisis) {
         renderCrisis(data.message);
-        // Don't store crisis turn — keep the next turn screened fresh.
+        // Don't store crisis turn, keep the next turn screened fresh.
       } else {
         renderBotMaybeBooking(data.message);
         history.push({ role: "assistant", content: data.message });
@@ -475,7 +476,7 @@
     bookingShown = true;
     booking.classList.add("active");
 
-    // Lazy-load Calendly only now — not on initial page load.
+    // Lazy-load Calendly only now, not on initial page load.
     if (!document.getElementById("cal-css")) {
       var lnk = document.createElement("link");
       lnk.id = "cal-css"; lnk.rel = "stylesheet";
@@ -492,7 +493,7 @@
     var url = CALENDLY_URL + "?hide_gdpr_banner=1&background_color=121419&text_color=edeef2&primary_color=f0a500";
 
     // Safety-net link, kept in a SEPARATE element so it never clobbers the
-    // embed mount. Calendly's inline widget only mounts over http(s) — opening
+    // embed mount. Calendly's inline widget only mounts over http(s), opening
     // this page as a file:// will fall back to this link (which still works).
     var fb = document.createElement("div");
     fb.style.cssText = "padding:22px;text-align:center;display:none;";
@@ -515,7 +516,7 @@
       }
       return false;
     }
-    // Retry until the (async) Calendly script is ready — up to ~6s.
+    // Retry until the (async) Calendly script is ready, up to ~6s.
     var tries = 0;
     var initIv = setInterval(function () {
       if (tryInit() || ++tries > 24) clearInterval(initIv);
