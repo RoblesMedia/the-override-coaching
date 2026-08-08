@@ -442,30 +442,30 @@
   }
 
   /* ---------- BOOK CTA ---------- */
-  #book{background:var(--accent);color:#000;text-align:center;padding:100px 0;position:relative;overflow:hidden;}
-  #book h2{font-size:clamp(40px,8vw,96px);}
-  #book .bk-white{color:#fff;}
-  #book .blurb{max-width:620px;margin:22px auto 0;font-size:19px;color:#1a1a1a;line-height:1.5;}
-  #book .blurb b{color:#000;}
+  #book{background:radial-gradient(90% 70% at 50% 42%, rgba(240,165,0,.16), rgba(0,0,0,0) 70%), #0b0b0b;color:#fff;text-align:center;padding:100px 0;position:relative;overflow:hidden;}
+  #book h2{font-size:clamp(40px,8vw,96px);color:#fff;}
+  #book .bk-white{color:var(--accent);}
+  #book .blurb{max-width:620px;margin:22px auto 0;font-size:19px;color:#b4b4b4;line-height:1.5;}
+  #book .blurb b{color:#fff;}
   #book .bk-blurb2{margin-top:0;}
-  #book .bk-rule{width:56px;height:2px;background:rgba(0,0,0,.22);margin:18px auto;}
+  #book .bk-rule{width:56px;height:2px;background:rgba(255,255,255,.22);margin:18px auto;}
   #book .btn-black{
-    background:#000;color:var(--accent) !important;margin-top:34px;
+    background:var(--accent);color:#000 !important;margin-top:34px;
     padding:16px 36px;border-radius:999px;font-size:18px;
     font-family:"Archivo Black";text-transform:uppercase;
     display:inline-flex;align-items:center;gap:12px;
-    box-shadow:0 0 46px rgba(255,210,90,.75), 0 14px 30px rgba(0,0,0,.28);
+    box-shadow:0 0 70px rgba(240,165,0,.45), 0 16px 34px rgba(0,0,0,.55);
     transition:transform .12s, box-shadow .2s;
   }
-  #book .btn-black:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 60px rgba(255,220,110,.9), 0 18px 36px rgba(0,0,0,.32);}
-  #book .bk-ico{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#000;display:inline-grid;place-items:center;}
+  #book .btn-black:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 90px rgba(240,165,0,.62), 0 20px 40px rgba(0,0,0,.6);}
+  #book .bk-ico{flex:none;width:30px;height:30px;border-radius:50%;background:#000;color:var(--accent);display:inline-grid;place-items:center;}
   #book .bk-ico svg{width:17px;height:17px;}
-  #book .micro{margin-top:18px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:#1a1a1a;}
+  #book .micro{margin-top:18px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:#8f8f8f;}
   #book .bk-or{display:flex;align-items:center;justify-content:center;gap:14px;max-width:300px;margin:24px auto 16px;}
-  #book .bk-or::before,#book .bk-or::after{content:"";height:2px;flex:1;background:rgba(0,0,0,.22);}
-  #book .bk-or span{font-family:"Archivo Black";font-size:13px;letter-spacing:.12em;color:#1a1a1a;}
-  #book .bk-secondary{display:inline-flex;align-items:center;gap:12px;border:2px solid #000;color:#000;background:transparent;border-radius:999px;padding:15px 38px;font-family:"Archivo Black";text-transform:uppercase;font-size:16px;transition:background .15s,color .15s;}
-  #book .bk-secondary:hover{background:#000;color:var(--accent);}
+  #book .bk-or::before,#book .bk-or::after{content:"";height:2px;flex:1;background:rgba(255,255,255,.18);}
+  #book .bk-or span{font-family:"Archivo Black";font-size:13px;letter-spacing:.12em;color:#9a9a9a;}
+  #book .bk-secondary{display:inline-flex;align-items:center;gap:12px;border:2px solid rgba(255,255,255,.55);color:#fff;background:transparent;border-radius:999px;padding:15px 38px;font-family:"Archivo Black";text-transform:uppercase;font-size:16px;transition:background .15s,color .15s,border-color .15s;}
+  #book .bk-secondary:hover{background:#fff;color:#000;border-color:#fff;}
   #book .bk-ico-o{flex:none;display:inline-grid;place-items:center;}
   #book .bk-ico-o svg{width:20px;height:20px;}
   #book .bk-chev{
@@ -1152,7 +1152,7 @@
   <span class="bk-chev bk-chev-r" aria-hidden="true"></span>
   <div class="wrap">
     <div class="reveal">
-      <div class="eyebrow" style="color:#1a1a1a;margin-bottom:26px;">No Pressure. No Pitch.</div>
+      <div class="eyebrow" style="color:var(--accent);margin-bottom:26px;">No Pressure. No Pitch.</div>
       <h2 class="display">READY TO CHOOSE A<br/><span class="bk-white">DIFFERENT ENDING</span>?</h2>
       <p class="blurb">Most people don't need more information. They need a <b>different move</b> in the moment the old pattern takes over.</p>
       <div class="bk-rule"></div>
