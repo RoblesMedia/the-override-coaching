@@ -126,6 +126,8 @@
   .btn-ghost:hover{background:var(--white);color:#000 !important;}
   /* CTA that breathes, so the free guide reads as the thing to click */
   .cta-glow{animation:ctaGlow 2.2s ease-in-out infinite;}
+  /* half a cycle behind, so the two offer buttons alternate instead of throbbing together */
+  .cta-glow-alt{animation-delay:-1.1s;}
   .cta-glow:hover{animation:none;box-shadow:0 0 40px rgba(240,165,0,.95);}
   @keyframes ctaGlow{
     0%,100%{box-shadow:0 0 8px rgba(240,165,0,.30);transform:scale(1);}
@@ -1084,7 +1086,7 @@
         <h3>Override Intensive</h3>
         <div class="price">By application</div>
         <p class="odesc">1:1, application only. Deep, private work for people who want it handled fast and handled fully.</p>
-        <a class="btn btn-accent book-link" href="#book">Apply Now</a>
+        <a class="btn btn-accent cta-glow cta-glow-alt book-link" href="#book">Apply Now</a>
       </div>
     </div>
   </div>
