@@ -125,14 +125,14 @@
   }
   .btn-ghost:hover{background:var(--white);color:#000 !important;}
   /* CTA that breathes, so the free guide reads as the thing to click */
-  .cta-glow{animation:ctaGlow 2.8s ease-in-out infinite;}
-  .cta-glow:hover{animation:none;box-shadow:0 0 34px rgba(240,165,0,.85);}
+  .cta-glow{animation:ctaGlow 2.2s ease-in-out infinite;}
+  .cta-glow:hover{animation:none;box-shadow:0 0 40px rgba(240,165,0,.95);}
   @keyframes ctaGlow{
-    0%,100%{box-shadow:0 0 14px rgba(240,165,0,.38);}
-    50%{box-shadow:0 0 30px rgba(240,165,0,.78);}
+    0%,100%{box-shadow:0 0 8px rgba(240,165,0,.30);transform:scale(1);}
+    50%{box-shadow:0 0 46px rgba(240,165,0,.95), 0 0 16px rgba(255,224,140,.65);transform:scale(1.04);}
   }
   @media (prefers-reduced-motion:reduce){
-    .cta-glow{animation:none;box-shadow:0 0 22px rgba(240,165,0,.55);}
+    .cta-glow{animation:none;box-shadow:0 0 28px rgba(240,165,0,.7);}
   }
   .btn-lg{padding:20px 40px;font-size:19px;}
 
