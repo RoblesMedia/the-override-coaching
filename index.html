@@ -1284,6 +1284,17 @@
 </div>
 <script>
 (function(){
+  /* Guide chat widget. Turned off 2026-08-08: the greeting bubble was landing
+     on top of the CTA buttons on phones. Nothing below is deleted. To bring it
+     back, flip this one flag to true. */
+  var CHAT_ENABLED=false;
+  if(!CHAT_ENABLED){
+    var offFab=document.getElementById('chatFab'),
+        offPanel=document.getElementById('chatPanel');
+    if(offFab){offFab.style.display='none';}
+    if(offPanel){offPanel.style.display='none';}
+    return;
+  }
   var ENDPOINT="https://override-coaching-chatbot.roblesinc.workers.dev/chat";
   var LEAD_ENDPOINT=ENDPOINT.replace(/\/chat$/,"/lead");
   var CALENDLY="https://calendly.com/roblesinc/override-coaching-call";
