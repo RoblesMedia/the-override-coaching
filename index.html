@@ -550,6 +550,16 @@
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:900px){
     .paths-grid,.steps,.offers-grid,.stats-grid,.quotes,.faq-grid,.trust-grid{grid-template-columns:1fr;}
+    /* stacked: trust cells become distinct cards (matches the .path/.offer treatment) */
+    .trust-grid{gap:18px;background:transparent;border:0;border-radius:0;overflow:visible;margin-top:36px;}
+    .trust-cell{
+      background:linear-gradient(180deg, rgba(31,61,51,.42), rgba(0,0,0,0) 72%), #1c1c1c;
+      border:1px solid rgba(255,255,255,.16);
+      border-left:4px solid var(--accent);
+      border-radius:16px;padding:26px 24px;
+      box-shadow:0 18px 40px rgba(0,0,0,.6);
+    }
+    .trust-cell:hover{background:linear-gradient(180deg, rgba(31,61,51,.42), rgba(0,0,0,0) 72%), #1c1c1c;}
     .about-grid{grid-template-columns:1fr;gap:30px;}
     .photo{max-width:360px;}
   }
