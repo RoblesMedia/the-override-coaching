@@ -124,15 +124,15 @@
     padding:13px 26px;border-radius:999px;font-size:15px;
   }
   .btn-ghost:hover{background:var(--white);color:#000 !important;}
-  /* nav CTA that breathes, so the free guide reads as the thing to click */
-  .nav-glow{animation:navGlow 2.8s ease-in-out infinite;}
-  .nav-glow:hover{animation:none;box-shadow:0 0 34px rgba(240,165,0,.85);}
-  @keyframes navGlow{
+  /* CTA that breathes, so the free guide reads as the thing to click */
+  .cta-glow{animation:ctaGlow 2.8s ease-in-out infinite;}
+  .cta-glow:hover{animation:none;box-shadow:0 0 34px rgba(240,165,0,.85);}
+  @keyframes ctaGlow{
     0%,100%{box-shadow:0 0 14px rgba(240,165,0,.38);}
     50%{box-shadow:0 0 30px rgba(240,165,0,.78);}
   }
   @media (prefers-reduced-motion:reduce){
-    .nav-glow{animation:none;box-shadow:0 0 22px rgba(240,165,0,.55);}
+    .cta-glow{animation:none;box-shadow:0 0 22px rgba(240,165,0,.55);}
   }
   .btn-lg{padding:20px 40px;font-size:19px;}
 
@@ -858,7 +858,7 @@
     <a class="nlink" href="#how">How It Works</a>
     <a class="nlink" href="#offers">Work With Me</a>
     <a class="nlink" href="#faq">FAQ</a>
-    <a class="btn btn-accent nav-cta nav-glow" href="/book">Free Guide</a>
+    <a class="btn btn-accent nav-cta cta-glow" href="/book">Free Guide</a>
   </div>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
 </nav>
@@ -1078,7 +1078,7 @@
         <h3>The Starter Guide</h3>
         <div class="price">Free</div>
         <p class="odesc">Start today. The patterns, named, plus the first move to break yours. Zero cost, zero catch.</p>
-        <a class="btn btn-ghost" href="/book">Get the Free Guide</a>
+        <a class="btn btn-accent cta-glow" href="/book">Get the Free Guide</a>
       </div>
       <div class="offer feat reveal">
         <h3>Override Intensive</h3>
