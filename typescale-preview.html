@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[PREVIEW] Type scale tuner - The Override</title>
+<meta name="description" content="The Override is coaching that finds the pattern running you and rewires it. No fluff. Online, nationwide. First call's free." />
+<link rel="canonical" href="https://theoverride.co/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Override Coaching" />
+<meta property="og:title" content="The Override — Coaching to Stop Running on Autopilot | David Robles" />
+<meta property="og:description" content="Coaching for high-functioning people stuck on autopilot. The Override finds the pattern running you and rewires it. Online, nationwide. First call's free." />
+<meta property="og:url" content="https://theoverride.co/" />
+<meta property="og:image" content="https://theoverride.co/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The Override: You Are Not Your Patterns" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Override — Coaching to Stop Running on Autopilot | David Robles" />
+<meta name="twitter:description" content="Coaching for high-functioning people stuck on autopilot. Find the pattern running you and rewire it. Online, nationwide." />
+<meta name="twitter:image" content="https://theoverride.co/og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,900&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0a0a0a;
+    --pure:#000;
+    --white:#ffffff;
+    --accent:#f0a500;
+    --accent-dark:#c78700;
+    --muted:#7a7a7a;
+    --muted2:#9a9a9a;
+    --line:#1e1e1e;
+    --card:#121212;
+    --green:#1f3d33;
+    --green-soft:#2c5446;
+    --green-text:#7bbfa6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:"Space Grotesk","Archivo",system-ui,sans-serif;
+    font-size:18px;
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .display{
+    font-family:"Archivo Black","Archivo",sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    line-height:0.92;
+    letter-spacing:-0.02em;
+  }
+  .accent{color:var(--accent);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:"Archivo Black",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:13px;
+    color:var(--accent);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+    transition:background .25s ease, padding .25s ease, border-color .25s ease;
+    border-bottom:1px solid transparent;
+  }
+  nav.scrolled{
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:12px 24px;
+  }
+  .brand{
+    font-family:"Archivo Black",sans-serif;
+    text-transform:uppercase;
+    font-size:28px;
+    letter-spacing:-0.01em;
+  }
+  .brand span{color:var(--accent);}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a.nlink{
+    font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--muted2);transition:color .15s;
+  }
+  .nav-links a.nlink:hover{color:var(--white);}
+  .btn{
+    display:inline-block;
+    font-family:"Archivo Black",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    cursor:pointer;border:none;
+    transition:transform .12s ease, background .15s ease;
+  }
+  .btn-accent{
+    background:var(--accent);
+    color:#000 !important;          /* hard contrast, always black */
+    padding:14px 26px;
+    border-radius:999px;
+    font-size:15px;
+  }
+  .btn-accent:hover{transform:translateY(-2px) scale(1.02);background:#ffba1f;}
+  .btn-ghost{
+    background:transparent;color:var(--white) !important;
+    border:2px solid var(--white);
+    padding:13px 26px;border-radius:999px;font-size:15px;
+  }
+  .btn-ghost:hover{background:var(--white);color:#000 !important;}
+  /* CTA that breathes, so the free guide reads as the thing to click */
+  .cta-glow{animation:ctaGlow 2.2s ease-in-out infinite;}
+  /* half a cycle behind, so the two offer buttons alternate instead of throbbing together */
+  .cta-glow-alt{animation-delay:-1.1s;}
+  .cta-glow:hover{animation:none;box-shadow:0 0 40px rgba(240,165,0,.95);}
+  @keyframes ctaGlow{
+    0%,100%{box-shadow:0 0 8px rgba(240,165,0,.30);transform:scale(1);}
+    50%{box-shadow:0 0 46px rgba(240,165,0,.95), 0 0 16px rgba(255,224,140,.65);transform:scale(1.04);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .cta-glow{animation:none;box-shadow:0 0 28px rgba(240,165,0,.7);}
+  }
+  .btn-lg{padding:20px 40px;font-size:19px;}
+
+  /* ---------- quote band ---------- */
+  .quote-band{padding:clamp(34px,5.5vw,60px) 0;background:var(--accent);}
+  .qband{
+    text-align:center;max-width:940px;margin:0 auto;position:relative;
+    font-family:"Archivo",sans-serif;font-weight:800;font-style:italic;color:#000;
+    font-size:clamp(28px,4.8vw,52px);line-height:1.13;letter-spacing:-0.01em;
+  }
+  .qband .gold{color:#fff;}                 /* the key word pops white on gold */
+  .qband .qmark{color:rgba(0,0,0,.32);font-style:normal;}
+  .qband cite{
+    display:block;margin-top:28px;font-style:normal;
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    font-size:13px;color:rgba(0,0,0,.62);
+  }
+
+  /* ---------- floating chat bubble ---------- */
+  .chat-fab{position:fixed;right:22px;bottom:22px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none;}
+  .chat-greet{
+    max-width:264px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;border-bottom-right-radius:4px;padding:14px 30px 14px 16px;
+    color:var(--white);box-shadow:0 18px 40px rgba(0,0,0,.55);cursor:pointer;position:relative;
+    opacity:0;transform:translateY(12px) scale(.96);transition:opacity .35s ease, transform .35s ease;pointer-events:none;
+  }
+  .chat-greet.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .chat-greet strong{display:block;font-weight:700;font-size:15px;margin-bottom:3px;}
+  .chat-greet span.gt{font-size:13px;color:var(--muted2);line-height:1.35;}
+  .chat-greet .gx{position:absolute;top:5px;right:8px;color:var(--muted);font-size:17px;line-height:1;padding:4px;cursor:pointer;}
+  .chat-greet .gx:hover{color:var(--white);}
+  .chat-fab-btn{
+    width:62px;height:62px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(240,165,0,.4);
+    transition:transform .15s ease;position:relative;pointer-events:auto;
+  }
+  .chat-fab-btn:hover{transform:translateY(-2px) scale(1.05);}
+  .chat-fab-btn svg{width:30px;height:30px;}
+  .chat-fab-dot{position:absolute;top:1px;right:1px;width:14px;height:14px;border-radius:50%;background:#ff4d4d;border:2px solid var(--black);}
+  @media (max-width:520px){.chat-fab{right:16px;bottom:16px;} .chat-greet{max-width:220px;}}
+
+  /* ---------- embedded chat panel ---------- */
+  .chat-panel{
+    position:fixed;right:22px;bottom:92px;z-index:9998;
+    width:336px;max-width:calc(100vw - 32px);height:454px;max-height:68vh;
+    background:var(--black);border:1.5px solid var(--accent);border-radius:16px;overflow:hidden;
+    box-shadow:0 18px 44px rgba(0,0,0,.6), 0 0 0 4px rgba(240,165,0,.12);display:flex;flex-direction:column;
+    opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;
+    transition:opacity .26s ease, transform .26s ease;
+  }
+  .chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .chat-panel-head{
+    display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;
+    padding:6px 8px 6px 12px;background:var(--card);border-bottom:1px solid var(--line);
+  }
+  .chat-panel-head .cp-reset{background:none;border:none;color:var(--muted2);font-size:11px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:4px 2px;font-family:inherit;}
+  .chat-panel-head .cp-reset:hover{color:var(--white);}
+  .chat-panel-head .cp-close{background:none;border:none;color:var(--muted2);font-size:22px;line-height:1;cursor:pointer;padding:0 4px;}
+  .chat-panel-head .cp-close:hover{color:var(--white);}
+  .cp-body{flex:1 1 auto;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px;}
+  .cp-msg{max-width:84%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word;animation:cpRise .22s ease both;}
+  .cp-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--line);color:var(--white);border-bottom-left-radius:5px;}
+  .cp-msg.user{align-self:flex-end;background:var(--accent);color:#000;font-weight:500;border-bottom-right-radius:5px;}
+  .cp-msg.bot a{color:var(--accent);text-decoration:underline;}
+  @keyframes cpRise{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .cp-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;}
+  .cp-typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:cpBlink 1.2s infinite both;}
+  .cp-typing i:nth-child(2){animation-delay:.2s;} .cp-typing i:nth-child(3){animation-delay:.4s;}
+  @keyframes cpBlink{0%,80%,100%{opacity:.25;}40%{opacity:1;}}
+  .cp-input{flex:0 0 auto;display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--card);}
+  .cp-input textarea{flex:1;resize:none;background:var(--black);border:1px solid var(--line);border-radius:12px;color:var(--white);padding:10px 12px;font-family:inherit;font-size:14px;max-height:90px;line-height:1.4;}
+  .cp-input textarea:focus{outline:none;border-color:var(--accent);}
+  .cp-send{flex:0 0 auto;width:42px;border:none;border-radius:12px;background:var(--accent);color:#000;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .cp-send:disabled{opacity:.5;cursor:default;}
+  .cp-cta{flex:0 0 auto;display:flex;gap:6px;padding:8px 8px 0;}
+  .cp-cta button{flex:1;background:var(--card);border:1px solid var(--line);color:var(--white);border-radius:10px;padding:9px 4px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.01em;transition:border-color .12s,color .12s;}
+  .cp-cta button:hover{border-color:var(--accent);color:var(--accent);}
+  .cp-leadform{align-self:stretch;background:var(--card);border:1.5px solid var(--accent);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:8px;}
+  .cp-leadform .lf-title{font-weight:700;font-size:13.5px;color:var(--white);}
+  .cp-leadform input,.cp-leadform textarea{background:var(--black);border:1px solid var(--line);border-radius:9px;color:var(--white);padding:9px 11px;font-family:inherit;font-size:13px;width:100%;}
+  .cp-leadform textarea{resize:none;min-height:46px;line-height:1.4;}
+  .cp-leadform input:focus,.cp-leadform textarea:focus{outline:none;border-color:var(--accent);}
+  .cp-leadform .lf-err{color:#ff6b6b;font-size:12px;}
+  .cp-leadform .lf-row{display:flex;gap:8px;}
+  .cp-leadform .lf-row button{flex:1;border:none;border-radius:9px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:.04em;}
+  .cp-leadform .lf-send{background:var(--accent);color:#000;}
+  .cp-leadform .lf-cancel{background:transparent;color:var(--muted2);border:1px solid var(--line);}
+  @media (max-width:520px){
+    .chat-panel{right:12px;left:12px;bottom:86px;width:auto;max-width:none;height:78vh;}
+  }
+  .nav-cta{font-size:13px;padding:11px 20px;}
+  .menu-btn{display:none;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    padding:170px 0 80px;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(240,165,0,.16), transparent 60%),
+      radial-gradient(700px 500px at 0% 110%, rgba(240,165,0,.07), transparent 60%),
+      var(--black);
+    z-index:0;
+  }
+  .hero-inner{position:relative;z-index:2;}
+  .hero h1{
+    font-size:clamp(52px,11.5vw,150px);
+    margin:18px 0 0;
+  }
+  .hero h1 .stroke{
+    -webkit-text-stroke:2px var(--white);
+    color:transparent;
+  }
+  .hero p.sub{
+    font-size:clamp(17px,2.2vw,23px);
+    color:#d4d4d4;
+    max-width:680px;
+    margin:30px 0 0;
+    font-weight:400;
+    line-height:1.5;
+  }
+  .hero p.sub strong{color:var(--white);font-weight:700;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;}
+  .trust{
+    margin-top:30px;font-size:14px;color:var(--muted2);
+    font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+  }
+  .trust b{color:var(--accent);}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background:var(--accent);
+    color:#000;
+    padding:18px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    border-top:3px solid #000;border-bottom:3px solid #000;
+  }
+  .marquee.dark{background:#000;color:var(--accent);border-color:var(--accent);}
+  .marquee-track{
+    display:inline-flex;
+    will-change:transform;
+    animation:scrollx 28s linear infinite;
+  }
+  .marquee-track span{
+    font-family:"Archivo Black",sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(22px,3.4vw,40px);
+    letter-spacing:.01em;
+    padding:0 8px;
+  }
+  @keyframes scrollx{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+
+  /* ---------- SECTION BASICS ---------- */
+  section{position:relative;}
+  .pad{padding:clamp(84px,11vw,140px) 0;}
+  .sec-head{
+    font-size:clamp(40px,8vw,92px);
+    margin:16px 0 0;
+  }
+  .lead{color:var(--muted2);max-width:620px;margin-top:20px;font-size:18px;}
+
+  /* ---------- WHO IT'S FOR ---------- */
+  #who{background:var(--pure);}
+  .stmt-list{margin-top:48px;display:grid;gap:0;border-top:1px solid var(--line);}
+  .stmt{
+    display:flex;gap:22px;align-items:flex-start;
+    padding:26px 4px;border-bottom:1px solid var(--line);
+  }
+  .stmt .dot{
+    flex:0 0 auto;width:14px;height:14px;border-radius:50%;
+    background:var(--accent);margin-top:9px;
+  }
+  .stmt p{font-size:clamp(18px,2.3vw,24px);color:#cfcfcf;line-height:1.4;}
+  .stmt p b{color:var(--white);font-weight:800;}
+  .stmt .pname{display:block;font-family:"Archivo Black",sans-serif;font-size:clamp(11px,1vw,13px);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+  .who-close{
+    margin-top:46px;
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;
+    font-size:clamp(22px,3.6vw,40px);line-height:1.05;letter-spacing:-0.01em;
+  }
+  .who-close .accent{display:block;}
+
+  /* ---------- TWO PATHS (typographic) ---------- */
+  #paths{background:var(--black);border-top:1px solid var(--line);}
+  .paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px;}
+  .path{
+    border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:34px 30px;
+    background:rgba(255,255,255,.03);backdrop-filter:blur(10px);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .path:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(0,0,0,.5);}
+  .path.new{background:var(--accent);color:#000;border-color:var(--accent);}
+  .path .ptag{
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;
+    letter-spacing:.14em;font-size:13px;margin-bottom:18px;
+  }
+  .path.old .ptag{color:var(--muted2);}
+  .path.new .ptag{color:#000;opacity:.7;}
+  .flow{display:flex;flex-direction:column;gap:6px;}
+  .flow .step{
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;
+    font-size:clamp(22px,3.2vw,34px);line-height:1.05;letter-spacing:-0.01em;
+  }
+  .path.old .step{color:#666;}
+  .path.old .step:last-child{color:#8a8a8a;}
+  .path.new .step{color:#000;}
+  .flow .arrow{font-size:14px;font-weight:700;opacity:.55;letter-spacing:.2em;}
+  .path.new .arrow{opacity:.6;}
+  .paths-line{
+    margin-top:42px;font-size:clamp(18px,2.3vw,24px);
+    color:#d2d2d2;max-width:760px;line-height:1.45;
+  }
+  .paths-line b{color:var(--accent);font-weight:700;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  #how{background:var(--pure);border-top:1px solid var(--line);}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:50px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .step-cell{background:var(--pure);padding:38px 32px;}
+  .step-cell .num{
+    font-family:"Archivo Black",sans-serif;
+    font-size:46px;color:var(--accent);line-height:1;margin-bottom:16px;
+  }
+  .step-cell h3{
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;
+    font-size:24px;letter-spacing:-0.01em;margin-bottom:12px;
+  }
+  .step-cell p{color:var(--muted2);font-size:16px;}
+
+  /* ---------- OUTCOMES (reuses .steps / .step-cell) ---------- */
+  #outcomes{background:var(--pure);border-top:1px solid var(--line);}
+
+  /* ---------- WAYS TO WORK ---------- */
+  #offers{background:var(--black);border-top:1px solid var(--line);}
+  .offers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:760px;margin:50px auto 0;}
+  .offer{
+    border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 28px;
+    background:rgba(255,255,255,.03);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.45);
+    display:flex;flex-direction:column;transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .offer:hover{transform:translateY(-4px);border-color:rgba(240,165,0,.4);box-shadow:0 28px 64px rgba(0,0,0,.55);}
+  .offer.feat{border:1.5px solid var(--accent);background:linear-gradient(180deg, rgba(31,61,51,.45), rgba(18,18,18,.65));position:relative;box-shadow:0 24px 60px rgba(0,0,0,.55), 0 0 0 4px rgba(240,165,0,.10);}
+  .offer .badge{
+    position:absolute;top:-13px;left:28px;background:var(--accent);color:#000;
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:11px;
+    letter-spacing:.1em;padding:6px 14px;border-radius:999px;
+  }
+  .offer h3{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:24px;margin-bottom:8px;}
+  .offer .price{font-family:"Archivo Black",sans-serif;font-size:30px;color:var(--accent);margin-bottom:6px;}
+  .offer .price small{font-size:14px;color:var(--muted2);font-family:"Space Grotesk";font-weight:400;}
+  .offer .odesc{color:var(--muted2);font-size:15px;margin-bottom:24px;flex:1;}
+  .offer .btn{width:100%;text-align:center;}
+
+  /* ---------- STATS ---------- */
+  #stats{background:var(--accent);color:#000;padding:70px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:left;}
+  .stat .n{font-family:"Archivo Black",sans-serif;font-size:clamp(44px,7vw,84px);line-height:0.9;letter-spacing:-0.03em;}
+  .stat .l{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.08em;margin-top:8px;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  #testi{background:var(--pure);border-top:1px solid var(--line);}
+  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:50px;}
+  .quote{border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:32px;background:rgba(255,255,255,.03);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .18s ease;}
+  .quote:hover{transform:translateY(-3px);}
+  .quote .q{font-size:19px;line-height:1.45;color:#e4e4e4;}
+  .quote .q::before{content:"“";color:var(--accent);font-family:"Archivo Black";font-size:34px;line-height:0;vertical-align:-6px;margin-right:4px;}
+  .quote .who{margin-top:18px;font-weight:700;font-size:14px;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;}
+
+  /* ---------- ABOUT ---------- */
+  #about{background:var(--black);border-top:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:50px;align-items:center;margin-top:30px;}
+  .photo{
+    aspect-ratio:4/5;border-radius:20px;
+    background:
+      radial-gradient(120% 90% at 70% 0%, rgba(240,165,0,.28), transparent 55%),
+      linear-gradient(160deg,#1a1a1a,#0c0c0c);
+    border:1px solid var(--line);
+    display:flex;align-items:flex-end;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .photo::after{
+    content:"[ photo ] David Robles";
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:"Archivo Black";text-transform:uppercase;letter-spacing:.1em;
+    font-size:14px;color:#555;
+  }
+  .photo .badge2{
+    margin:0 0 22px;background:var(--accent);color:#000;
+    font-family:"Archivo Black";text-transform:uppercase;font-size:12px;letter-spacing:.08em;
+    padding:8px 16px;border-radius:999px;z-index:2;position:relative;
+  }
+  .about-grid .body h2{font-size:clamp(24px,4vw,40px);}
+  .about-grid .role{font-family:"Archivo Black";text-transform:uppercase;color:var(--accent);font-size:14px;letter-spacing:.12em;margin-top:12px;}
+  .about-grid .body p{color:#cfcfcf;margin-top:22px;font-size:18px;line-height:1.55;}
+  .about-grid .body p b{color:var(--white);}
+  .about-grid .body .about-close{
+    font-family:"Archivo Black",sans-serif;text-transform:uppercase;
+    color:var(--white);font-size:clamp(16px,1.5vw,19px);line-height:1.3;
+    letter-spacing:0;margin-top:26px;
+  }
+  .about-cover{position:relative;display:inline-block;}
+  .about-cover img{
+    width:100%;display:block;border-radius:8px;position:relative;z-index:2;
+    box-shadow:0 30px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05);
+  }
+  .about-cover::before{
+    content:"";position:absolute;left:-16px;bottom:-16px;
+    width:58%;height:58%;z-index:1;
+    border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);
+  }
+
+  /* ---------- BOOK CTA ---------- */
+  #book{background:radial-gradient(90% 70% at 50% 42%, rgba(240,165,0,.16), rgba(0,0,0,0) 70%), #0b0b0b;color:#fff;text-align:center;padding:100px 0;position:relative;overflow:hidden;}
+  #book h2{font-size:clamp(40px,8vw,96px);color:#fff;}
+  #book .bk-white{color:var(--accent);}
+  #book .blurb{max-width:620px;margin:22px auto 0;font-size:19px;color:#b4b4b4;line-height:1.5;}
+  #book .blurb b{color:#fff;}
+  #book .bk-blurb2{margin-top:0;}
+  #book .bk-rule{width:56px;height:2px;background:rgba(255,255,255,.22);margin:18px auto;}
+  #book .btn-black{
+    background:var(--accent);color:#000 !important;margin-top:34px;
+    padding:16px 36px;border-radius:999px;font-size:18px;
+    font-family:"Archivo Black";text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:12px;
+    box-shadow:0 0 70px rgba(240,165,0,.45), 0 16px 34px rgba(0,0,0,.55);
+    transition:transform .12s, box-shadow .2s;
+  }
+  #book .btn-black:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 90px rgba(240,165,0,.62), 0 20px 40px rgba(0,0,0,.6);}
+  #book .bk-ico{flex:none;width:30px;height:30px;border-radius:50%;background:#000;color:var(--accent);display:inline-grid;place-items:center;}
+  #book .bk-ico svg{width:17px;height:17px;}
+  #book .micro{margin-top:18px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:#8f8f8f;}
+  #book .bk-or{display:flex;align-items:center;justify-content:center;gap:14px;max-width:300px;margin:24px auto 16px;}
+  #book .bk-or::before,#book .bk-or::after{content:"";height:2px;flex:1;background:rgba(255,255,255,.18);}
+  #book .bk-or span{font-family:"Archivo Black";font-size:13px;letter-spacing:.12em;color:#9a9a9a;}
+  #book .bk-secondary{display:inline-flex;align-items:center;gap:12px;border:2px solid rgba(255,255,255,.55);color:#fff;background:transparent;border-radius:999px;padding:15px 38px;font-family:"Archivo Black";text-transform:uppercase;font-size:16px;transition:background .15s,color .15s,border-color .15s;}
+  #book .bk-secondary:hover{background:#fff;color:#000;border-color:#fff;}
+  #book .bk-ico-o{flex:none;display:inline-grid;place-items:center;}
+  #book .bk-ico-o svg{width:20px;height:20px;}
+  #book .bk-chev{
+    --chev:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20120%20240%27%3E%3Cdefs%3E%3Cpattern%20id%3D%27d%27%20width%3D%2711%27%20height%3D%2711%27%20patternUnits%3D%27userSpaceOnUse%27%3E%3Ccircle%20cx%3D%273%27%20cy%3D%273%27%20r%3D%272.4%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fpattern%3E%3CclipPath%20id%3D%27c%27%3E%3Cpath%20d%3D%27M20%2020%20L100%20120%20L20%20220%20L20%20178%20L56%20120%20L20%2062%20Z%27%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Crect%20width%3D%27120%27%20height%3D%27240%27%20fill%3D%27url%28%23d%29%27%20clip-path%3D%27url%28%23c%29%27%2F%3E%3C%2Fsvg%3E");
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:clamp(150px,19vw,300px); height:clamp(300px,38vw,560px);
+    pointer-events:none; z-index:0; opacity:.5;
+    -webkit-mask:var(--chev) center/contain no-repeat;
+            mask:var(--chev) center/contain no-repeat;
+    background:linear-gradient(to right, rgba(120,78,4,0) 0%, rgba(150,100,12,.5) 38%, rgba(255,228,150,.95) 96%);
+  }
+  #book .bk-chev::after{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(115deg,
+      transparent 0, transparent 66px,
+      rgba(255,250,215,.85) 90px,
+      transparent 114px, transparent 180px);
+    animation:bkFlow 3s linear infinite;
+  }
+  #book .bk-chev-l{ left:-2%; }
+  #book .bk-chev-r{ right:-2%; transform:translateY(-50%) scaleX(-1); }
+  @keyframes bkFlow{
+    from{ background-position:0 0; }
+    to{ background-position:180px 0; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    #book .bk-chev::after{ animation:none; opacity:0; }
+  }
+  #book .wrap{position:relative;z-index:1;}
+  @media (max-width:560px){
+    #book .btn-black,#book .bk-secondary{width:100%;justify-content:center;}
+    #book .bk-chev{display:none;}
+  }
+
+  /* ---------- FAQ ---------- */
+  #faq{background:var(--pure);border-top:1px solid var(--line);}
+  .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px;}
+  .faq-item{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;background:rgba(255,255,255,.03);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .18s ease, border-color .18s ease;}
+  .faq-item:hover{transform:translateY(-3px);border-color:rgba(240,165,0,.35);}
+  .faq-item h3{font-family:"Archivo Black";text-transform:uppercase;font-size:19px;margin-bottom:12px;color:var(--white);}
+  .faq-item p{color:var(--muted2);font-size:16px;line-height:1.5;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#000;border-top:1px solid var(--line);padding:60px 0 40px;}
+  .foot-brand{font-family:"Archivo Black";text-transform:uppercase;font-size:26px;margin-bottom:18px;}
+  .foot-brand span{color:var(--accent);}
+  .disclaimer{color:var(--muted);font-size:13px;line-height:1.6;max-width:760px;}
+  .disclaimer b{color:#bbb;}
+  .copy{margin-top:26px;color:#555;font-size:13px;letter-spacing:.03em;}
+
+  /* ---------- ASSESSMENT CTA ---------- */
+  #assess{background:var(--black);border-top:1px solid var(--line);}
+  .assess-card{
+    border:1.5px solid rgba(240,165,0,.38);border-radius:22px;padding:clamp(34px,5vw,64px);
+    background:
+      radial-gradient(900px 460px at 100% 0%, rgba(240,165,0,.20), transparent 62%),
+      linear-gradient(180deg, rgba(31,61,51,.32), rgba(22,22,22,.95));
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(240,165,0,.06), inset 0 1px 0 rgba(255,255,255,.05);
+    position:relative;overflow:hidden;
+  }
+  .assess-card .eyebrow{margin-bottom:14px;}
+  .assess-card h2{font-size:clamp(34px,6vw,68px);}
+  .assess-card p{color:#cfcfcf;max-width:560px;margin-top:22px;font-size:clamp(17px,2.1vw,20px);line-height:1.5;}
+  .assess-card .btn{margin-top:34px;}
+  .assess-card .micro2{margin-top:16px;font-weight:700;text-transform:uppercase;font-size:12.5px;letter-spacing:.1em;color:var(--muted2);}
+
+  /* ---------- TRUST ---------- */
+  #trust{background:var(--pure);border-top:1px solid var(--line);}
+  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:50px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .trust-cell{background:linear-gradient(180deg, rgba(31,61,51,.30), rgba(0,0,0,0) 70%), var(--pure);padding:36px 32px;transition:background .2s ease;}
+  .trust-cell:hover{background:linear-gradient(180deg, rgba(31,61,51,.45), rgba(0,0,0,0) 75%), var(--pure);}
+  .trust-cell .ticon{
+    font-family:"Archivo Black",sans-serif;font-size:30px;color:var(--green-text);line-height:1;margin-bottom:16px;
+  }
+  .trust-cell h3{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:-0.01em;margin-bottom:12px;}
+  .trust-cell p{color:var(--muted2);font-size:16px;line-height:1.55;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .paths-grid,.steps,.offers-grid,.stats-grid,.quotes,.faq-grid,.trust-grid{grid-template-columns:1fr;}
+    /* stacked: trust cells become distinct cards (matches the .path/.offer treatment) */
+    .trust-grid{gap:18px;background:transparent;border:0;border-radius:0;overflow:visible;margin-top:36px;}
+    .trust-cell{
+      background:linear-gradient(180deg, rgba(31,61,51,.42), rgba(0,0,0,0) 72%), #1c1c1c;
+      border:1px solid rgba(255,255,255,.16);
+      border-left:4px solid var(--accent);
+      border-radius:16px;padding:26px 24px;
+      box-shadow:0 18px 40px rgba(0,0,0,.6);
+    }
+    .trust-cell:hover{background:linear-gradient(180deg, rgba(31,61,51,.42), rgba(0,0,0,0) 72%), #1c1c1c;}
+    .about-grid{grid-template-columns:1fr;gap:30px;}
+    .photo{max-width:360px;}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none;}
+    .nav-links.open{
+      display:flex;flex-direction:column;align-items:flex-start;gap:18px;
+      position:absolute;top:100%;left:0;right:0;background:#0c0c0c;
+      padding:24px;border-bottom:1px solid var(--line);
+    }
+    .menu-btn{
+      display:inline-flex;background:var(--accent);color:#000;border:none;cursor:pointer;
+      font-family:"Archivo Black";font-size:13px;text-transform:uppercase;
+      padding:10px 16px;border-radius:8px;letter-spacing:.05em;
+    }
+    .pad{padding:64px 0;}
+    .hero{padding:130px 0 60px;}
+    .hero-cta .btn{flex:1 1 100%;text-align:center;}
+    #stats{padding:54px 0;}
+    .stat .n{font-size:56px;}
+  }
+  @media(max-width:380px){
+    body{font-size:16px;}
+    .wrap{padding:0 18px;}
+  }
+
+  /* ---------- GEO answer-first intro paragraphs ---------- */
+  .geo-answer{max-width:760px;margin:22px 0 0;color:var(--muted2);font-size:clamp(16px,2.2vw,18px);line-height:1.65;}
+  .geo-answer b{color:var(--white);}
+  #book .geo-answer{margin:22px auto 0;}
+
+  /* ===================== OVERRIDE METHOD (Two Paths) ===================== */
+  .override-method-section{ background:#0a0a0a; color:#fff; padding:118px 32px 84px; font-family:"Space Grotesk",sans-serif; }
+  .method-wrap{ max-width:1280px; margin:0 auto; }
+  .method-eyebrow{ color:#f0a500; text-transform:uppercase; letter-spacing:0.18em; font-weight:800; margin-bottom:14px; }
+  .method-brandline{ font-family:"Archivo Black",sans-serif; font-size:clamp(2.9rem,7.5vw,6rem); line-height:0.9; text-transform:uppercase; color:#fff; max-width:900px; margin:0; }
+  .method-brandline span{ color:#f0a500; }
+  .method-subhead{ font-family:"Space Grotesk",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.02em; font-size:clamp(0.95rem,1.9vw,1.28rem); color:#b9b9b9; margin:18px 0 6px; }
+  .method-intro{ max-width:720px; color:#cfcfcf; font-size:clamp(1rem,2vw,1.18rem); line-height:1.55; margin-bottom:4px; }
+  .method-intro strong{ color:#fff; font-weight:800; }
+
+  .method-grid{ display:grid; grid-template-columns:minmax(320px,450px) 124px minmax(320px,450px); gap:20px; align-items:start; justify-content:center; }
+
+  .override-method-section .path-card{ background:#121212; border:1px solid #1e1e1e; border-radius:24px; padding:28px; box-shadow:0 30px 80px rgba(0,0,0,0.45); }
+  .override-method-section .path-card h3{ font-family:"Archivo Black",sans-serif; text-transform:uppercase; text-align:center; letter-spacing:0.08em; font-size:1.6rem; margin:0; }
+  .override-method-section .old-path h3{ color:#9a9a9a; }
+  .override-method-section .new-path{ border-color:#c8961f; box-shadow:0 0 40px rgba(240,165,0,0.12); }
+  .override-method-section .new-path h3{ color:#f0a500; }
+  .override-method-section .path-subtitle{ text-align:center; text-transform:uppercase; letter-spacing:0.12em; color:#9a9a9a; font-weight:800; margin:4px 0 22px; }
+
+  .om-step{ display:grid; grid-template-columns:56px 1fr 26px; gap:14px; align-items:center; padding:14px 0; border-top:1px solid #252525; }
+  .om-step:first-of-type{ border-top:0; }
+  .override-method-section .icon, .override-method-section .pause-icon{ width:46px; height:46px; border:1px solid #7a7a7a; border-radius:50%; display:grid; place-items:center; color:#fff; }
+  .override-method-section .icon svg{ width:22px; height:22px; }
+  .override-method-section .icon.gold{ border-color:#f0a500; color:#f0a500; }
+  .om-step h4{ font-family:"Archivo Black",sans-serif; text-transform:uppercase; letter-spacing:0.04em; font-size:1.05rem; margin:0 0 3px; color:#fff; }
+  .om-step > div > p{ color:#d6d6d6; margin:0; line-height:1.35; font-size:0.95rem; }
+  .om-step .mark{ font-size:1.6rem; font-weight:900; text-align:center; }
+  .om-step .mark.bad{ color:#8a8a8a; }
+  .om-step .mark.good{ color:#f0a500; }
+
+  .om-pause-step{ grid-template-columns:70px 1fr; background:linear-gradient(90deg,rgba(240,165,0,0.26),rgba(240,165,0,0.05)); border:1.5px solid #f0a500; border-radius:18px; padding:16px 16px 16px 14px; margin:8px 0; box-shadow:0 0 56px rgba(240,165,0,0.4); }
+  .override-method-section .pause-icon{ width:62px; height:62px; border:4px solid #fff; background:#f0a500; color:#000; box-shadow:0 0 46px rgba(240,165,0,0.95); }
+  .override-method-section .pause-icon svg{ width:28px; height:28px; }
+  .om-pause-step > div > p{ white-space:nowrap; }
+  .om-pause-step h4{ color:#f0a500; font-size:1.9rem; }
+  .om-pause-step > div > p{ color:#fff; font-weight:700; }
+
+  .trigger-node{ text-align:center; color:#fff; align-self:center; }
+  .trigger-circle{ width:106px; height:106px; margin:0 auto 14px; border-radius:50%; border:1px solid #7a7a7a; background:#000; display:grid; place-items:center; gap:2px; box-shadow:0 0 28px rgba(240,165,0,0.18); }
+  .trigger-circle svg{ width:38px; height:38px; color:#fff; }
+  .trigger-circle strong{ text-transform:uppercase; font-family:"Archivo Black",sans-serif; letter-spacing:0.04em; font-size:0.72rem; }
+  .trigger-node > p{ font-weight:800; line-height:1.4; }
+
+  .method-cta-bar{ margin-top:40px; border:1px solid #1e1e1e; border-radius:22px; padding:26px 32px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; background:#0d0d0d; }
+  .book-callout{ display:flex; gap:20px; align-items:center; }
+  .book-icon{ flex:none; width:68px; height:68px; border:1px solid #c8961f; border-radius:50%; display:grid; place-items:center; color:#f0a500; }
+  .book-icon svg{ width:34px; height:34px; }
+  .book-callout h3{ font-family:"Archivo Black",sans-serif; text-transform:uppercase; margin:0 0 6px; font-size:1.15rem; }
+  .book-callout p{ margin:0; color:#fff; font-size:1.02rem; line-height:1.4; }
+  .book-callout strong{ color:#f0a500; text-transform:uppercase; }
+  .pattern-button{ display:inline-flex; align-items:center; gap:12px; justify-content:center; background:#f0a500; color:#000; text-decoration:none; font-family:"Archivo Black",sans-serif; text-transform:uppercase; letter-spacing:0.04em; padding:20px 38px; border-radius:999px; min-width:260px; box-shadow:0 0 28px rgba(240,165,0,0.35); transition:transform .15s ease, box-shadow .2s ease; }
+  .pattern-button:hover{ transform:translateY(-2px); box-shadow:0 0 40px rgba(240,165,0,0.5); }
+  .pattern-button span{ font-size:1.4rem; }
+
+  @media (max-width:980px){
+    .method-grid{ grid-template-columns:1fr; }
+    .trigger-node{ order:2; }
+    .override-method-section .old-path{ order:1; }
+    .override-method-section .new-path{ order:3; }
+    .method-cta-bar{ grid-template-columns:1fr; }
+    .pattern-button{ width:100%; }
+  }
+  @media (max-width:560px){
+    .override-method-section{ padding:56px 20px; }
+    .override-method-section .path-card{ padding:22px; }
+    .om-step{ grid-template-columns:46px 1fr 22px; }
+    .om-pause-step{ grid-template-columns:1fr; text-align:center; }
+    .om-pause-step .pause-icon{ margin:0 auto; }
+    .om-pause-step > div > p{ white-space:normal; }
+    .book-callout{ align-items:flex-start; }
+  }
+</style>
+
+<!-- ============ STRUCTURED DATA (JSON-LD) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://theoverride.co/#org",
+      "name": "The Override Coaching",
+      "alternateName": "The Override",
+      "url": "https://theoverride.co/",
+      "logo": "https://theoverride.co/logo.png",
+      "description": "Coaching built on The Override Method for high-functioning people who look successful and feel stuck on autopilot. Online, nationwide.",
+      "founder": { "@id": "https://theoverride.co/#david" },
+      "sameAs": [
+        "https://roblesmedia.github.io/the-override/",
+        "https://www.youtube.com/@OverrideMethod",
+        "https://www.etsy.com/shop/TheOverride"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://theoverride.co/#website",
+      "url": "https://theoverride.co/",
+      "name": "The Override Coaching",
+      "publisher": { "@id": "https://theoverride.co/#org" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://theoverride.co/#david",
+      "name": "David Robles",
+      "jobTitle": "Coach, Author & Creator of The Override Method",
+      "description": "U.S. Army veteran, coach, author, and creator of The Override Method, a framework for interrupting automatic patterns and choosing deliberate action.",
+      "knowsAbout": [
+        "behavior change",
+        "breaking automatic patterns",
+        "overthinking",
+        "self-sabotage",
+        "living on autopilot",
+        "conscious behavior change",
+        "personal transformation",
+        "men's self-mastery"
+      ],
+      "worksFor": { "@id": "https://theoverride.co/#org" },
+      "sameAs": [
+        "https://roblesmedia.github.io/the-override/",
+        "https://www.youtube.com/@OverrideMethod",
+        "https://www.etsy.com/shop/TheOverride"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://theoverride.co/#service",
+      "name": "The Override Coaching",
+      "serviceType": "Life and performance coaching",
+      "category": "Coaching",
+      "provider": { "@id": "https://theoverride.co/#org" },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://theoverride.co/",
+        "availableLanguage": "English"
+      },
+      "description": "1:1 and group coaching built on The Override Method. We map the pattern running you, build the pause, and rehearse the override until the new path is your default. Online, nationwide.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ways to work with The Override",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "The Starter Guide",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free guide naming the six patterns plus the first move to break yours."
+          },
+          {
+            "@type": "Offer",
+            "name": "Override Intensive",
+            "description": "Private, application-only 1:1 coaching engagement."
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Book",
+      "@id": "https://theoverride.co/#book",
+      "name": "The Override",
+      "author": { "@id": "https://theoverride.co/#david" },
+      "url": "https://roblesmedia.github.io/the-override/",
+      "about": [
+        "behavior change",
+        "automatic patterns",
+        "self-sabotage",
+        "overthinking",
+        "living on autopilot"
+      ],
+      "abstract": "A practical framework for recognizing the unconscious patterns that keep high-functioning people on autopilot, interrupting them, and choosing a different path."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://theoverride.co/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is The Override coaching or therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It's coaching, not therapy/counseling/treatment. In crisis or managing a mental-health condition? Coaching isn't a substitute for professional care."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is coaching different from therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Therapy often focuses on healing, mental health, and emotional recovery. Coaching focuses on awareness, decision-making, accountability, and behavior change. The right fit depends on your goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is The Override coaching for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-functioning people who know what to do but keep finding themselves back in the same patterns. Success isn't the problem. Awareness isn't the problem. The challenge is turning insight into different behavior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What actually happens in coaching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We identify the loop that's keeping you stuck, the trigger that starts it, and the new response you want to make automatic. Every session ends with a practical override to test in real life."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast will I see change from coaching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most people identify a pattern within the first one or two sessions. Creating lasting change takes repetition and practice over time. Some shifts happen quickly. Others take longer. Results vary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do people work with you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most people start with a few sessions and decide from there. The goal isn't dependency. It's building a process you can use without me."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is The Override coaching located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Online, nationwide. Everything's over video."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I'm not sure which coaching option fits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book the free call and we'll figure out whether the 1:1 or the free guide is the right fit."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5aa027499d2f482abd487a388cd352c8"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#top" class="brand">THE<span>OVERRIDE</span></a>
+  <div class="nav-links" id="navLinks">
+    <a class="nlink" href="#who">Who It's For</a>
+    <a class="nlink" href="#how">How It Works</a>
+    <a class="nlink" href="#offers">Work With Me</a>
+    <a class="nlink" href="#faq">FAQ</a>
+    <a class="nlink" href="/book">Free Guide</a>
+    <a class="btn btn-accent nav-cta book-link" href="#book">Book a Free Call</a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Coaching, Not Therapy</div>
+    <h1 class="display">STOP RUNNING<br/>ON <span class="accent">AUTOPILOT.</span></h1>
+    <p class="sub">You're successful. You're also stuck, repeating the same loop and calling it your personality. <strong>The Override is coaching that finds the pattern running you and rewires it.</strong> No fluff.</p>
+    <div class="hero-cta">
+      <a href="./assessment.html" class="btn btn-accent btn-lg">Find Your Pattern</a>
+      <a href="#book" class="btn btn-ghost btn-lg book-link">Book a Free Call</a>
+    </div>
+    <div class="trust">Coaching <b>·</b> Online <b>·</b> Nationwide <b>·</b> First call's free</div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>THE ACHIEVER •&nbsp;</span><span>THE FIXER •&nbsp;</span><span>THE PEACEKEEPER •&nbsp;</span><span>THE PERFECTIONIST •&nbsp;</span><span>THE CONTROLLER •&nbsp;</span><span>THE AVOIDER •&nbsp;</span>
+    <span>THE ACHIEVER •&nbsp;</span><span>THE FIXER •&nbsp;</span><span>THE PEACEKEEPER •&nbsp;</span><span>THE PERFECTIONIST •&nbsp;</span><span>THE CONTROLLER •&nbsp;</span><span>THE AVOIDER •&nbsp;</span>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section id="who" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">No Sugarcoating</div>
+      <h2 class="display sec-head">WHO IS THE OVERRIDE<br/>COACHING <span class="accent">FOR?</span></h2>
+    </div>
+    <p class="geo-answer reveal">The Override is coaching for high-functioning people, the ones who look successful and feel stuck on autopilot. If you keep hitting goals but repeating the same loop, willpower isn't the fix. Six patterns drive that loop: the <b>Achiever</b>, <b>Fixer</b>, <b>Peacekeeper</b>, <b>Perfectionist</b>, <b>Controller</b>, and <b>Avoider</b>. One of them is running you.</p>
+    <div class="stmt-list">
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Achiever</span>You <b>achieve and achieve</b>, but the finish line keeps moving and the feeling you were chasing never arrives.</p></div>
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Fixer</span>You <b>hold it together for everyone</b>, and quietly resent that nobody holds it together for you.</p></div>
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Peacekeeper</span>You <b>shapeshift to fit every room</b>, and slowly lost track of what YOU actually want.</p></div>
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Perfectionist</span>You know <b>exactly</b> what you want to create. It just never quite reaches the bar you've set.</p></div>
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Controller</span>You <b>white-knuckle everything</b> because part of you doesn't believe it'll be okay if you let go.</p></div>
+      <div class="stmt reveal"><span class="dot"></span><p><span class="pname">The Avoider</span>You're capable, you're liked, and you're <b>in the same spot you were five years ago.</b></p></div>
+    </div>
+    <div class="who-close reveal">Every one of these is a pattern.<span class="accent">And every pattern can be overridden.</span></div>
+  </div>
+</section>
+
+<!-- ASSESSMENT CTA -->
+<section id="assess" class="pad">
+  <div class="wrap">
+    <div class="assess-card reveal">
+      <div class="eyebrow">2-Minute Pattern Check</div>
+      <h2 class="display">WHICH PATTERN<br/>IS <span class="accent">RUNNING YOU?</span></h2>
+      <p>Six patterns quietly run high-functioning people: the Achiever, Fixer, Peacekeeper, Perfectionist, Controller, and Avoider. Usually one is making your decisions before you do. The free 2-minute Override assessment shows you which pattern is driving your loop, and the first concrete move to override it.</p>
+      <a href="./assessment.html" class="btn btn-accent btn-lg">Find Your Pattern</a>
+      <div class="micro2">7 questions · no signup to start</div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO PATHS / OVERRIDE METHOD -->
+<section class="override-method-section" id="paths">
+  <div class="method-wrap">
+
+    <p class="method-eyebrow">Same trigger. Different ending.</p>
+
+    <div class="method-brandline">One Pattern. <span>Two Paths.</span></div>
+
+    <h2 class="method-subhead">What is the Override Method?</h2>
+
+    <p class="method-intro">The Override Method helps you interrupt automatic patterns by creating a pause between a trigger and a reaction.</p>
+
+    <div class="method-grid">
+
+      <div class="path-card old-path reveal">
+        <h3>Autopilot</h3>
+        <p class="path-subtitle">The old loop</p>
+
+        <div class="om-step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
+          <div><h4>Trigger</h4><p>Something happens.</p></div>
+          <span class="mark bad">×</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+          <div><h4>Story</h4><p>You create a story.</p></div>
+          <span class="mark bad">×</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <div><h4>Emotion</h4><p>The emotion takes over.</p></div>
+          <span class="mark bad">×</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <div><h4>Pattern</h4><p>You fall back into the pattern.</p></div>
+          <span class="mark bad">×</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></div>
+          <div><h4>Same Outcome</h4><p>Same frustration. Same results. Nothing changes.</p></div>
+          <span class="mark bad">×</span>
+        </div>
+      </div>
+
+      <div class="trigger-node" aria-label="Same trigger, different choice">
+        <div class="trigger-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+          <strong>Trigger</strong>
+        </div>
+        <p>Same trigger.<br>Different choice.</p>
+      </div>
+
+      <div class="path-card new-path reveal">
+        <h3>The Override</h3>
+        <p class="path-subtitle">The new path</p>
+
+        <div class="om-step">
+          <div class="icon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
+          <div><h4>Trigger</h4><p>Something happens.</p></div>
+          <span class="mark good">✓</span>
+        </div>
+
+        <div class="om-step om-pause-step">
+          <div class="pause-icon"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></div>
+          <div><h4>Pause</h4><p>The moment everything changes.</p></div>
+        </div>
+
+        <div class="om-step">
+          <div class="icon gold"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          <div><h4>Override</h4><p>You choose a different response.</p></div>
+          <span class="mark good">✓</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></div>
+          <div><h4>New Action</h4><p>You take intentional action.</p></div>
+          <span class="mark good">✓</span>
+        </div>
+
+        <div class="om-step">
+          <div class="icon gold"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></div>
+          <div><h4>New Outcome</h4><p>Different results. A different life. You move forward.</p></div>
+          <span class="mark good">✓</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="method-cta-bar reveal">
+      <div class="book-callout">
+        <div class="book-icon" role="img" aria-label="Book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div>
+          <h3>A book shows you the map.</h3>
+          <p><strong>Coaching makes you actually walk the new path.</strong></p>
+          <p>When the old one is screaming at you to take the familiar turn.</p>
+        </div>
+      </div>
+
+      <a class="pattern-button" href="./assessment.html">
+        Find Your Pattern <span>→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <div class="wrap">
+    <blockquote class="qband">
+      <span class="qmark">&ldquo;</span>It is in your moments of <span class="gold">decision</span> that your destiny is shaped.<span class="qmark">&rdquo;</span>
+      <cite>Tony Robbins</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">The Method, Step By Step</div>
+      <h2 class="display sec-head">HOW DOES THE OVERRIDE<br/>METHOD <span class="accent">WORK?</span></h2>
+    </div>
+    <p class="geo-answer reveal">The Override Method works in four steps. First we map the exact pattern running you. Then you build the pause, catching the loop while it's live. Next you run the override, rehearsing the new response in real situations. Finally, reps make it your default. You leave with the tool, not a dependence on me.</p>
+    <div class="steps">
+      <div class="step-cell reveal"><div class="num">01</div><h3>Map the Pattern</h3><p>We pinpoint the exact loop: trigger, story, payoff, and where it got wired in.</p></div>
+      <div class="step-cell reveal"><div class="num">02</div><h3>Build the Pause</h3><p>You learn to catch it while it's running and widen the gap between trigger and reaction.</p></div>
+      <div class="step-cell reveal"><div class="num">03</div><h3>Run the Override</h3><p>We rehearse the new response in your real life, then debrief what happened.</p></div>
+      <div class="step-cell reveal"><div class="num">04</div><h3>Make It Yours</h3><p>Reps make the new path your default. You leave with the tool, not a dependence on me.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE 2 -->
+<div class="marquee dark" aria-hidden="true">
+  <div class="marquee-track">
+    <span>BREAK THE PATTERN •&nbsp;</span><span>CHOOSE YOUR LIFE •&nbsp;</span><span>STOP REPEATING YOURSELF •&nbsp;</span><span>OVERRIDE THE LOOP •&nbsp;</span>
+    <span>BREAK THE PATTERN •&nbsp;</span><span>CHOOSE YOUR LIFE •&nbsp;</span><span>STOP REPEATING YOURSELF •&nbsp;</span><span>OVERRIDE THE LOOP •&nbsp;</span>
+  </div>
+</div>
+
+<!-- OFFERS -->
+<section id="offers" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Pick Your Level</div>
+      <h2 class="display sec-head">HOW CAN YOU WORK<br/>WITH <span class="accent">DAVID?</span></h2>
+    </div>
+    <p class="geo-answer reveal">There are two ways in. The free <b>Starter Guide</b> names the six patterns and hands you the first move to break yours. Zero cost, zero catch. The <b>Override Intensive</b> is private, application-only 1:1 coaching for people who want it handled fast and fully. Not sure which? Start with a free discovery call.</p>
+    <div class="offers-grid">
+      <div class="offer reveal">
+        <h3>The Starter Guide</h3>
+        <div class="price">Free</div>
+        <p class="odesc">Start today. The patterns, named, plus the first move to break yours. Zero cost, zero catch.</p>
+        <a class="btn btn-accent cta-glow" href="/book">Get the Free Guide</a>
+      </div>
+      <div class="offer feat reveal">
+        <h3>Override Intensive</h3>
+        <div class="price">By application</div>
+        <p class="odesc">1:1, application only. Deep, private work for people who want it handled fast and handled fully.</p>
+        <a class="btn btn-accent cta-glow cta-glow-alt book-link" href="#book">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<!-- OUTCOMES -->
+<section id="outcomes" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">The Payoff</div>
+      <h2 class="display sec-head">WHAT YOU <span class="accent">WALK AWAY WITH.</span></h2>
+    </div>
+    <p class="geo-answer reveal">You walk away with four things: <b>clarity</b> to name the pattern that's been running you, <b>the pause</b> to interrupt it under pressure, <b>new choices</b>, a repeatable way to choose the response you actually want, and <b>momentum</b> as the loop that kept stalling your "someday" goal stops calling the shots.</p>
+    <div class="steps">
+      <div class="step-cell reveal"><div class="num">01</div><h3>Clarity</h3><p>You can finally name the pattern that's been running the show.</p></div>
+      <div class="step-cell reveal"><div class="num">02</div><h3>The Pause</h3><p>Space between trigger and reaction, so you stop being hijacked into the same old move.</p></div>
+      <div class="step-cell reveal"><div class="num">03</div><h3>New Choices</h3><p>A repeatable way to choose the response you actually want, under pressure.</p></div>
+      <div class="step-cell reveal"><div class="num">04</div><h3>Momentum</h3><p>The 'someday' thing starts moving.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="pad">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-cover reveal">
+        <img src="the-book-v3.png" alt="The Override by David Robles" />
+      </div>
+      <div class="body reveal">
+        <div class="eyebrow">About the Creator of The Override Method</div>
+        <h2 class="display" style="font-size:clamp(30px,5vw,46px);line-height:1;margin:10px 0 16px;">WHO IS <span class="accent">DAVID?</span></h2>
+        <p>I'm a U.S. Army veteran, coach, author, and the creator of The Override Method. I've spent years sitting with people in the gap between who they are and who they keep defaulting into being. The Override is the method I built from that work: a way to see the pattern running you and choose differently, on purpose.</p>
+        <p>This is coaching, not therapy. It's forward-looking, practical, and built for capable people who are tired of repeating themselves.</p>
+        <p class="about-close">You are not your patterns. You're the one running them. Let me show you how to take the wheel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Who's In Your Corner</div>
+      <h2 class="display sec-head">REAL EXPERIENCE.<br/>NO <span class="accent">GURU ACT.</span></h2>
+    </div>
+    <p class="geo-answer reveal">David Robles is a <b>U.S. Army veteran, coach, author, and the creator of The Override Method</b>. No recycled weekend-cert framework, no guru act. Just years spent with people in the gap between who they are and who they keep defaulting into being, and a system built to hand you the keys.</p>
+    <div class="trust-grid">
+      <div class="trust-cell reveal">
+        <h3>U.S. Army Veteran</h3>
+        <p>I come from a world where you don't get to skip the hard part. Discipline, accountability, follow-through: that's the floor here, not the goal.</p>
+      </div>
+      <div class="trust-cell reveal">
+        <h3>Creator of the Override Method</h3>
+        <p>Not a recycled framework off a weekend cert. It's the exact system I use to help people catch the pattern and choose a different move under real pressure.</p>
+      </div>
+      <div class="trust-cell reveal">
+        <h3>Years in the Room</h3>
+        <p>Years spent with people in the gap between who they are and who they keep defaulting into being. I've watched how the loop actually breaks.</p>
+      </div>
+      <div class="trust-cell reveal">
+        <h3>Built to Hand You the Keys</h3>
+        <p>Structured coaching with a start and a finish. You leave running your own override, not depending on me to do it for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book">
+  <span class="bk-chev bk-chev-l" aria-hidden="true"></span>
+  <span class="bk-chev bk-chev-r" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--accent);margin-bottom:26px;">No Pressure. No Pitch.</div>
+      <h2 class="display">READY TO CHOOSE A<br/><span class="bk-white">DIFFERENT ENDING</span>?</h2>
+      <p class="blurb">Most people don't need more information. They need a <b>different move</b> in the moment the old pattern takes over.</p>
+      <div class="bk-rule"></div>
+      <p class="blurb bk-blurb2">Let's find the pattern you're up against and decide whether coaching is <b>the right next step</b>.</p>
+      <a href="#" class="btn-black book-link"><span class="bk-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></span>Schedule a Free Call</a>
+      <div class="micro">30 minutes · by phone · no obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Straight Answers</div>
+      <h2 class="display sec-head">QUESTIONS?<br/><span class="accent">GOOD.</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><h3>Is this therapy?</h3><p>No. It's coaching, not therapy/counseling/treatment. In crisis or managing a mental-health condition? Coaching isn't a substitute for professional care.</p></div>
+      <div class="faq-item reveal"><h3>How is this different from therapy?</h3><p>Therapy often focuses on healing, mental health, and emotional recovery. Coaching focuses on awareness, decision-making, accountability, and behavior change. The right fit depends on your goals.</p></div>
+      <div class="faq-item reveal"><h3>Who's it for?</h3><p>High-functioning people who know what to do but keep finding themselves back in the same patterns. Success isn't the problem. Awareness isn't the problem. The challenge is turning insight into different behavior.</p></div>
+      <div class="faq-item reveal"><h3>What actually happens in coaching?</h3><p>We identify the loop that's keeping you stuck, the trigger that starts it, and the new response you want to make automatic. Every session ends with a practical override to test in real life.</p></div>
+      <div class="faq-item reveal"><h3>How fast?</h3><p>Most people identify a pattern within the first one or two sessions. Creating lasting change takes repetition and practice over time. Some shifts happen quickly. Others take longer. Results vary.</p></div>
+      <div class="faq-item reveal"><h3>How long do people work with you?</h3><p>Most people start with a few sessions and decide from there. The goal isn't dependency. It's building a process you can use without me.</p></div>
+      <div class="faq-item reveal"><h3>Where are you?</h3><p>Online, nationwide. Everything's over video.</p></div>
+      <div class="faq-item reveal"><h3>Not sure which option?</h3><p>Book the free call and we'll figure out whether the 1:1 or the free guide is the right fit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">THE<span>OVERRIDE</span></div>
+    <p class="disclaimer"><b>The Override is a coaching service for personal growth and is not therapy, counseling, diagnosis, or a substitute for professional mental-health care.</b> In crisis? Call or text 988, or dial 911.</p>
+    <div class="copy">© <span id="year"></span> The Override · David Robles. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Booking URL: set this to repoint every booking button
+  const BOOKING_URL = "https://calendly.com/roblesinc/override-coaching-call";
+  (function(){
+    if(BOOKING_URL){
+      document.querySelectorAll('.book-link').forEach(function(a){
+        a.setAttribute('href', BOOKING_URL);
+        a.setAttribute('target','_blank');
+        a.setAttribute('rel','noopener');
+      });
+    }
+  })();
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky nav background on scroll
+  const nav = document.getElementById('nav');
+  function onScroll(){
+    if(window.scrollY > 24){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.closest('a')) navLinks.classList.remove('open');
+  });
+
+  // Scroll reveal (respect reduced motion)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+</script>
+
+<!-- floating chat bubble + embedded coaching chat -->
+<div class="chat-panel" id="chatPanel" aria-hidden="true" role="dialog" aria-label="Chat with The Override">
+  <div class="chat-panel-head">
+    <button class="cp-reset" id="chatReset" type="button">Start over</button>
+    <button class="cp-close" id="chatPanelClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="cp-body" id="cpBody" aria-live="polite"></div>
+  <div class="cp-cta" id="cpCta">
+    <button type="button" data-act="guide">Free guide</button>
+    <button type="button" data-act="call">Book a call</button>
+    <button type="button" data-act="text">Text David</button>
+  </div>
+  <form class="cp-input" id="cpForm">
+    <textarea id="cpInput" rows="1" placeholder="Type a message…" aria-label="Your message"></textarea>
+    <button class="cp-send" id="cpSend" type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
+<div class="chat-fab" id="chatFab">
+  <div class="chat-greet" id="chatGreet" role="button" tabindex="0" aria-label="Chat with The Override">
+    <span class="gx" id="chatGreetX" role="button" aria-label="Dismiss">&times;</span>
+    <strong>👋 Got a minute?</strong>
+    <span class="gt">Let's find the pattern running you. Free, no pressure.</span>
+  </div>
+  <button class="chat-fab-btn" id="chatFabBtn" aria-label="Chat with The Override">
+    <span class="chat-fab-dot" id="chatFabDot"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"></path></svg>
+  </button>
+</div>
+<script>
+(function(){
+  /* Guide chat widget. Turned off 2026-08-08: the greeting bubble was landing
+     on top of the CTA buttons on phones. Nothing below is deleted. To bring it
+     back, flip this one flag to true. */
+  var CHAT_ENABLED=false;
+  if(!CHAT_ENABLED){
+    var offFab=document.getElementById('chatFab'),
+        offPanel=document.getElementById('chatPanel');
+    if(offFab){offFab.style.display='none';}
+    if(offPanel){offPanel.style.display='none';}
+    return;
+  }
+  var ENDPOINT="https://override-coaching-chatbot.roblesinc.workers.dev/chat";
+  var LEAD_ENDPOINT=ENDPOINT.replace(/\/chat$/,"/lead");
+  var CALENDLY="https://calendly.com/roblesinc/override-coaching-call";
+  var GUIDE_PDF="https://roblesmedia.github.io/the-override/override-starter-guide.pdf";
+  var firstConcern="";
+  var GREETING="Hey, I'm the guide here at The Override. What's bringing you in today?";
+  var fab=document.getElementById('chatFabBtn'),
+      greet=document.getElementById('chatGreet'),
+      gx=document.getElementById('chatGreetX'),
+      dot=document.getElementById('chatFabDot'),
+      panel=document.getElementById('chatPanel'),
+      pclose=document.getElementById('chatPanelClose'),
+      body=document.getElementById('cpBody'),
+      form=document.getElementById('cpForm'),
+      input=document.getElementById('cpInput'),
+      sendBtn=document.getElementById('cpSend');
+  var history=[], busy=false, started=false, isOpen=false;
+
+  function sid(){
+    try{
+      var k='ovChatSession', v=localStorage.getItem(k);
+      if(!v){ v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():('s-'+Date.now()+'-'+Math.random().toString(16).slice(2)); localStorage.setItem(k,v); }
+      return v;
+    }catch(_){ return 's-'+Date.now(); }
+  }
+  var sessionId=sid();
+
+  // 5-hour conversation persistence (per browser)
+  var LOG_KEY='ovChatLog', LOG_TTL=5*60*60*1000;
+  function saveLog(){ try{ localStorage.setItem(LOG_KEY, JSON.stringify({ts:Date.now(), history:history})); }catch(_){} }
+  function loadLog(){
+    try{
+      var o=JSON.parse(localStorage.getItem(LOG_KEY));
+      if(!o || !o.ts || (Date.now()-o.ts)>LOG_TTL || !Array.isArray(o.history) || !o.history.length){ localStorage.removeItem(LOG_KEY); return null; }
+      return o.history;
+    }catch(_){ return null; }
+  }
+  function clearLog(){ try{ localStorage.removeItem(LOG_KEY); }catch(_){} }
+
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function linkify(s){ return esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>'); }
+
+  function addMsg(text, who){
+    var el=document.createElement('div');
+    el.className='cp-msg '+who;
+    el.innerHTML = who==='bot' ? linkify(text) : esc(text);
+    body.appendChild(el); body.scrollTop=body.scrollHeight;
+  }
+  function typing(on){
+    var t=document.getElementById('cpTyping');
+    if(on){ if(!t){ t=document.createElement('div'); t.id='cpTyping'; t.className='cp-typing'; t.innerHTML='<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop=body.scrollHeight; } }
+    else if(t){ t.remove(); }
+  }
+
+  function openPanel(){
+    if(!started){
+      started=true;
+      addMsg(GREETING,'bot');
+      var saved=loadLog();
+      if(saved){ saved.forEach(function(m){ addMsg(m.content, m.role==='user'?'user':'bot'); }); history=saved; }
+    }
+    panel.classList.add('open'); panel.setAttribute('aria-hidden','false');
+    greet.classList.remove('show'); if(dot) dot.style.display='none'; isOpen=true;
+    try{ sessionStorage.setItem('ovGreetDismissed','1'); }catch(_){}
+    setTimeout(function(){ input.focus(); },280);
+  }
+  function closePanel(){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); isOpen=false; }
+  function startOver(){ clearLog(); history=[]; body.innerHTML=''; addMsg(GREETING,'bot'); input.focus(); }
+  function toggle(){ isOpen?closePanel():openPanel(); }
+
+  async function send(text){
+    text=(text||'').trim();
+    if(busy || !text) return;
+    busy=true; sendBtn.disabled=true;
+    addMsg(text,'user'); history.push({role:'user',content:text}); if(!firstConcern) firstConcern=text;
+    input.value=''; input.style.height='auto';
+    typing(true);
+    try{
+      var res=await fetch(ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({sessionId:sessionId,messages:history})});
+      var data=await res.json();
+      typing(false);
+      var msg=(data&&data.message)?data.message:"I'm having a moment, try that again?";
+      // Concierge: never coaches/therapizes heavy stuff, routes to David. No 988 wall.
+      if(data&&data.crisis){ msg="That sounds like a lot to carry, and honestly bigger than a website chat. The best next step is talking to David directly. Want him to text you, or grab a time for a call?"; }
+      addMsg(msg,'bot'); history.push({role:'assistant',content:msg}); saveLog();
+    }catch(e){
+      typing(false); addMsg("Connection hiccup. Give it another try in a sec.",'bot');
+    }
+    busy=false; sendBtn.disabled=false; input.focus();
+  }
+
+  // ---- lead-capture actions: the ONLY things that notify David ----
+  function leadCard(opts){
+    var card=document.createElement('div'); card.className='cp-leadform';
+    var t=document.createElement('div'); t.className='lf-title'; t.textContent=opts.title; card.appendChild(t);
+    var inputs={};
+    opts.fields.forEach(function(f){
+      var el=f.type==='textarea'?document.createElement('textarea'):document.createElement('input');
+      if(f.type && f.type!=='textarea') el.type=f.type;
+      el.placeholder=f.placeholder; if(f.value) el.value=f.value;
+      card.appendChild(el); inputs[f.key]=el;
+    });
+    var err=document.createElement('div'); err.className='lf-err'; err.style.display='none'; card.appendChild(err);
+    var row=document.createElement('div'); row.className='lf-row';
+    var go=document.createElement('button'); go.type='button'; go.className='lf-send'; go.textContent=opts.sendLabel||'Send';
+    var cancel=document.createElement('button'); cancel.type='button'; cancel.className='lf-cancel'; cancel.textContent='Cancel';
+    row.appendChild(go); row.appendChild(cancel); card.appendChild(row);
+    cancel.addEventListener('click',function(){ card.remove(); });
+    go.addEventListener('click',async function(){
+      err.style.display='none';
+      var vals={}; Object.keys(inputs).forEach(function(k){ vals[k]=inputs[k].value.trim(); });
+      var missing=opts.required.filter(function(k){ return !vals[k]; });
+      if(missing.length){ err.textContent='Please add '+opts.requiredLabel+'.'; err.style.display='block'; return; }
+      go.disabled=true; go.textContent='Sending…';
+      try{
+        var res=await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+          body:JSON.stringify({type:opts.type,name:vals.name||'',email:vals.email||'',phone:vals.phone||'',note:(vals.note||firstConcern||''),sessionId:sessionId,transcript:history})});
+        var data=await res.json();
+        if(!res.ok||!data.ok) throw new Error((data&&data.error)||'failed');
+        card.remove(); if(opts.onDone) opts.onDone(vals);
+      }catch(_){ go.disabled=false; go.textContent=opts.sendLabel||'Send'; err.textContent="That didn't go through. Try once more?"; err.style.display='block'; }
+    });
+    body.appendChild(card); body.scrollTop=body.scrollHeight;
+  }
+  function doGuide(){
+    leadCard({type:'guide',title:'Get the free guide',sendLabel:'Send it',required:['name','email'],requiredLabel:'your name and email',
+      fields:[{key:'name',placeholder:'First name'},{key:'email',placeholder:'Email',type:'email'}],
+      onDone:function(){ addMsg("Done. Your guide's opening in a new tab, and it's yours to keep.",'bot'); saveLog(); window.open(GUIDE_PDF,'_blank','noopener'); }});
+  }
+  function doText(){
+    leadCard({type:'text',title:'Have David text you',sendLabel:'Send',required:['name','phone'],requiredLabel:'your name and phone',
+      fields:[{key:'name',placeholder:'First name'},{key:'phone',placeholder:'Phone number',type:'tel'},{key:'note',placeholder:"What's going on? (optional)",type:'textarea',value:firstConcern}],
+      onDone:function(v){ addMsg("Got it. David will text you at "+v.phone+" soon.",'bot'); saveLog(); }});
+  }
+  function doCall(){
+    fetch(LEAD_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({type:'call',note:firstConcern||'',sessionId:sessionId,transcript:history})}).catch(function(){});
+    addMsg("Opening David's calendar in a new tab. Grab whatever time works, first call's free.",'bot'); saveLog();
+    window.open(CALENDLY,'_blank','noopener');
+  }
+  document.getElementById('cpCta').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]'); if(!b) return;
+    if(!started) openPanel();
+    var act=b.getAttribute('data-act');
+    if(act==='guide') doGuide(); else if(act==='call') doCall(); else if(act==='text') doText();
+  });
+
+  form.addEventListener('submit',function(e){ e.preventDefault(); send(input.value); });
+  input.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(input.value); } });
+  input.addEventListener('input',function(){ input.style.height='auto'; input.style.height=Math.min(input.scrollHeight,90)+'px'; });
+
+  fab.addEventListener('click',toggle);
+  greet.addEventListener('click',openPanel);
+  greet.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(); } });
+  pclose.addEventListener('click',closePanel);
+  document.getElementById('chatReset').addEventListener('click',startOver);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&isOpen) closePanel(); });
+  gx.addEventListener('click',function(e){ e.stopPropagation(); greet.classList.remove('show'); if(dot) dot.style.display='none'; try{ sessionStorage.setItem('ovGreetDismissed','1'); }catch(_){} });
+
+  var dismissed=false; try{ dismissed=sessionStorage.getItem('ovGreetDismissed')==='1'; }catch(_){}
+  if(!dismissed){ setTimeout(function(){ if(!isOpen) greet.classList.add('show'); }, 3500); }
+})();
+</script>
+
+<style id="ts-scale"></style>
+
+<style id="ts-body">
+  /* one body size */
+  .hero p.sub    { font-size: clamp(17px, 1.6vw, 20px) !important; }
+  .stmt p        { font-size: clamp(17px, 1.5vw, 19px) !important; }
+  .lead,
+  .about-grid .body p,
+  #book .blurb,
+  .assess-card p,
+  .geo-answer,
+  .method-intro  { font-size: 18px !important; line-height: 1.6 !important; }
+  .offer .odesc  { font-size: 16px !important; }
+</style>
+
+<div id="ts-panel">
+  <div class="ts-head">
+    <span class="ts-title">TYPE SCALE TUNER</span>
+    <button id="ts-min" title="Collapse">&minus;</button>
+  </div>
+
+  <div id="ts-guts">
+    <div class="ts-presets">
+      <button data-h="147" data-s="92" data-b="0">Live</button>
+      <button data-h="134" data-s="88" data-b="1" title="Loudest that still works">Max</button>
+      <button data-h="102" data-s="67" data-b="1">Mine</button>
+      <button data-h="88"  data-s="58" data-b="1">Calm</button>
+    </div>
+
+    <div class="ts-hint">
+      Above <b>134px</b> the headline breaks to 3 lines and the CTA drops
+      below the fold. That is your ceiling at this window size.
+    </div>
+
+    <label class="ts-row">
+      <span>Hero</span>
+      <input type="range" id="ts-hero" min="70" max="150" step="1" value="102">
+      <b id="ts-hero-v">102px</b>
+    </label>
+
+    <label class="ts-row">
+      <span>Sections</span>
+      <input type="range" id="ts-sec" min="45" max="100" step="1" value="67">
+      <b id="ts-sec-v">67px</b>
+    </label>
+
+    <label class="ts-check">
+      <input type="checkbox" id="ts-c2" checked>
+      Standardize body copy <span class="ts-note">8 sizes to 1</span>
+    </label>
+
+    <div id="ts-fold" class="ts-fold">&mdash;</div>
+
+    <div class="ts-meta">
+      Page <b id="ts-h">&mdash;</b> &nbsp;&middot;&nbsp; Headline <b id="ts-lines">&mdash;</b>
+    </div>
+
+    <div class="ts-css" id="ts-css"></div>
+  </div>
+</div>
+
+<style>
+  #ts-panel{
+    position:fixed; right:18px; bottom:18px; z-index:99999;
+    background:#101010; color:#eee; border:1px solid #f0a500;
+    border-radius:12px; padding:12px 14px; width:290px;
+    font-family:ui-sans-serif, system-ui, sans-serif; font-size:12px;
+    line-height:1.45; box-shadow:0 12px 44px rgba(0,0,0,.65);
+  }
+  #ts-panel.min #ts-guts{ display:none; }
+  #ts-panel .ts-head{ display:flex; align-items:center; justify-content:space-between; }
+  #ts-panel .ts-title{ font-weight:700; letter-spacing:.11em; font-size:10px; color:#f0a500; }
+  #ts-panel #ts-min{
+    background:none; border:0; color:#777; cursor:pointer; font-size:17px;
+    line-height:1; padding:0 3px;
+  }
+  #ts-panel .ts-presets{ display:flex; gap:5px; margin:11px 0 12px; }
+  #ts-panel .ts-presets button{
+    flex:1; padding:6px 0; border-radius:6px; cursor:pointer;
+    border:1px solid #3a3a3a; background:#1c1c1c; color:#ccc;
+    font-size:11px; font-weight:600;
+  }
+  #ts-panel .ts-presets button:hover{ border-color:#f0a500; color:#fff; }
+  #ts-panel .ts-presets button.on{ background:#f0a500; border-color:#f0a500; color:#111; }
+  #ts-panel .ts-hint{
+    background:#1a1508; border:1px solid #3d3115; border-radius:6px;
+    padding:7px 9px; margin:0 0 12px; color:#b39a5e; font-size:10px; line-height:1.5;
+  }
+  #ts-panel .ts-hint b{ color:#f0a500; }
+  #ts-panel .ts-row{
+    display:grid; grid-template-columns:52px 1fr 44px;
+    align-items:center; gap:8px; margin:9px 0;
+  }
+  #ts-panel .ts-row span{ color:#8d8d8d; font-size:11px; }
+  #ts-panel .ts-row b{ text-align:right; font-variant-numeric:tabular-nums; color:#fff; }
+  #ts-panel input[type=range]{ width:100%; accent-color:#f0a500; }
+  #ts-panel .ts-check{
+    display:block; margin:13px 0 11px; cursor:pointer;
+    border-top:1px solid #2c2c2c; padding-top:11px;
+  }
+  #ts-panel .ts-check input{ margin-right:6px; accent-color:#f0a500; }
+  #ts-panel .ts-note{ color:#777; font-size:10px; }
+  #ts-panel .ts-fold{
+    padding:7px 9px; border-radius:6px; font-size:11px; font-weight:700;
+    text-align:center; margin-bottom:8px;
+  }
+  #ts-panel .ts-fold.ok{ background:rgba(40,170,90,.16); color:#4ad07f; }
+  #ts-panel .ts-fold.bad{ background:rgba(220,60,60,.16); color:#ff7a7a; }
+  #ts-panel .ts-meta{ color:#8d8d8d; font-size:10px; text-align:center; margin-bottom:9px; }
+  #ts-panel .ts-meta b{ color:#ddd; font-variant-numeric:tabular-nums; }
+  #ts-panel .ts-css{
+    background:#000; border:1px solid #262626; border-radius:6px;
+    padding:8px; font-family:ui-monospace, Menlo, monospace;
+    font-size:9.5px; line-height:1.55; color:#7fd6a0;
+    white-space:pre-wrap; word-break:break-all; user-select:all;
+  }
+  @media print { #ts-panel{ display:none; } }
+</style>
+
+<script>
+(function(){
+  var scale = document.getElementById('ts-scale');
+  var bodyS = document.getElementById('ts-body');
+  var hero  = document.getElementById('ts-hero');
+  var sec   = document.getElementById('ts-sec');
+  var c2    = document.getElementById('ts-c2');
+
+  // A desktop max of M renders at M px on a 1280 viewport via (M/12.8)vw.
+  // Reproduces the shipped values: 147 -> 11.5vw, 102 -> 8vw.
+  function clampStr(maxPx, floorCap){
+    var vw = (maxPx / 12.8).toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
+    var floor = Math.min(floorCap, Math.round(maxPx * 0.5));
+    return 'clamp(' + floor + 'px, ' + vw + 'vw, ' + maxPx + 'px)';
+  }
+
+  function apply(){
+    var h = +hero.value, s = +sec.value;
+    var hC = clampStr(h, 48), sC = clampStr(s, 34);
+
+    scale.textContent =
+      '.hero h1{font-size:' + hC + ' !important;}' +
+      '.sec-head{font-size:' + sC + ' !important;}' +
+      '#book h2{font-size:' + sC + ' !important;}' +
+      '.method-brandline{font-size:' + sC + ' !important;}';
+
+    bodyS.disabled = !c2.checked;
+
+    document.getElementById('ts-hero-v').textContent = h + 'px';
+    document.getElementById('ts-sec-v').textContent  = s + 'px';
+    document.getElementById('ts-css').textContent =
+      '.hero h1  { font-size: ' + hC + '; }\n' +
+      '.sec-head { font-size: ' + sC + '; }';
+
+    [].forEach.call(document.querySelectorAll('.ts-presets button'), function(b){
+      b.classList.toggle('on',
+        +b.dataset.h === h && +b.dataset.s === s && (b.dataset.b === '1') === c2.checked);
+    });
+
+    requestAnimationFrame(readout);
+  }
+
+  function readout(){
+    var cta = document.querySelector('.hero-cta');
+    var el  = document.getElementById('ts-fold');
+    if (cta){
+      var bottom = cta.getBoundingClientRect().bottom + window.scrollY;
+      var gap = Math.round(window.innerHeight - bottom);
+      var ok = gap >= 0;
+      el.className = 'ts-fold ' + (ok ? 'ok' : 'bad');
+      el.textContent = ok
+        ? 'CTA fits, ' + gap + 'px above the fold'
+        : 'CTA is ' + Math.abs(gap) + 'px BELOW the fold';
+    }
+    document.getElementById('ts-h').textContent =
+      (document.body.scrollHeight / 1000).toFixed(1) + 'k';
+
+    var h1 = document.querySelector('.hero h1');
+    if (h1){
+      var cs = getComputedStyle(h1);
+      var n = Math.round(h1.getBoundingClientRect().height / parseFloat(cs.lineHeight));
+      document.getElementById('ts-lines').textContent = n + (n === 1 ? ' line' : ' lines');
+    }
+  }
+
+  hero.addEventListener('input', apply);
+  sec.addEventListener('input', apply);
+  c2.addEventListener('change', apply);
+  window.addEventListener('resize', readout);
+  window.addEventListener('scroll', readout, {passive:true});
+
+  [].forEach.call(document.querySelectorAll('.ts-presets button'), function(b){
+    b.addEventListener('click', function(){
+      hero.value = b.dataset.h;
+      sec.value  = b.dataset.s;
+      c2.checked = b.dataset.b === '1';
+      apply();
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+
+  document.getElementById('ts-min').addEventListener('click', function(){
+    var p = document.getElementById('ts-panel');
+    p.classList.toggle('min');
+    this.textContent = p.classList.contains('min') ? '+' : '\u2212';
+  });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>

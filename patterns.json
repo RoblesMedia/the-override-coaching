@@ -1,0 +1,115 @@
+{
+  "_comment": "Single source of truth for the six Override patterns. Edit here, then run build_patterns.py. That script regenerates /pattern/<slug>/index.html for each entry AND rewrites the PATTERNS block inside assessment.html between its marker comments, so the quiz and the pages can never drift apart.",
+  "_loop": "Each pattern's `loop` is the Override Method drawn out for that specific person. trigger -> story -> pattern is the closed loop they're already running. pause -> override -> action is the way out. Keep these short enough to read as diagram labels, not paragraphs.",
+  "order": ["perfectionist", "achiever", "controller", "fixer", "peacekeeper", "avoider"],
+  "patterns": {
+    "achiever": {
+      "name": "The Achiever",
+      "belief": "“I am what I accomplish.”",
+      "reframe": "Your pattern isn't laziness or lack of drive. It's the opposite. You've learned to tie your worth to your output. Somewhere along the way, achievement became the way you stay safe, valued, and respected.",
+      "gives": ["Discipline most people wish they had", "Drive that actually gets things done", "Reliability people know they can count on"],
+      "costs": ["Rest feels unproductive, even wrong", "Relationships get pushed to the back burner", "Success never quite feels like enough"],
+      "override": ["Worth before productivity", "Presence before performance", "Intention before autopilot"],
+      "loop": {
+        "trigger": "You finish something big.",
+        "story": "“If I stop now, I lose the edge.”",
+        "pattern": "You start the next thing before you've felt this one.",
+        "pause": "Notice the itch to start again.",
+        "override": "Your worth was never the output.",
+        "action": "Sit in the win for one full day before you take the next thing."
+      },
+      "seoTitle": "The Achiever Pattern",
+      "seoDescription": "You tie your worth to your output. Here's what the Achiever pattern gives you, what it quietly costs you, and the first move to override it."
+    },
+    "fixer": {
+      "name": "The Fixer",
+      "belief": "“If I don't hold it together, no one will.”",
+      "reframe": "Your pattern isn't weakness or people-pleasing. It's care turned all the way up. You learned that being needed is how you stay connected and safe, so you became the one who handles everything for everyone.",
+      "gives": ["A big heart people feel instantly", "The ability to hold things together under pressure", "Loyalty that runs deep"],
+      "costs": ["Your own needs always land last", "Quiet resentment you never say out loud", "Exhaustion from carrying what isn't yours"],
+      "override": ["Your needs alongside theirs", "Receiving, not just giving", "Letting people carry their own weight"],
+      "loop": {
+        "trigger": "Someone you love is struggling.",
+        "story": "“If I don't step in, this falls apart.”",
+        "pattern": "You pick up their weight and put your own thing down.",
+        "pause": "Catch yourself reaching for what isn't yours.",
+        "override": "Being needed is not the same as being loved.",
+        "action": "Ask what they actually want before you hand them a solution."
+      },
+      "seoTitle": "The Fixer Pattern",
+      "seoDescription": "You're the one who holds it together for everyone. Here's what the Fixer pattern gives you, what it quietly costs you, and the first move to override it."
+    },
+    "peacekeeper": {
+      "name": "The Peacekeeper",
+      "belief": "“If I keep everyone comfortable, I'll be okay.”",
+      "reframe": "Your pattern isn't weakness. It's a finely-tuned radar for everyone else's comfort. You learned that smoothing things over keeps you safe, so you got good at going along, even when it quietly costs you.",
+      "gives": ["People feel calm and easy around you", "You read a room better than anyone", "You rarely make a situation worse"],
+      "costs": ["Your real opinion stays unsaid", "Resentment builds where no one can see it", "You slowly disappear from your own life"],
+      "override": ["Honesty over smoothness", "Your voice over the room's comfort", "The real thing over the easy thing"],
+      "loop": {
+        "trigger": "The room tightens. Someone is upset.",
+        "story": "“If I say the real thing, this gets worse.”",
+        "pattern": "You smooth it over and swallow your take.",
+        "pause": "Feel the sentence you are about to not say.",
+        "override": "Their comfort is not your job.",
+        "action": "Say the real thing once, in a calm voice, and let it land."
+      },
+      "seoTitle": "The Peacekeeper Pattern",
+      "seoDescription": "You keep everyone comfortable, even when it costs you. Here's what the Peacekeeper pattern gives you, what it quietly costs you, and the first move to override it."
+    },
+    "perfectionist": {
+      "name": "The Perfectionist",
+      "belief": "“If it's not perfect, it's not ready.”",
+      "reframe": "Your pattern isn't procrastination. It's protection. High standards started as your edge, but quietly became a place to hide. As long as it isn't finished, it can't be judged.",
+      "gives": ["Standards that produce real quality", "An eye for what everyone else misses", "Work people trust"],
+      "costs": ["Things stall and never ship", "Procrastination disguised as “getting it right”", "You're rarely satisfied, even with good work"],
+      "override": ["Done over perfect", "Action before certainty", "Progress over polish"],
+      "loop": {
+        "trigger": "The work is good enough to send.",
+        "story": "“If it's not right, it's not ready.”",
+        "pattern": "You go back in and polish it one more time.",
+        "pause": "Notice the third pass starting.",
+        "override": "Finished beats flawless.",
+        "action": "Send it at eighty-five percent and let the world respond."
+      },
+      "seoTitle": "The Perfectionist Pattern",
+      "seoDescription": "If it's not perfect, it's not ready. Here's what the Perfectionist pattern gives you, what it quietly costs you, and the first move to override it."
+    },
+    "controller": {
+      "name": "The Controller",
+      "belief": "“If I don't stay on top of it, things start slipping.”",
+      "reframe": "Your pattern isn't being a control freak. It's how you've learned to feel safe in a world that's felt unpredictable. Managing every variable is how you keep the floor from dropping out.",
+      "gives": ["You make things happen others can't", "People feel safe in your hands", "Nothing falls through the cracks on your watch"],
+      "costs": ["Chronic tension you can't switch off", "Relationships strained by the grip", "You can't actually rest"],
+      "override": ["Trust over control", "Letting uncertainty exist", "Loosening the grip and staying okay"],
+      "loop": {
+        "trigger": "Something moves without your input.",
+        "story": "“If I'm not on top of it, it slips.”",
+        "pattern": "You take it back and run it yourself.",
+        "pause": "Feel your hands close.",
+        "override": "Uncertainty is not the same as danger.",
+        "action": "Hand one thing over and let them do it their way."
+      },
+      "seoTitle": "The Controller Pattern",
+      "seoDescription": "If you don't stay on top of it, things start slipping. Here's what the Controller pattern gives you, what it quietly costs you, and the first move to override it."
+    },
+    "avoider": {
+      "name": "The Avoider",
+      "belief": "“I'll deal with it later.”",
+      "reframe": "Your pattern isn't laziness. It's self-protection. Somewhere you learned that staying uncommitted keeps you safe from failing, so “later” became the place you put the things that matter most.",
+      "gives": ["You're adaptable and easygoing", "You don't crack under pressure", "You see options other people rush right past"],
+      "costs": ["The things that matter keep waiting", "“Someday” quietly eats the years", "A low hum of stuck you can't quite name"],
+      "override": ["A direction over drift", "Committing before you feel ready", "Momentum over comfort"],
+      "loop": {
+        "trigger": "The thing that matters comes up again.",
+        "story": "“I'll deal with it later.”",
+        "pattern": "You find something smaller and busy yourself with it.",
+        "pause": "Catch the swerve as it happens.",
+        "override": "Later is a decision, not a delay.",
+        "action": "Do the first ten minutes of it right now, badly."
+      },
+      "seoTitle": "The Avoider Pattern",
+      "seoDescription": "You'll deal with it later. Here's what the Avoider pattern gives you, what it quietly costs you, and the first move to override it."
+    }
+  }
+}

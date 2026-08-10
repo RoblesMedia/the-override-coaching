@@ -131,47 +131,15 @@
 <script>
 (function(){
   var LEAD_ENDPOINT="https://override-coaching-chatbot.roblesinc.workers.dev/lead";
-  var CALENDLY="https://calendly.com/roblesinc/consultation";
-  var GUIDE_PDF="https://roblesmedia.github.io/the-override/override-starter-guide.pdf";
+  // The Calendly and guide links now live on the /pattern/ pages, which own the
+  // post-result CTAs.
 
-  var PATTERNS={
-    achiever:{name:"The Achiever",
-      belief:"“I am what I accomplish.”",
-      reframe:"Your pattern isn't laziness or lack of drive. It's the opposite. You've learned to tie your worth to your output. Somewhere along the way, achievement became the way you stay safe, valued, and respected.",
-      gives:["Discipline most people wish they had","Drive that actually gets things done","Reliability people know they can count on"],
-      costs:["Rest feels unproductive, even wrong","Relationships get pushed to the back burner","Success never quite feels like enough"],
-      override:["Worth before productivity","Presence before performance","Intention before autopilot"]},
-    fixer:{name:"The Fixer",
-      belief:"“If I don't hold it together, no one will.”",
-      reframe:"Your pattern isn't weakness or people-pleasing. It's care turned all the way up. You learned that being needed is how you stay connected and safe, so you became the one who handles everything for everyone.",
-      gives:["A big heart people feel instantly","The ability to hold things together under pressure","Loyalty that runs deep"],
-      costs:["Your own needs always land last","Quiet resentment you never say out loud","Exhaustion from carrying what isn't yours"],
-      override:["Your needs alongside theirs","Receiving, not just giving","Letting people carry their own weight"]},
-    peacekeeper:{name:"The Peacekeeper",
-      belief:"“If I keep everyone comfortable, I'll be okay.”",
-      reframe:"Your pattern isn't weakness. It's a finely-tuned radar for everyone else's comfort. You learned that smoothing things over keeps you safe, so you got good at going along, even when it quietly costs you.",
-      gives:["People feel calm and easy around you","You read a room better than anyone","You rarely make a situation worse"],
-      costs:["Your real opinion stays unsaid","Resentment builds where no one can see it","You slowly disappear from your own life"],
-      override:["Honesty over smoothness","Your voice over the room's comfort","The real thing over the easy thing"]},
-    perfectionist:{name:"The Perfectionist",
-      belief:"“If it's not perfect, it's not ready.”",
-      reframe:"Your pattern isn't procrastination. It's protection. High standards started as your edge, but quietly became a place to hide. As long as it isn't finished, it can't be judged.",
-      gives:["Standards that produce real quality","An eye for what everyone else misses","Work people trust"],
-      costs:["Things stall and never ship","Procrastination disguised as “getting it right”","You're rarely satisfied, even with good work"],
-      override:["Done over perfect","Action before certainty","Progress over polish"]},
-    controller:{name:"The Controller",
-      belief:"“If I don't stay on top of it, things start slipping.”",
-      reframe:"Your pattern isn't being a control freak. It's how you've learned to feel safe in a world that's felt unpredictable. Managing every variable is how you keep the floor from dropping out.",
-      gives:["You make things happen others can't","People feel safe in your hands","Nothing falls through the cracks on your watch"],
-      costs:["Chronic tension you can't switch off","Relationships strained by the grip","You can't actually rest"],
-      override:["Trust over control","Letting uncertainty exist","Loosening the grip and staying okay"]},
-    avoider:{name:"The Avoider",
-      belief:"“I'll deal with it later.”",
-      reframe:"Your pattern isn't laziness. It's self-protection. Somewhere you learned that staying uncommitted keeps you safe from failing, so “later” became the place you put the things that matter most.",
-      gives:["You're adaptable and easygoing","You don't crack under pressure","You see options other people rush right past"],
-      costs:["The things that matter keep waiting","“Someday” quietly eats the years","A low hum of stuck you can't quite name"],
-      override:["A direction over drift","Committing before you feel ready","Momentum over comfort"]}
-  };
+  // Generated from patterns.json by build_patterns.py. Do not hand-edit this
+  // block; edit patterns.json and re-run the script, or the quiz and the
+  // /pattern/ pages will drift apart.
+  // BEGIN:patterns
+  var PATTERNS={"achiever": {"name": "The Achiever", "belief": "\u201cI am what I accomplish.\u201d", "reframe": "Your pattern isn't laziness or lack of drive. It's the opposite. You've learned to tie your worth to your output. Somewhere along the way, achievement became the way you stay safe, valued, and respected.", "gives": ["Discipline most people wish they had", "Drive that actually gets things done", "Reliability people know they can count on"], "costs": ["Rest feels unproductive, even wrong", "Relationships get pushed to the back burner", "Success never quite feels like enough"], "override": ["Worth before productivity", "Presence before performance", "Intention before autopilot"]}, "fixer": {"name": "The Fixer", "belief": "\u201cIf I don't hold it together, no one will.\u201d", "reframe": "Your pattern isn't weakness or people-pleasing. It's care turned all the way up. You learned that being needed is how you stay connected and safe, so you became the one who handles everything for everyone.", "gives": ["A big heart people feel instantly", "The ability to hold things together under pressure", "Loyalty that runs deep"], "costs": ["Your own needs always land last", "Quiet resentment you never say out loud", "Exhaustion from carrying what isn't yours"], "override": ["Your needs alongside theirs", "Receiving, not just giving", "Letting people carry their own weight"]}, "peacekeeper": {"name": "The Peacekeeper", "belief": "\u201cIf I keep everyone comfortable, I'll be okay.\u201d", "reframe": "Your pattern isn't weakness. It's a finely-tuned radar for everyone else's comfort. You learned that smoothing things over keeps you safe, so you got good at going along, even when it quietly costs you.", "gives": ["People feel calm and easy around you", "You read a room better than anyone", "You rarely make a situation worse"], "costs": ["Your real opinion stays unsaid", "Resentment builds where no one can see it", "You slowly disappear from your own life"], "override": ["Honesty over smoothness", "Your voice over the room's comfort", "The real thing over the easy thing"]}, "perfectionist": {"name": "The Perfectionist", "belief": "\u201cIf it's not perfect, it's not ready.\u201d", "reframe": "Your pattern isn't procrastination. It's protection. High standards started as your edge, but quietly became a place to hide. As long as it isn't finished, it can't be judged.", "gives": ["Standards that produce real quality", "An eye for what everyone else misses", "Work people trust"], "costs": ["Things stall and never ship", "Procrastination disguised as \u201cgetting it right\u201d", "You're rarely satisfied, even with good work"], "override": ["Done over perfect", "Action before certainty", "Progress over polish"]}, "controller": {"name": "The Controller", "belief": "\u201cIf I don't stay on top of it, things start slipping.\u201d", "reframe": "Your pattern isn't being a control freak. It's how you've learned to feel safe in a world that's felt unpredictable. Managing every variable is how you keep the floor from dropping out.", "gives": ["You make things happen others can't", "People feel safe in your hands", "Nothing falls through the cracks on your watch"], "costs": ["Chronic tension you can't switch off", "Relationships strained by the grip", "You can't actually rest"], "override": ["Trust over control", "Letting uncertainty exist", "Loosening the grip and staying okay"]}, "avoider": {"name": "The Avoider", "belief": "\u201cI'll deal with it later.\u201d", "reframe": "Your pattern isn't laziness. It's self-protection. Somewhere you learned that staying uncommitted keeps you safe from failing, so \u201clater\u201d became the place you put the things that matter most.", "gives": ["You're adaptable and easygoing", "You don't crack under pressure", "You see options other people rush right past"], "costs": ["The things that matter keep waiting", "\u201cSomeday\u201d quietly eats the years", "A low hum of stuck you can't quite name"], "override": ["A direction over drift", "Committing before you feel ready", "Momentum over comfort"]}};
+  // END:patterns
   // tie-break priority (earlier wins a tie)
   var ORDER=["perfectionist","achiever","controller","fixer","peacekeeper","avoider"];
 
@@ -240,7 +208,6 @@
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function set(html){ stage.innerHTML='<div class="fade">'+html+'</div>'; window.scrollTo(0,0); }
   function goldName(n){ return n.replace(/^The /,'The <span class="gold">')+'</span>'; }
-  function list(arr,cls){ return '<ul class="rlist '+cls+'">'+arr.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>'; }
   function reset(){ ORDER.forEach(function(k){ scores[k]=0; }); transcript=[]; idx=0; primaryKey=null; secondaryKey=null; }
 
   // ---------- intro ----------
@@ -297,14 +264,14 @@
       '<p class="reframe">'+esc(P.reframe)+'</p>'+
       '<div class="card">'+
         '<h3>Get your full breakdown</h3>'+
-        '<p class="sub">What this pattern gives you, what it’s quietly costing you, your secondary pattern, and the first move to override it, sent to your inbox.</p>'+
+        '<p class="sub">What this pattern gives you, what it’s quietly costing you, your secondary pattern, and the first move to override it.</p>'+
         '<div class="lf">'+
           '<input id="qName" type="text" placeholder="First name" autocomplete="given-name" />'+
           '<input id="qEmail" type="email" placeholder="Email" autocomplete="email" />'+
           '<div class="err" id="qErr"></div>'+
           '<button class="btn btn-accent" id="qSend">Unlock my breakdown</button>'+
         '</div>'+
-        '<p class="priv">No spam. Just your result and the occasional note from David.</p>'+
+        '<p class="priv">No spam. Just the occasional note from David.</p>'+
       '</div>'+
       '<button class="restart" id="qRestart">Start over</button>'
     );
@@ -326,39 +293,19 @@
         body:JSON.stringify({type:'quiz',name:name,email:email,note:note,sessionId:sessionId,transcript:transcript})});
       var data=await res.json();
       if(!res.ok||!data.ok) throw new Error((data&&data.error)||'failed');
-      resultFull(name);
+      // Hand off to the pattern page. Name and secondary ride in sessionStorage,
+      // never the URL, so a link they share carries nothing personal.
+      try{
+        sessionStorage.setItem('ovName',name);
+        if(secondaryKey) sessionStorage.setItem('ovSecondary',secondaryKey);
+        else sessionStorage.removeItem('ovSecondary');
+      }catch(_){}
+      window.location.href='/pattern/'+primaryKey+'/';
     }catch(_){ btn.disabled=false; btn.textContent='Unlock my breakdown'; err.textContent="That didn't go through. Try once more?"; err.style.display='block'; }
   }
 
-  // ---------- full result ----------
-  function resultFull(name){
-    var P=PATTERNS[primaryKey];
-    var sec='';
-    if(secondaryKey){
-      var S=PATTERNS[secondaryKey];
-      sec='<div class="secondary">You also carry a strong streak of <b>'+esc(S.name)+'</b>. '+esc(S.belief)+' Most people are a blend; this is the one running second.</div>';
-    }
-    set(
-      '<div class="res-eyebrow">'+(name?esc(name)+', here’s your pattern':'Your pattern')+'</div>'+
-      '<div class="res-name">'+goldName(P.name)+'</div>'+
-      '<div class="belief">'+esc(P.belief)+'</div>'+
-      '<p class="reframe">'+esc(P.reframe)+'</p>'+
-      '<div class="block"><div class="label gray">What this pattern gives you</div>'+list(P.gives,'')+'</div>'+
-      '<div class="block"><div class="label gold">What it costs you</div>'+list(P.costs,'gold')+'</div>'+
-      '<div class="block"><div class="label green">The override</div>'+list(P.override,'green')+'</div>'+
-      sec+
-      '<div class="card" style="border-color:var(--accent);">'+
-        '<h3>Ready to actually override it?</h3>'+
-        '<p class="sub">The fastest way forward is a real conversation. Book a free call with David. You’ll leave it clearer than you came.</p>'+
-        '<a class="btn btn-accent" href="'+CALENDLY+'" target="_blank" rel="noopener" style="width:100%;text-align:center;">Book your free consultation</a>'+
-      '</div>'+
-      '<div class="res-cta">'+
-        '<a class="btn btn-ghost" href="'+GUIDE_PDF+'" target="_blank" rel="noopener">Get the free guide</a>'+
-        '<button class="restart" id="qRestart2">Retake it</button>'+
-      '</div>'
-    );
-    document.getElementById('qRestart2').addEventListener('click',function(){ reset(); intro(); });
-  }
+  // The full breakdown now lives at /pattern/<slug>/ so it has a real URL people
+  // can bookmark, share, and reach from search. submitEmail() redirects there.
 
   intro();
 })();
