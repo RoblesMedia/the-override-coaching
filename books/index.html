@@ -59,11 +59,13 @@
   .disclosure{color:var(--muted);font-size:13px;line-height:1.5;margin-top:14px;max-width:580px;}
 
   /* One entry per book. To add a book, copy an <article class="book"> block,
-     bump the number, and paste in the SiteStripe short link from Amazon. */
+     drop its cover in this folder, and paste in the SiteStripe short link from Amazon. */
   .books{margin-top:40px;display:flex;flex-direction:column;gap:18px;}
-  .book{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 24px;border:1px solid var(--line);
+  .book{display:grid;grid-template-columns:132px 1fr;gap:24px;padding:26px 24px;border:1px solid var(--line);
     border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(18,18,18,0.6));}
-  .book .num{font-family:"Archivo Black",sans-serif;font-size:34px;line-height:1;color:var(--accent);}
+  .book .cover{display:block;align-self:start;transition:transform .15s ease;}
+  .book .cover:hover{transform:translateY(-3px);}
+  .book .cover img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 14px 34px rgba(0,0,0,0.55);}
   .book h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(20px,3vw,24px);line-height:1.2;}
   .book .author{color:var(--muted2);font-size:14.5px;margin-top:4px;}
   .book .why{color:#dcdcdc;font-size:16px;line-height:1.6;margin-top:14px;}
@@ -74,8 +76,8 @@
   .book .fit a:hover{color:var(--white);}
   .book .buy{margin-top:20px;}
   @media (max-width:480px){
-    .book{grid-template-columns:1fr;gap:10px;padding:22px 20px;}
-    .book .num{font-size:28px;}
+    .book{grid-template-columns:1fr;gap:20px;padding:22px 20px;}
+    .book .cover{width:150px;}
   }
 
   .card{
@@ -108,7 +110,7 @@
 
     <section class="books">
       <article class="book">
-        <div class="num">01</div>
+        <a class="cover" href="https://link.amazon/B0fNOGlUR" target="_blank" rel="sponsored nofollow noopener"><img src="subtle-art.jpg" width="333" height="500" alt="The Subtle Art of Not Giving a F*ck book cover" loading="lazy" /></a>
         <div>
           <h2>The Subtle Art of Not Giving a F*ck</h2>
           <div class="author">Mark Manson</div>
