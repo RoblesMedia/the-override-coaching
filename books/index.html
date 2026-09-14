@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<title>Recommended Books | The Override</title>
+<meta name="description" content="The books David actually hands people. Each one hits a pattern hard enough that you can't unsee it." />
+<link rel="canonical" href="https://theoverride.co/books/" />
+<link rel="icon" href="/favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Recommended Books | The Override" />
+<meta property="og:description" content="The books David actually hands people. Each one hits a pattern hard enough that you can't unsee it." />
+<meta property="og:url" content="https://theoverride.co/books/" />
+<meta property="og:image" content="https://theoverride.co/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,800&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0a0a0a; --pure:#000; --white:#ffffff;
+    --accent:#f0a500; --accent-dark:#c78700;
+    --green:#1f3d33; --green-soft:#2c5446; --green-text:#7bbfa6;
+    --muted:#7a7a7a; --muted2:#9a9a9a; --line:#1e1e1e; --card:#121212;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:radial-gradient(1200px 600px at 80% -10%, #14241e 0%, transparent 60%), var(--black);
+    color:var(--white);font-family:"Space Grotesk",sans-serif;line-height:1.5;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  a{color:inherit;}
+  .wrap{width:100%;max-width:720px;margin:0 auto;padding:0 22px;}
+
+  header{padding:22px 0;flex:0 0 auto;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:-0.01em;text-decoration:none;}
+  .brand span{color:var(--accent);}
+  .back{font-size:12.5px;color:var(--muted2);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;}
+  .back:hover{color:var(--white);}
+
+  main{flex:1 1 auto;padding:24px 0 60px;}
+  .fade{animation:fade .4s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  .btn{display:inline-block;font-family:"Archivo Black",sans-serif;text-transform:uppercase;letter-spacing:.02em;
+    cursor:pointer;border:none;transition:transform .12s ease, background .15s ease, border-color .15s ease;text-decoration:none;}
+  .btn-accent{background:var(--accent);color:#000 !important;padding:17px 34px;border-radius:999px;font-size:16px;}
+  .btn-accent:hover{transform:translateY(-2px) scale(1.02);}
+  .btn-ghost{background:transparent;color:var(--white) !important;border:2px solid var(--line);padding:13px 26px;border-radius:999px;font-size:14px;}
+  .btn-ghost:hover{border-color:var(--accent);}
+
+  .eyebrow{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--muted2);margin-bottom:12px;}
+  h1{font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:clamp(34px,6.5vw,58px);line-height:.98;font-weight:400;}
+  h1 .gold{color:var(--accent);}
+  .intro{color:#e8e8e8;font-size:17px;line-height:1.6;margin-top:22px;max-width:580px;}
+  .disclosure{color:var(--muted);font-size:13px;line-height:1.5;margin-top:14px;max-width:580px;}
+
+  /* One entry per book. To add a book, copy an <article class="book"> block,
+     bump the number, and paste in the SiteStripe short link from Amazon. */
+  .books{margin-top:40px;display:flex;flex-direction:column;gap:18px;}
+  .book{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 24px;border:1px solid var(--line);
+    border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(18,18,18,0.6));}
+  .book .num{font-family:"Archivo Black",sans-serif;font-size:34px;line-height:1;color:var(--accent);}
+  .book h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(20px,3vw,24px);line-height:1.2;}
+  .book .author{color:var(--muted2);font-size:14.5px;margin-top:4px;}
+  .book .why{color:#dcdcdc;font-size:16px;line-height:1.6;margin-top:14px;}
+  .book .fit{margin-top:16px;font-size:13.5px;color:var(--muted2);}
+  .book .fit .k{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+    font-size:11px;color:var(--green-text);margin-right:6px;}
+  .book .fit a{color:#cfcfcf;text-decoration:underline;text-decoration-color:var(--green-soft);text-underline-offset:3px;}
+  .book .fit a:hover{color:var(--white);}
+  .book .buy{margin-top:20px;}
+  @media (max-width:480px){
+    .book{grid-template-columns:1fr;gap:10px;padding:22px 20px;}
+    .book .num{font-size:28px;}
+  }
+
+  .card{
+    background:linear-gradient(180deg, rgba(31,61,51,0.35), rgba(18,18,18,0.6));
+    border:1px solid var(--accent);border-radius:18px;padding:24px;margin-top:44px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.5);backdrop-filter:blur(6px);
+  }
+  .card h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin-bottom:6px;}
+  .card p.sub{color:var(--muted2);font-size:14.5px;margin-bottom:16px;line-height:1.5;}
+
+  footer{flex:0 0 auto;padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center;}
+  footer a{color:var(--muted2);}
+</style>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5aa027499d2f482abd487a388cd352c8"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a class="brand" href="/">THE<span>OVERRIDE</span></a>
+    <a class="back" href="/">&larr; Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap fade">
+    <div class="eyebrow">The reading list</div>
+    <h1>Books that <span class="gold">break the loop</span></h1>
+    <p class="intro">These are the books I actually hand people. Not a pile of self-help to hide behind. Each one hits a pattern hard enough that you can't unsee it.</p>
+    <p class="disclosure">As an Amazon Associate I earn from qualifying purchases. Buying through these links costs you nothing extra.</p>
+
+    <section class="books">
+      <article class="book">
+        <div class="num">01</div>
+        <div>
+          <h2>The Subtle Art of Not Giving a F*ck</h2>
+          <div class="author">Mark Manson</div>
+          <p class="why">Most people aren't stuck because they don't care. They're stuck because they care about everything: every opinion, every expectation, every standard they never chose. Manson's point is simple. You only get so much to give, so pick what's worth it and let the rest go.</p>
+          <p class="fit"><span class="k">Hits hardest for</span><a href="/pattern/peacekeeper/">The Peacekeeper</a>, <a href="/pattern/perfectionist/">The Perfectionist</a></p>
+          <div class="buy"><a class="btn btn-ghost" href="https://link.amazon/B0fNOGlUR" target="_blank" rel="sponsored nofollow noopener">Get it on Amazon</a></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="card">
+      <h3>A book shows you the pattern.</h3>
+      <p class="sub">Overriding it takes more than reading about it. Book a free call with David and walk out knowing your next move.</p>
+      <a class="btn btn-accent" href="https://calendly.com/roblesinc/override-coaching-call" target="_blank" rel="noopener" style="width:100%;text-align:center;">Book your free consultation</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">The Override is coaching, not therapy. &nbsp;&middot;&nbsp; <a href="/">theoverride.co</a></div>
+</footer>
+</body>
+</html>
