@@ -102,6 +102,12 @@
     color:var(--muted2);transition:color .15s;
   }
   .nav-links a.nlink:hover{color:var(--white);}
+  /* Tighter spacing on tablet-landscape and small laptops so every label stays on one line. */
+  @media(min-width:1020px) and (max-width:1180px){
+    .nav-links{gap:16px;}
+    .nav-links a.nlink{font-size:13px;white-space:nowrap;}
+    .nav-links .nav-cta{white-space:nowrap;}
+  }
   .btn{
     display:inline-block;
     font-family:"Archivo Black",sans-serif;
@@ -860,6 +866,7 @@
     <a class="nlink" href="#offers">Work With Me</a>
     <a class="nlink" href="#faq">FAQ</a>
     <a class="nlink" href="/book">Free Guide</a>
+    <a class="nlink" href="/books/">Books</a>
     <a class="btn btn-accent nav-cta book-link" href="#book">Book a Free Call</a>
   </div>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
