@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Override: Break the Pattern. Choose Your Life. | David Robles</title>
-<meta name="description" content="The hidden code running your life, and how to rewrite it. Get the free Override Starter Guide: the 5-step model plus a quick self-assessment to find your pattern. By David Robles." />
+<title>The Override Starter Guide: Free PDF | David Robles</title>
+<meta name="description" content="Get the free Override Starter Guide: the two-path model, a quick scan of all eight patterns, and the 10-second pause. Read it in fifteen minutes. By David Robles." />
+<link rel="canonical" href="https://theoverride.co/book/" />
+<link rel="icon" href="/favicon.png" />
 
-<meta property="og:title" content="The Override: Break the Pattern. Choose Your Life." />
-<meta property="og:description" content="Get the free Override Starter Guide: the 5-step model and a quick self-assessment to find the pattern running your life." />
+<meta property="og:title" content="The Override Starter Guide: Free PDF" />
+<meta property="og:description" content="Find the pattern running you, then override it. The two-path model, an eight-pattern scan, and the 10-second pause. Free." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://theoverride.co/book/" />
+<meta property="og:image" content="https://theoverride.co/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,11 +58,11 @@
     padding: 90px 20px;
     overflow: hidden;
   }
-  /* the real square cover art, darkened + blurred, becomes the atmosphere */
+  /* the guide's cover photo, darkened + blurred, becomes the atmosphere */
   .hero::before {
     content: "";
     position: absolute; inset: 0; z-index: 0;
-    background: url('cover-bg.png') center/cover no-repeat;
+    background: url('guide-bg.jpg') center/cover no-repeat;
     transform: scale(1.08);
     filter: blur(7px) brightness(0.5) saturate(1.05);
   }
@@ -97,7 +102,7 @@
   .hero-copy h1 {
     font-family:'Anton',sans-serif; text-transform:uppercase;
     font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 0.98; color:#fff;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.6); text-wrap: balance;
   }
   .hero-copy h1 .gold { color: var(--gold); }
   .hero-copy .lede {
@@ -183,13 +188,10 @@
   .get li .check svg { width:15px; height:15px; }
   .get li strong { color:#fff; font-weight:600; }
 
-  /* book-cover style PDF mock with its own mini storm→sunrise */
-  .pdf-mock { position:relative; width:100%; border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:0 30px 60px rgba(0,0,0,0.55); aspect-ratio: 3/4; max-width:330px; margin:0 auto; }
-  .pdf-mock .pdf-bg { position:absolute; inset:0; }
-  .pdf-mock .pdf-inner { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:28px; background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.7)); }
-  .pdf-mock .badge { font-size:0.66rem; letter-spacing:0.24em; color:var(--gold); }
-  .pdf-mock .pdf-title { font-family:'Anton',sans-serif; text-transform:uppercase; color:#fff; font-size:2.1rem; line-height:0.95; margin:14px 0 8px; text-shadow:0 0 30px rgba(0,0,0,0.6); }
-  .pdf-mock .pdf-sub { color:#d7dbe2; font-size:0.85rem; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.1em; }
+  /* a real page from inside the guide */
+  .guide-peek { margin:0 auto; max-width:330px; }
+  .guide-peek img { display:block; width:100%; height:auto; border-radius:10px; border:1px solid var(--line); box-shadow:0 30px 60px rgba(0,0,0,0.55); transform:rotate(1.5deg); }
+  .guide-peek figcaption { text-align:center; color:var(--muted); font-size:0.8rem; margin-top:16px; }
 
   /* ===================== FORM ===================== */
   .signup { text-align:center; }
@@ -207,6 +209,7 @@
   .form-success { display:none; background:rgba(240,165,0,0.08); border:1px solid rgba(240,165,0,0.4); border-radius:12px; padding:34px 26px; }
   .form-success h3 { color:var(--gold); text-transform:uppercase; font-size:1.4rem; margin-bottom:10px; }
   .form-success p { color:var(--text); }
+  .form-success .btn { margin-top:22px; }
   .form-error { display:none; color:#ff8a8a; font-size:0.9rem; margin-top:12px; }
 
   /* ===================== AUTHOR ===================== */
@@ -234,8 +237,8 @@
   }
   @media (max-width:760px) {
     .get-grid { grid-template-columns:1fr; gap:28px; }
-    /* show the guide mock below the bullets on mobile (collapse bug fixed) */
-    .pdf-mock { max-width:260px; }
+    /* show the guide page below the bullets on mobile */
+    .guide-peek { max-width:260px; }
     section { padding:48px 0; }
     /* the lead-magnet block and the signup form read as one unit, close the gap */
     .get { padding-top:36px; padding-bottom:24px; }
@@ -255,21 +258,21 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <!-- the real book cover, shown as the product -->
+      <!-- the guide's real cover, shown as the product -->
       <div class="hero-cover">
-        <img src="the-book-v3.png" alt="The Override by David Robles, book cover" />
+        <img src="guide-cover.jpg" alt="The Override Starter Guide by David Robles, cover" />
       </div>
 
       <!-- offer copy + CTA (complements the cover, doesn't repeat the title) -->
       <div class="hero-copy">
-        <div class="kicker">A New Book</div>
-        <h1>You are not your patterns.<br><span class="gold">You are the one running them.</span></h1>
-        <p class="lede">Learn to see the pattern while it's running, create a pause, and choose a different response. Get the free Starter Guide and begin today.</p>
+        <div class="kicker">Free Starter Guide</div>
+        <h1>Find the pattern running you.<br><span class="gold">Then override it.</span></h1>
+        <p class="lede">Five pages you can read in fifteen minutes: the two-path model, a quick scan of all eight patterns, and the 10-second pause that gives you room to choose. Free, and yours in seconds.</p>
         <div class="hero-cta">
-          <a href="#get" class="btn">Get the Free Starter Guide</a>
-          <a href="#model" class="btn ghost">See the Method</a>
+          <a href="#signup" class="btn">Get the Free Guide</a>
+          <a href="#get" class="btn ghost">See What's Inside</a>
         </div>
-        <p class="hero-trust"><strong>Free PDF.</strong> No spam. Unsubscribe anytime.</p>
+        <p class="hero-trust"><strong>Free PDF.</strong> Instant access. No spam.</p>
       </div>
     </div>
 
@@ -365,40 +368,22 @@
     <div class="wrap">
       <div class="get-grid">
         <div>
-          <div class="eyebrow">Free Download</div>
+          <div class="eyebrow">What's Inside</div>
           <h2 style="font-family:'Oswald';font-weight:700;text-transform:uppercase;color:#fff;font-size:clamp(1.8rem,4.5vw,2.6rem);margin-top:12px;line-height:1.05;">The Override Starter Guide</h2>
-          <p style="color:var(--muted);margin-top:14px;">A short, practical PDF you can read in fifteen minutes and use today:</p>
+          <p style="color:var(--muted);margin-top:14px;">Five pages, built to use, not just read:</p>
           <ul>
             <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>The Override Model</strong>: the full two-path map on one clean reference page.</span></li>
-            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>The 8-Pattern Self-Assessment</strong>: find which pattern is running you, and where it came from.</span></li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>The 8-Pattern Scan</strong>: flag every pattern that runs in you, then name the one running you and the one underneath.</span></li>
             <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>The 10-Second Pause</strong>: the first tool for widening the space between trigger and reaction.</span></li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Your Next Move</strong>: exactly what to do with it this week.</span></li>
           </ul>
         </div>
 
-        <!-- mini book-cover styled mock -->
-        <div class="pdf-mock">
-          <svg class="pdf-bg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs>
-              <linearGradient id="pdfsky" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#0b0f16"/><stop offset="55%" stop-color="#11151d"/>
-                <stop offset="80%" stop-color="#9a5e10"/><stop offset="100%" stop-color="#f0a500"/>
-              </linearGradient>
-              <radialGradient id="pdfsun" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#fff3cf"/><stop offset="100%" stop-color="#f0a500" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="300" height="400" fill="url(#pdfsky)"/>
-            <circle cx="245" cy="250" r="120" fill="url(#pdfsun)"/>
-            <path d="M0 300 Q150 270 300 295 L300 400 L0 400 Z" fill="#07090d"/>
-            <path d="M140 400 Q135 330 60 300 L30 310 Q120 320 150 400 Z" fill="#23262d"/>
-            <path d="M160 400 Q165 330 240 300 L270 310 Q180 320 150 400 Z" fill="#c4830f"/>
-          </svg>
-          <div class="pdf-inner">
-            <div class="badge">Free PDF Guide</div>
-            <div class="pdf-title">The Override<br>Starter Guide</div>
-            <div class="pdf-sub">Break the pattern.<br>Choose your life.</div>
-          </div>
-        </div>
+        <!-- a real page from inside the guide -->
+        <figure class="guide-peek">
+          <img src="guide-scan.jpg" alt="Page 3 of the guide: the Which Program Is Running You? scan of all eight patterns" loading="lazy" />
+          <figcaption>Page 3: the eight-pattern scan</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -408,9 +393,9 @@
     <div class="wrap">
       <div class="form-card">
         <form id="overrideForm" novalidate>
-          <span class="eyebrow">Send It To Me</span>
+          <span class="eyebrow">Instant Access</span>
           <h2>Get the Free Guide</h2>
-          <p class="note">Enter your name and email and I'll send the Starter Guide straight to your inbox.</p>
+          <p class="note">Enter your first name and email, and the guide is yours in seconds.</p>
 
           <div class="field">
             <label for="name">First Name</label>
@@ -426,14 +411,15 @@
             <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
           </div>
 
-          <button type="submit" class="btn" id="submitBtn">Send Me the Guide</button>
+          <button type="submit" class="btn" id="submitBtn">Get the Guide</button>
           <div class="form-error" id="formError">Please enter your name and a valid email.</div>
-          <p class="privacy">No spam. Unsubscribe anytime. Your email stays private and is never sold.</p>
+          <p class="privacy">No spam. Your email stays private and is never sold.</p>
         </form>
 
         <div class="form-success" id="formSuccess">
-          <h3>Check Your Inbox</h3>
-          <p>Your Override Starter Guide is on its way. If you don't see it in a few minutes, check your spam or promotions folder.</p>
+          <h3>Your Guide Is Ready</h3>
+          <p>Open it, save it, and start with the scan on page 3.</p>
+          <a class="btn" id="guideLink" href="https://roblesmedia.github.io/the-override/override-starter-guide.pdf" target="_blank" rel="noopener">Open the Guide</a>
         </div>
       </div>
     </div>
@@ -461,12 +447,13 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ============================================================
-     EMAIL CAPTURE: WIRE THIS UP
-     Set ENDPOINT to your Cloudflare Worker / Mailchimp / beehiiv /
-     Formspree URL. While it's "" the form runs in DEMO MODE:
-     it validates, shows the success state, and logs to console.
+     GUIDE SIGNUP
+     Posts the name + email to the coaching Worker's /lead endpoint
+     (the same one the homepage chat uses, so David gets the email +
+     text alert), then hands over the PDF. A failed alert never
+     keeps the guide from the visitor.
      ============================================================ */
-  const ENDPOINT = ""; // <-- paste your Worker / Mailchimp / Formspree URL here
+  const LEAD_ENDPOINT = "https://override-coaching-chatbot.roblesinc.workers.dev/lead";
 
   const form    = document.getElementById('overrideForm');
   const success = document.getElementById('formSuccess');
@@ -489,25 +476,20 @@
     btn.disabled = true; btn.textContent = 'Sending...';
 
     try {
-      if (ENDPOINT) {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, source: 'override-landing' })
-        });
-        if (!res.ok) throw new Error('Request failed');
-      } else {
-        console.log('[DEMO] Signup captured:', { name, email });
-        await new Promise(r => setTimeout(r, 600));
-      }
-      form.style.display = 'none';
-      success.style.display = 'block';
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const res = await fetch(LEAD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'guide', name, email, note: 'Signed up on the Free Guide page' }),
+        signal: window.AbortSignal && AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined
+      });
+      if (!res.ok) console.warn('[guide] lead alert failed:', res.status);
     } catch (err) {
-      btn.disabled = false; btn.textContent = 'Send Me the Guide';
-      errorEl.textContent = 'Something went wrong. Please try again.';
-      errorEl.style.display = 'block';
+      console.warn('[guide] lead alert failed:', err);
     }
+
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 </script>
 </body>
